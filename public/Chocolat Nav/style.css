@@ -10,6 +10,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 nav{
     font-family: 'BiteChocolate', sans-serif;
     height: 100px;
@@ -17,6 +18,7 @@ nav{
 
 nav.nav-fixed{
     position: fixed;
+    z-index: 3;
     opacity: 0.5;
     top: -80px;
     left: 0;
@@ -84,7 +86,7 @@ nav li{
     flex-wrap: wrap;
     position: relative;
     z-index: 3;
-    background-color: rgb(90, 35, 20);
+    background: linear-gradient(90deg, rgba(90,35,20,1) 0%, rgba(95,30,5,1) 100%);
     display: flex;
     align-items: center;
     height: 100%;
@@ -129,7 +131,7 @@ nav li{
     position: absolute;
     right: 0;
     z-index: 1;
-    top: -680px;
+    top: -600px;
     overflow: hidden;
 }
 
@@ -141,8 +143,10 @@ nav li{
 
 #previews{
     width: 50%;
+    background-image: url('');
     background-size: cover;
     background-position: center;
+    transition: background-image .50s;
 }
 
 #nav-choco-open-menu{
@@ -168,7 +172,7 @@ nav li{
         display: none;
     }
 }
-@media screen and (width < 600px) {
+@media screen and (width < 900px) {
     #container-burger{
         display: flex;
         flex-basis: 30%;
