@@ -46,6 +46,7 @@
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link href="assets/css/theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -61,10 +62,10 @@
           <a class="navbar-brand d-inline-flex" href="index.html"
             ><img
               class="d-inline-block"
-              src="assets/img/gallery/meals.png" style width:"30%"
+              src="assets/img/gallery/logo.svg"
               alt="logo"
             /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient"
-              >Coeur fondant</span
+              >foodwaGon</span
             ></a
           >
           <button
@@ -84,10 +85,10 @@
           >
             <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
               <p class="mb-0 fw-bold text-lg-center">
-                Livré au:
+                Deliver to:
                 <i class="fas fa-map-marker-alt text-warning mx-2"></i
-                ><span class="fw-normal">position actuelle</span
-                >    <span>89, avenue du Parc 1060 Bruxelles</span>
+                ><span class="fw-normal">Current Location </span
+                ><span>Mirpur 1 Bus Stand, Dhaka</span>
               </p>
             </div>
             <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0">
@@ -104,7 +105,7 @@
                 class="btn btn-white shadow-warning text-warning"
                 type="submit"
               >
-                <i class="fas fa-user me-2"></i>connexion
+                <i class="fas fa-user me-2"></i>Login
               </button>
             </form>
           </div>
@@ -113,11 +114,11 @@
       <section class="py-5 overflow-hidden bg-primary" id="home">
         <div class="container">
           <div class="row flex-center">
-            <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-4 mt-md-0-circle">
+            <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0">
               <a class="img-landing-banner" href="#!"
                 ><img
                   class="img-fluid"
-                  src="assets/image seb/fondant au chocolat/1575898110_fondant-au-chocolat.jpg"
+                  src="assets/img/gallery/hero-header.png"
                   alt="hero-header"
               /></a>
             </div>
@@ -174,7 +175,7 @@
                               class="fas fa-map-marker-alt text-danger input-box-icon"
                             ></i>
                             <label class="visually-hidden" for="inputDelivery"
-                              >Addresse</label
+                              >Address</label
                             >
                             <input
                               class="form-control input-box form-foodwagon-control"
@@ -186,7 +187,7 @@
                         </div>
                         <div class="d-grid gap-3 col-sm-auto">
                           <button class="btn btn-danger" type="submit">
-                            trouver de la nourriture
+                            Find Food
                           </button>
                         </div>
                       </form>
@@ -204,7 +205,7 @@
                               class="fas fa-map-marker-alt text-danger input-box-icon"
                             ></i>
                             <label class="visually-hidden" for="inputPickup"
-                              >Addresse</label
+                              >Address</label
                             >
                             <input
                               class="form-control input-box form-foodwagon-control"
@@ -216,7 +217,7 @@
                         </div>
                         <div class="d-grid gap-3 col-sm-auto">
                           <button class="btn btn-danger" type="submit">
-                            Trouver de la nourriture
+                            Find Food
                           </button>
                         </div>
                       </form>
@@ -228,6 +229,45 @@
           </div>
         </div>
       </section>
+      <nav>
+        <div id="nav-links">
+            <a href="#" id="logo"><img src="th-r.jpeg" alt="" width="50"></a>
+            <div id="container-burger">
+                <img src="chocolat.png" alt="">
+            </div>
+            <div id="links">
+                <a href="#">Accueil</a>
+                <a href="javascript:void(0)" id="nav-recipes-link">Recettes<i class="fa-solid fa-arrow-down" style="margin-left: 10px;"></i></a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div id="nav-recipes-container">
+            <ul id="nav-recipes" style="display: none;">
+                <a href="#"><li>Mousse au chocolat</li></a>
+                <a href="#"><li>Cake au chocolat</li></a>
+                <a href="#"><li>Fondant au chocolat</li></a>
+                <a href="#"><li>Tarte au chocolat</li></a>
+                <a href="#"><li>Cookies aux pépites de chocolat</li></a>
+                <a href="#"><li>Éclair au chocolat</li></a>
+                <a href="#"><li>Pavé au chocolat</li></a>
+                <a href="#"><li>Soufflé au chocolat</li></a>
+                <a href="#"><li>Truffes au chocolat</li></a>
+                <a href="#"><li>Chocolat chaud</li></a>
+            </ul>
+            <div id="previews">
+            </div>
+        </div>
+        <div id="nav-choco-open-menu">
+            <img src="openmenu.png" alt="">
+        </div>
+    </nav>
+    <div id="nav-choco">
+        <img src="banner_top.png" alt="">
+    </div>
+    <div id="test">
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
@@ -243,16 +283,12 @@
                     alt="..."
                   />
                   <div class="card-actions">
-                    <div class="badge badge-foodwagon bg-primary p-2">
-                      <div class="d-flex flex-center">
-                        <div class="text-white fs-8">10</div>
+                    <div class="badge badge-foodwagon bg-primary p-4">
+                      <div class="d-flex flex-between-center">
+                        <div class="text-white fs-7">15</div>
                         <div class="d-block text-white fs-2">
-                          mins <br />
-                          <div class="fw-normal fs-1 "><img
-                            class="img-fluid rounded-2 w-5"
-                            src="assets/img/icons/Time.png" style width="50px"
-                            alt="..."
-                          /></div>
+                          % <br />
+                          <div class="fw-normal fs-1 mt-2">Off</div>
                         </div>
                       </div>
                     </div>
@@ -262,8 +298,10 @@
                   <h5 class="fw-bold text-1000 text-truncate">
                     Flat Hill Slingback
                   </h5>
-                  <span class="badge bg-soft-danger py-2 px-2"
-                    ><i class="fa fa-star" aria-hidden="true"></i></span
+                  <span class="badge bg-soft-danger py-2 px-3"
+                    ><span class="fs-1 text-danger"
+                      >6 days Remaining</span
+                    ></span
                   >
                 </div>
                 <a class="stretched-link" href="#"></a>
@@ -278,16 +316,12 @@
                     alt="..."
                   />
                   <div class="card-actions">
-                    <div class="badge badge-foodwagon bg-primary p-2">
-                      <div class="d-flex flex-center">
-                        <div class="text-white fs-8">15</div>
+                    <div class="badge badge-foodwagon bg-primary p-4">
+                      <div class="d-flex flex-between-center">
+                        <div class="text-white fs-7">10</div>
                         <div class="d-block text-white fs-2">
-                          mins <br />
-                          <div class="fw-normal fs-1 "><img
-                            class="img-fluid rounded-2 w-5"
-                            src="assets/img/icons/Time.png" style width="50px"
-                            alt="..."
-                          /></div>
+                          % <br />
+                          <div class="fw-normal fs-1 mt-2">Off</div>
                         </div>
                       </div>
                     </div>
@@ -297,8 +331,10 @@
                   <h5 class="fw-bold text-1000 text-truncate">
                     Ocean Blue Ring
                   </h5>
-                  <span class="badge bg-soft-danger py-2 px-2"
-                    ><i class="fa fa-star" aria-hidden="true"></i></span
+                  <span class="badge bg-soft-danger py-2 px-3"
+                    ><span class="fs-1 text-danger"
+                      >6 days Remaining</span
+                    ></span
                   >
                 </div>
                 <a class="stretched-link" href="#"></a>
@@ -313,16 +349,12 @@
                     alt="..."
                   />
                   <div class="card-actions">
-                    <div class="badge badge-foodwagon bg-primary p-2">
-                      <div class="d-flex flex-center">
-                        <div class="text-white fs-8">20</div>
+                    <div class="badge badge-foodwagon bg-primary p-4">
+                      <div class="d-flex flex-between-center">
+                        <div class="text-white fs-7">25</div>
                         <div class="d-block text-white fs-2">
-                          mins <br />
-                          <div class="fw-normal fs-1 "><img
-                            class="img-fluid rounded-2 w-5"
-                            src="assets/img/icons/Time.png" style width="50px"
-                            alt="..."
-                          /></div>
+                          % <br />
+                          <div class="fw-normal fs-1 mt-2">Off</div>
                         </div>
                       </div>
                     </div>
@@ -332,8 +364,10 @@
                   <h5 class="fw-bold text-1000 text-truncate">
                     Brown Leathered Wallet
                   </h5>
-                  <span class="badge bg-soft-danger py-2 px-2"
-                    ><i class="fa fa-star" aria-hidden="true"></i></span
+                  <span class="badge bg-soft-danger py-2 px-3"
+                    ><span class="fs-1 text-danger"
+                      >6 days Remaining</span
+                    ></span
                   >
                 </div>
                 <a class="stretched-link" href="#"></a>
@@ -348,16 +382,12 @@
                     alt="..."
                   />
                   <div class="card-actions">
-                    <div class="badge badge-foodwagon bg-primary p-2">
-                      <div class="d-flex flex-center">
-                        <div class="text-white fs-8">20</div>
+                    <div class="badge badge-foodwagon bg-primary p-4">
+                      <div class="d-flex flex-between-center">
+                        <div class="text-white fs-7">20</div>
                         <div class="d-block text-white fs-2">
-                          mins <br />
-                          <div class="fw-normal fs-1 "><img
-                            class="img-fluid rounded-2 w-5"
-                            src="assets/img/icons/Time.png" style width="50px"
-                            alt="..."
-                          /></div>
+                          % <br />
+                          <div class="fw-normal fs-1 mt-2">Off</div>
                         </div>
                       </div>
                     </div>
@@ -367,8 +397,10 @@
                   <h5 class="fw-bold text-1000 text-truncate">
                     Silverside Wristwatch
                   </h5>
-                  <span class="badge bg-soft-danger py-2 px-2"
-                    ><i class="fa fa-star" aria-hidden="true"></i></span
+                  <span class="badge bg-soft-danger py-2 px-3"
+                    ><span class="fs-1 text-danger"
+                      >6 days Remaining</span
+                    ></span
                   >
                 </div>
                 <a class="stretched-link" href="#"></a>
@@ -414,9 +446,11 @@
                               Cheese Burger
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Burger Arena</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.88</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -440,9 +474,11 @@
                               Toffe's Cake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Top Sticks</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$4.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -466,9 +502,11 @@
                               Dancake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Cake World</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$1.99</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -492,9 +530,11 @@
                               Crispy Sandwitch
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Fastfood Dine</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -518,9 +558,11 @@
                               Thai Soup
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Foody Man</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$2.79</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -548,9 +590,11 @@
                               Cheese Burger
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Burger Arena</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.88</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -574,9 +618,11 @@
                               Toffe's Cake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Top Sticks</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$4.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -600,9 +646,11 @@
                               Dancake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Cake World</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$1.99</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -626,9 +674,11 @@
                               Crispy Sandwitch
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Fastfood Dine</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -652,9 +702,11 @@
                               Thai Soup
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Foody Man</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$2.79</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -682,9 +734,11 @@
                               Cheese Burger
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Burger Arena</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.88</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -708,9 +762,11 @@
                               Toffe's Cake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Top Sticks</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$4.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -734,9 +790,11 @@
                               Dancake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Cake World</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$1.99</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -760,9 +818,11 @@
                               Crispy Sandwitch
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Fastfood Dine</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -786,9 +846,11 @@
                               Thai Soup
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Foody Man</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$2.79</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -816,9 +878,11 @@
                               Cheese Burger
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Burger Arena</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.88</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -842,9 +906,11 @@
                               Toffe's Cake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Top Sticks</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$4.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -868,9 +934,11 @@
                               Dancake
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Cake World</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$1.99</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -894,10 +962,11 @@
                               Crispy Sandwitch
                             </h5>
                             <div>
-                              </span
-                              ><span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Fastfood Dine</span>
                             </div>
-                            
+                            <span class="text-1000 fw-bold">$3.00</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -921,8 +990,11 @@
                               Thai Soup
                             </h5>
                             <div>
-                              <span class="text-primary"></span>
+                              <span class="text-warning me-2"
+                                ><i class="fas fa-map-marker-alt"></i></span
+                              ><span class="text-primary">Foody Man</span>
                             </div>
+                            <span class="text-1000 fw-bold">$2.79</span>
                           </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -1016,7 +1088,48 @@
       <!-- <section> close ============================-->
       <!-- ============================================-->
 
-     
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="card card-span mb-3 shadow-lg">
+                <div class="card-body py-0">
+                  <div class="row justify-content-center">
+                    <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0">
+                      <img
+                        class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0"
+                        src="assets/img/gallery/fried-chicken.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
+                      <h1 class="card-title mt-xl-5 mb-4">
+                        Celebrate parties with
+                        <span class="text-primary">Fried Chicken</span>
+                      </h1>
+                      <p class="fs-1">
+                        Get the best fried chicken smeared with a lip smacking
+                        lemon chili flavor. Check out best deals for fried
+                        chicken.
+                      </p>
+                      <div class="d-grid bottom-0">
+                        <a class="btn btn-lg btn-primary mt-xl-6" href="#!"
+                          >PROCEED TO ORDER<i
+                            class="fas fa-chevron-right ms-2"
+                          ></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
       <!-- <section> close ============================-->
       <!-- ============================================-->
       <section class="pt-5">
@@ -1060,48 +1173,6 @@
         </div>
 
       <!-- ============================================-->
-        <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="py-0">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="card card-span mb-3 shadow-lg">
-                <div class="card-body py-0">
-                  <div class="row justify-content-center">
-                    <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0">
-                      <img
-                        class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0"
-                        src="assets/img/gallery/fried-chicken.png"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
-                      <h1 class="card-title mt-xl-5 mb-4">
-                        Celebrate parties with
-                        <span class="text-primary">Fried Chicken</span>
-                      </h1>
-                      <p class="fs-1">
-                        Get the best fried chicken smeared with a lip smacking
-                        lemon chili flavor. Check out best deals for fried
-                        chicken.
-                      </p>
-                      <div class="d-grid bottom-0">
-                        <a class="btn btn-lg btn-primary mt-xl-6" href="#!"
-                          >PROCEED TO ORDER<i
-                            class="fas fa-chevron-right ms-2"
-                          ></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end of .container-->
-      </section>
       <!-- <section> begin ============================-->
       <section class="pt-5">
         <div class="container">
@@ -1148,93 +1219,107 @@
       <!-- ============================================-->
       
       <!-- <section> begin ============================-->
-      <section class="px-0 pt-7 bg-1000">
+      <section class="py-0 pt-7 bg-1000">
         <div class="container">
-          <div class="col justify-content-lg-between">
-            <div class="container"><a class="navbar-brand d-inline-flex" href="index.html"><imgclass="d-inline-block"  src="assets/img/icons/quick-delivery.png"
-                  alt="logo"/><span class="text-1000 fs-4 fw-bold ms-2 text-gradient" >Coeur fondant</span></a>
-            <h5 class="lh-lg fw-bold text-white">Nos recettes</h5>
+          <div class="row justify-content-lg-between">
+            <h5 class="lh-lg fw-bold text-white">OUR TOP CITIES</h5>
             <div class="col-3 col-md-2 col-lg-auto mb-3">
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg">
+                  
+          <hr class="text-900" />
           <div class="row">
             <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Mousse au chocolat</h5>
+              <h5 class="lh-lg fw-bold text-white">COMPANY</h5>
               <ul class="list-unstyled mb-md-4 mb-lg-0">
                 <li class="lh-lg">
-                  <a href="#"><li>Mousse au chocolat</li></a>
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >About Us</a
+                  >
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!">Team</a>
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!">Careers</a>
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!">blog</a>
+                </li>
               </ul>
             </div>
             <div class="col-6 col-md-4 col-lg-3 col-xxl-2 col-lg-3 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Cake au chocolat</h5>
+              <h5 class="lh-lg fw-bold text-white">CONTACT</h5>
               <ul class="list-unstyled mb-md-4 mb-lg-0">
                 <li class="lh-lg">
-                  <a href="#"><li>Cake au chocolat</li></a>
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Help &amp; Support</a
+                  >
+                </li>
                 <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Partner with us
+                  </a>
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Ride with us</a
+                  >
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Ride with us</a
+                  >
                 </li>
               </ul>
             </div>
             <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Fondant au chocolat</h5>
+              <h5 class="lh-lg fw-bold text-white">LEGAL</h5>
               <ul class="list-unstyled mb-md-4 mb-lg-0">
                 <li class="lh-lg">
-                  <a href="#"><li>Fondant au chocolat</li></a>
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Terms &amp; Conditions</a
+                  >
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Refund &amp; Cancellation</a
+                  >
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Cookie Policy</a
+                  >
                 </li>
               </ul>
             </div>
             <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Tarte au chocolat</h5>
+              <h5 class="lh-lg fw-bold text-white">LEGAL</h5>
               <ul class="list-unstyled mb-md-4 mb-lg-0">
                 <li class="lh-lg">
-                  <a href="#"><li>Tarte au chocolat</li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Cookies aux pépites de chocolat</h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="lh-lg">
-                  <a href="#"><li>Cookies aux pépites de chocolat</li></a>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 col-lg-3 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Éclair au chocolat</h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="lh-lg">
-                  <a href="#"><li>Éclair au chocolat</li></a>
-                <li class="lh-lg">
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Terms &amp; Conditions</a
+                  >
                 </li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Pavé au chocolat</h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
                 <li class="lh-lg">
-                  <a href="#"><li>Pavé au chocolat</li></a>
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Refund &amp; Cancellation</a
+                  >
                 </li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Soufflé au chocolat</h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
                 <li class="lh-lg">
-                  <a href="#"><li>Soufflé au chocolat</li></a>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Truffes au chocolat</h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="lh-lg">
-                  <a href="#"><li>Truffes au chocolat</li></a>
+                  <a class="text-200 text-decoration-none" href="#!"
+                    >Privacy Policy</a
+                  >
                 </li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-3">
-              <h5 class="lh-lg fw-bold text-white">Chocolat chaud</h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="lh-lg">
-                  <a href="#"><li>Chocolat chaud</li></a>
               </ul>
             </div>
             <div class="col-12 col-md-8 col-lg-6 col-xxl-4">
-              <h5 class="lh-lg fw-bold text-500">Suivez-nous</h5>
+              <h5 class="lh-lg fw-bold text-500">FOLLOW US</h5>
               <div class="text-start my-3">
                 <a href="#!">
                   <svg
@@ -1284,7 +1369,7 @@
                 ></a>
               </div>
               <h3 class="text-500 my-4">
-                Recevez <br />une offre exclussive par mail
+                Receive exclusive offers and <br />discounts in your mailbox
               </h3>
               <div class="row input-group-icon mb-5">
                 <div class="col-auto">
@@ -1298,7 +1383,7 @@
                 </div>
                 <div class="col-auto">
                   <button class="btn btn-primary" type="submit">
-                    Inscrivez-vous
+                    Subscribe
                   </button>
                 </div>
               </div>
@@ -1308,7 +1393,7 @@
           <div class="row flex-center pb-3">
             <div class="col-md-6 order-0">
               <p class="text-200 text-center text-md-start">
-                All rights Reserved &copy; B.S.I Consulting, 2024
+                All rights Reserved &copy; Your Company, 2021
               </p>
             </div>
             <div class="col-md-6 order-1">
@@ -1329,7 +1414,7 @@
                   class="text-200 fw-bold"
                   href="https://themewagon.com/"
                   target="_blank"
-                  >Team2WebDev2023
+                  >ThemeWagon
                 </a>
               </p>
             </div>
@@ -1353,6 +1438,8 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap"
