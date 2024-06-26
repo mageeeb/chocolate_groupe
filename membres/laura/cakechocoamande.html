@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=">
+    <link rel="icon" type="image/x-icon" href="img/nav-img/th-r.jpeg">
+    <title>Éclat choco-Amande</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/recipes/mousse.css">
+    <link rel="stylesheet" href="css/commentaire/stylecommentaire.css">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/footer/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/footer/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/footer/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/footer/style.css" type="text/css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+    <link rel="stylesheet" href="css/carousel/carou.css">
+    
+    
+
+</head>
+<body>
+    <!--------------navbar--------------------->
+    <div id="place-holder-nav" style="display: none;">
+    </div>
+    <nav>
+        <div id="nav-links">
+            <a href="#" id="logo"><img src="img/nav-img/th-r.jpeg" alt="" width="50"></a>
+            <div id="container-burger">
+                <img src="img/nav-img/chocolat.png" alt="">
+            </div>
+            <div id="links">
+                <a href="#">Accueil</a>
+                <a href="javascript:void(0)" id="nav-recipes-link">Recettes<i class="fa-solid fa-arrow-down" style="margin-left: 10px;"></i></a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div id="nav-recipes-container">
+            <ul id="nav-recipes" style="display: none;">
+                <a href="#"><li>Mousse au chocolat</li></a>
+                <a href="#"><li>Cake au chocolat</li></a>
+                <a href="#"><li>Fondant au chocolat</li></a>
+                <a href="#"><li>Tarte au chocolat</li></a>
+                <a href="#"><li>Cookies au chocolat</li></a>
+                <a href="#"><li>Bûche de Noël au chocolat</li></a>
+                <a href="#"><li>Moelleux au chocolat</li></a>
+                <a href="#"><li>Truffes au chocolat</li></a>
+                <a href="#"><li>Macarons au chocolat</li></a>
+            </ul>
+            <div id="previews">
+            </div>
+        </div>
+        <div id="nav-choco-open-menu">
+            <img src="img/nav-img/openmenu.png" alt="">
+        </div>
+    </nav>
+    <div id="nav-choco">
+        <img src="img/nav-img/banner_top.png" alt="">
+    </div>
+   
+    <header class="header-text glace-banner">
+        <h1></h1>
+    </header>
+<!-----------------contenu--------------------------->
+<!--<main>
+    <header class="general-infos">
+        <h2 class="display-5 mt-5">Cake au chocolat et éclat d'amande grillées</h2>
+        <div class="informations">
+            <div>
+                <h3>Évaluation :</h3>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                
+                
+            </div>
+            <div>
+                
+                <p>&nbsp;<i class="fa-solid fa-person"></i> Servis pour: 6 personnes</p>
+                <p><i class="fa-solid fa-clock"></i> Préparation: 55min</p>
+                <p><i class="fa-solid fa-clock"></i>façile</p>
+            </div>
+            <div>
+                <h3 class="ingredient">Ingrédients :</h3>
+                <ul>
+                    <li><i></i>3 oeufs</li>
+                    <li><i></i>100g de farine de blé avec levure incorporée</li>
+                    <li><i></i>150g de sucre</li>
+                    <li><i></i>3 grosse poignées d'amandes effillées et grillées</li>
+                    <li><i></i>125g de beurre</li>
+                    <li><i></i>200g de chocolat pâtissier</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section id="page">
+        <div class="col-md-2 d-flex flex-column align-items-center justify-content-center">
+            <img id="img3" src="../laura/img/img/gateau1.jpg" style="width: 300px;" class="me-5"  data-aos="fade-down"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine" alt="Image 1">
+        </div>
+        
+        <div class="steps mt-5">
+           
+                 <div class="step">
+                    <p class="number"><span>1</span></p>
+                    <p class="step-desc">Préchauffer le four à 200°C.</p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>2</span></p>
+                    <p class="step-desc">Faire fondre le chocolat et le beurre au bain marie.</p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>3</span></p>
+                    <p class="step-desc mb-5">Dans un saladier, mélanger le reste des ingrédients : farine, sucre et oeufs.</p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>4</span></p>
+                    <p class="step-desc mb-5">Ajouter à cette préparation, le mélange chocolat/beurre et bien mélanger.</p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>5</span></p>
+                    <p class="step-desc mb-5">Incorporez délicatement les amandes grillées avec une marie pour ne pas trop les "casser" </p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>6</span></p>
+                    <p class="step-desc mb-5"> 1 couche de pâte à gâteau et parsemez d'amandes, utilisé a répétion cette technique pour bien garder le gateau homogéne</p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>7</span></p>
+                    <p class="step-desc mb-5">Incorporez dans un moule à cake et cuire 40 min à 200°C (la lame du couteau doit ressortir sèche).</p>
+                </div>
+                <div class="step">
+                    <p class="number"><span>8</span></p>
+                    <p class="step-desc mb-5">Servez avec une boule de glace vanille ou avec de la créme anglaise</p>
+                </div>
+        </div>
+    </section>
+</main>
+
+    
+
+    <!------------------start commentaire----------------------------->
+
+
+
+
+    <div class="recipe">
+        <div class="recipe_image">
+            <img src="../laura/img/img/gateau2.jpg" alt="cakechoco" />
+        </div>
+        <div class="recipe_content">
+            <div class="recipe_content_heading">
+                <h1 class="usg_text usg_text-heading">Éclat choco-Amande</h1>
+            </div>
+            <div class="recipe_content_left-column">
+                <div class="recipe_content_left-column_time">
+                    <div class="recipe_content_left-column_time_serves">
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Servis:</span> 6 personnes</p>
+                    </div>
+                    <div class="recipe_content_left-column_time_prep">
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Preparation:</span> 55 mins</p>
+                    </div>
+                    <div class="recipe_content_left-column_time_cook">
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Cook:</span> 40 mins</p>
+                    </div>
+                    <div class="recipe_content_left-column_time_cook">
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Degré de difficulté:</span>Facile</p>
+                    </div>
+                    
+                </div>
+    
+                <div class="recipe_content_left-column_ingredients">
+                    <div class="recipe_content_left-column_ingredients_title">
+                        <h3 class="usg_text usg_text-title">Ingredients</h3>
+                        <ul class="usg_list recipe_content_left-column_ingredients_list">
+                            <li class="recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">6 cuillère à soupe de beurre doux fondu</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                180g de sucre brun<span class="recipe_content_left-column_ingredients_list_item_main"></span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                80g de miel<span class="recipe_content_left-column_ingredients_list_item_main"></span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">300 d'éclats d'amandes effilées, légèrement grillées</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">280g de farine</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">100g de chocolat en poudre</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">1 cuillère à café de bicarbonate de soude</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">1/2 cuillère à café de sel</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">100g de beurre doux mou</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">300g de sucre</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">3 gros oeufs</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">200g de babeurre</span>
+                            </li>
+                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                <span class="recipe_content_left-column_ingredients_list_item_main">1 cuillère à café d'extrait de vanille pure</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="recipe_content_right-column">
+                <div class="recipe_content_right-column_description">
+                    <h3 class="usg_text usg_text-title">Préparation</h3>
+                    <p class="recipe_content_right-column_description_text usg_text-desc">
+                        Beurrez un moule haut et rond : le fond et les bords (vous pouvez aussi choisir un format individuel ou plus large).
+                        Versez 6 cuillères à soupe de beurre fondu dans le moule à gâteau et remuez pour en recouvrir le fond et les bords.
+                        Saupoudrez de sucre brun partout.
+                        Versez le miel sur le sucre et saupoudrez d'éclats d'amandes.
+                    </p>
+                </div>
+    
+                <div class="recipe_content_right-column_steps">
+                    <ol class="usg_list recipe_content_right-column_steps_list">
+                        <li class="usg_list_item recipe_content_right-column_steps_list_item">In a large Faites en sorte de tapisser le moule de façon à ce que ça fasse l'enrobage complet du gâteau au chocolat.
+                            Préchauffez le four à 180°C.
+                            </li>
+                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Si vous le souhaitez, vous pouvez également faire caraméliser d'autres éclats d'amande dans une casserole en mélangeant le beurre, le miel et le sucre.
+                        Une fois le mélange chaud, baissez le feu et versez les éclats d'amande et mélangez bien pour les enrober.
+                        Laissez sur feu très doux.</li>
+                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Tamisez la farine, la poudre de cacao, le bicarbonate de soude et le sel ensemble. 
+                        Placez le beurre dans le bol d'un batteur électrique muni du fouet et fouettez jusqu'à consistance lisse et mousseuse.
+                        Ajoutez le sucre et continuez à mélanger.</li>
+                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Ajoutez les oeufs, un à un, en fouettant bien après chaque addition. 
+                        Continuer de battre jusqu'à consistance légère, environ 3 minutes. 
+                        Avec le mélangeur fonctionnant à petite vitesse, ajoutez un tiers des ingrédients secs et mélangez. 
+                        Ajoutez la moitié du babeurre et continuez à mélanger. 
+                        Ajoutez un autre tiers des ingrédients secs, mélangez et ajoutez le reste du babeurre et la vanille.
+                        Ajoutez le reste des ingrédients secs et mélanger jusqu'à consistance lisse. 
+                        Versez la pâte dans le moule.</li>
+                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Enfournez 45 à 55 minutes. 
+                        Passez un couteau le long du bord du moule et retournez immédiatement le moule sur un plat de service. 
+                        Laissez-le reposer avec le plat. 
+                        Si la garniture est collée au moule, réchauffez le moule pour faire fondre le caramel puis le verser sur le gâteau. 
+                        Sinon, il vous reste toujours la préparation dans la casserole que vous pourrez déposer sur le gâteau.</li>
+                    </ol>
+                </div>
+    
+                <div class="recipe_content_right-column_features">
+                    <ul class="usg_list recipe_content_right-column_features_list">
+                        <li class="usg_list_item recipe_content_right-column_features_list_item">Dégustez</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <body>
+        <div class="feedback-form">
+            <h2>Vous avez aimez?</h2>
+            <form id="feedbackForm">
+                <div class="rating">
+                    <!-- Notice that the stars are in reverse order -->
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">&#9733;</label>
+                </div>
+                <div class="comment">
+                    <label for="comment">Partagez votre avis !</label><br>
+                    <textarea id="comment" name="comment"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </div>
+    
+        <script src="./script.js"></script>
+    </body>
+
+<script>document
+	.getElementById("feedbackForm")
+	.addEventListener("submit", function (event) {
+		event.preventDefault();
+		var rating = document.querySelector('input[name="rating"]:checked').value;
+		var comment = document.getElementById("comment").value;
+
+		// Here you can handle the submission, for now just logging the values
+		console.log("Rating: ", rating);
+		console.log("Comment: ", comment);
+
+		// You can send this data to the server using AJAX or other methods
+		// For simplicity, I'm just logging it here
+	});
+</script>
+
+
+    <section class="formulaire">
+        <div class="container">
+          <div class="contact_box">
+            <h3>Informations</h3>
+            <div class="content_box">
+              <ul>
+                <li> <i class="fab fa-linkedin"></i>
+                  <p>Instagram</p>
+                </li>
+                <li><i class="fas fa-phone-square"></i>
+                  <p>06 07 05 08 06</p>
+                </li>
+                <li><i class="fas fa-envelope-square"></i>
+                  <p>CoeurFondant.hotmail.com</p>
+                </li>
+                <li><i class="fas fa-map-marker-alt"></i>
+                  <p>Avenue du parc 89<br>1060 Saint-Gilles</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <form id="form">
+            <h3>Nous Contacter</h3>
+            <div class="form_container">
+              <div class="input_container">
+                <div class="input_bloc">
+                  <div class="input_box">
+                    <input type="text" placeholder="Nom" required>
+                  </div>
+                  <div class="input_box">
+                    <input type="text" placeholder="Prénom" required>
+                  </div>
+                </div>
+                <div class="input_bloc">
+                  <div class="input_box">
+                    <input type="text" placeholder="Pays">
+                  </div>
+                  <div class="input_box">
+                    <input type="text" placeholder="Ville">
+                  </div>
+                </div>
+                <div class="input_bloc">
+                  <div class="input_box">
+                    <input type="email" placeholder="Email" required>
+                  </div>
+                  <div class="input_box">
+                    <input type="text" placeholder="Téléphone">
+                  </div>
+                </div>
+              </div>
+            
+              <div class="button">
+                <input type="submit" value="Envoyer">
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      
+    <!-- Footer Section Begin -->
+    
+                
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    
+                          
+                      </p>
+                  </div>
+                  <div class="col-lg-5">
+                    <div class="copyright__widget">
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
+<script src="js/carousel.js"></script>
+<script src="" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+            AOS.init();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/commentaire.js"></script>
+    <script src="js/nav.js"></script>
+
+    <script src="js/jsfooter/jquery-3.3.1.min.js"></script>
+    <script src="js/jsfooter/bootstrap.min.js"></script>
+    <script src="js/jsfooter/main.js"></script>
+</body>
+
+</html>
