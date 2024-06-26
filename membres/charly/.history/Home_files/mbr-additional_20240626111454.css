@@ -2566,7 +2566,7 @@ a {
   text-align: center;
   background-color: #ecb21f;
   border-color: #a88734 #9c7e31 #846a29;
-  color: rgb(216, 127, 44);
+  color: black;
   border-width: 1px;
   border-style: solid;
   border-radius: 13px;
@@ -2574,7 +2574,7 @@ a {
 }
 
 body {
-  background-color: rgb(138, 84, 53);
+  background-color: black;
 }
 
 #nav-items li a,
