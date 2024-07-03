@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "BiteChocolate";
+  src: url("../../fonts/BiteChocolate-2RGl.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.deco1 {
+  background-color: darkorange;
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 10px 20px;
+}
+.deco2 {
+  background-color: darkorange;
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 600px 200px;
+}
+
+.cookie {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 50px 0 0 85px;
+}
+.cookie {
+  position: absolute;
+  width: 1050px;
+  height: 950px;
+  border-radius: 10px;
+  margin: 50px 0 0 500px;
+}
