@@ -138,6 +138,25 @@ $recipe = Recipe::getRecipeById($db, 1);
                         <div class="comments-section">
                             <div class="comments-list" id="comments-list">
                                 <!-- Commentaires affichés ici -->
+                                <?php foreach($recipe->getComments() as $comment): ?>
+                                <div class="comment">
+                                    <div>
+                                        <strong><?=$comment->getUsername()?></strong>
+                                        <span class="comment-date"><?=$comment->getCreatedDate()?></span>
+                                    </div>
+                                    <div class="comment-rating">
+                                        <?php for($i=0;$i<$comment->getStars();$i++): ?>
+                                        <i class="fa fa-star checked"></i>
+                                        <?php endfor; ?>
+                                    </div>
+                                    <div style="margin-bottom: 0.5em;">
+                                        <strong><?=$comment->getSubject()?>:</strong>
+                                    </div>
+                                    <div>
+                                        <?=$comment->getComment()?>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
