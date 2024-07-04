@@ -1,4 +1,5 @@
 START TRANSACTION;
+use choco;
 INSERT INTO `category`(`category`)
 VALUES("Cake"),
 ("Gâteau"),
@@ -14,6 +15,7 @@ VALUES("g"),
 ("cl"),
 ("dl"),
 ("ampoule"),
+("noisette"),
 ("cac"), -- Cuillière a café
 ("cas"), -- Cuillère a soupe
 ("kg");
@@ -54,6 +56,11 @@ VALUES("pomme", NULL),
 ("beurre doux", NULL),
 ("beurre ramoli", NULL),
 ("beurre végétal", NULL),
-("beurre", "https://img.cuisineaz.com/70x47/ingredients/all/beurre-227.jpg");
+("beurre", "https://img.cuisineaz.com/70x47/ingredients/all/beurre-227.jpg"),
+("lait entier", NULL),
+('lait sans lactose', NULL),
+('lait demi écrémé', NULL),
+('gousse de vanille', NULL),
+('crème liquide entière', NULL);
 
 COMMIT;
