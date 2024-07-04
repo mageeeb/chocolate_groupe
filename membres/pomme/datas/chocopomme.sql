@@ -1,10 +1,11 @@
 START TRANSACTION;
 INSERT INTO `user`(`name`, `password`, `is_admin`)
-VALUES('Pomme', 'Pomme', 1),
-('poire', 'poire', 0);
+VALUES('Pomme', 'Pomme', 1);
 
-INSERT INTO `recipe`(`name`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`)
-VALUES("Choco Pomme", 4, "img/img/recipes/chocopomme.jpg", 15, 15);
+SET @user_id = LAST_INSERT_ID();
+
+INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
+VALUES("Choco Pomme", "recette exquise de pommes au chocolat, une fusion divine qui éveillera vos papilles gustatives. Cette recette combine la douceur acidulée des pommes fraîches avec la richesse indulgente du chocolat fondant, créant une symphonie de saveurs qui vous laissera en redemander.", 4, "img/img/recipes/chocopomme.jpg", 15, 15, 0);
 
 SET @recipe_id = LAST_INSERT_ID();
 
@@ -59,8 +60,8 @@ VALUES
 (@recipe_id , 35, 6, 4),
 (@recipe_id , 12, 3, 10);
 
-INSERT INTO `comment`(`recipe_id`, `user_id`, `comment`, `created_date`, `stars`)
-VALUES(1, 1, "cannibalisme!!!", NULL, 1),
-(1, 2, "délicieux!!!", NULL, 5);
+INSERT INTO `comment`(`recipe_id`, `user_id`, `subject`, `comment`, `stars`)
+VALUES(@recipe_id, @user_id, "honteux", "cannibalisme!!!", 1),
+(@recipe_id, @user_id, "génial", "délicieux!!!", 5);
 
 COMMIT;
