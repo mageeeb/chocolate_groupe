@@ -152,6 +152,7 @@ class Recipe{
     ";
 
     try {
+      $db->exec('SET SESSION group_concat_max_len = 10000;');
       $query = $db->query($sql);
       $result = $query->fetchAll(PDO::FETCH_ASSOC);
       $query->closeCursor();
