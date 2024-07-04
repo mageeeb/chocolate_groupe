@@ -2,11 +2,19 @@
 require_once "../../config.php";
 require_once "../../model/Recipe.php";
 
+$recipe_id = 1;
 $db = new PDO(DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=".DB_CHARSET,
 DB_LOGIN, DB_MDP);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
-$recipe = Recipe::getRecipeById($db, 1);
+$recipe = Recipe::getRecipeById($db, $recipe_id);
+
+$_POST = json_decode(file_get_contents('php://input'), true);
+if (isset($_POST["username"])){
+    var_dump(Comment::insertComment($db, $recipe_id, 1, $_POST["comment"], $_POST["subject"], $_POST["stars"]));
+    echo json_encode($_POST);
+    die;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -71,6 +79,7 @@ $recipe = Recipe::getRecipeById($db, 1);
     <header class="header-text glace-banner" style="background-image: url('./img/recipes/chocopomme.jpg');">
         <p><?=$recipe->getName();?></p>
     </header>
+    <?php var_dump($_POST); ?>
 
     <main>
         <header class="general-infos">
@@ -112,7 +121,7 @@ $recipe = Recipe::getRecipeById($db, 1);
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 id="comments-form-button">Laissez un commentaire <img src="./img/recipes/arrow.svg" height="50"></h3>
-                        <form action="#" class="contact-form" id="comment-form" style="display: none;">
+                        <form action="./" class="contact-form" method="post" id="comment-form" style="display: none;">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <input type="text" id="name" placeholder="Votre nom" required>
