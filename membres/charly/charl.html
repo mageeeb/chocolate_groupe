@@ -76,6 +76,13 @@
     <div id="nav-choco">
         <img src="img/nav-img/banner_top.png" alt="">
     </div>
+
+    <div class="wave">
+
+        <img src="" alt="" class="fond-curvy">
+     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="app.js"></script>
     
     <main>
       <section data-bs-version="5.1" class="header1 cid-sQg5cWglN6" id="header1-1">
@@ -93,7 +100,7 @@
             <div class="deco1">
             <div class="cookie">
 
-<h1>INGREDIENTS</h1>
+<h1  class="one">INGREDIENTS</h1>
 <ol>
 
     <li>500 g de beurre</li>
@@ -151,6 +158,189 @@
                     </div>
                     
                 </div>
+                <button class="choco mt-5">laissez nous un commentaire</button>
+    <section id="coms" class="contact-section mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="" class="contact-form" id="comment-form" style="display: none;">
+                        <h2 class="mb-4">Laissez un commentaire</h2>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="text" id="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="email" id="email" placeholder="Votre email" required>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" id="subject" placeholder="Sujet">
+                                <textarea id="comment" placeholder="Commentaire" required></textarea>
+                                <div class="star-rating">
+                                    <i class="fa fa-star" data-rating="1"></i>
+                                    <i class="fa fa-star" data-rating="2"></i>
+                                    <i class="fa fa-star" data-rating="3"></i>
+                                    <i class="fa fa-star" data-rating="4"></i>
+                                    <i class="fa fa-star" data-rating="5"></i>
+                                </div>
+                                <input type="hidden" id="rating" value="0">
+                            </div>
+                        </div>
+                        <button type="submit">Envoyez votre commentaire</button>
+                    </form>
+                    <div class="comments-section">
+                        <h2>Les Commentaires</h2>
+                        <div class="comments-list" id="comments-list">
+                            <!-- Commentaires a venir ici -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function(){
+            $(".choco").click(function(){
+                $("#comment-form").fadeToggle();
+            });
+        });
+    </script>
+
+
+   
+<!-- carousel-->
+<h2 class="display-5 mb-5">Autre Recette</h2>
+<section id="sectioncar">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide--one">
+            <a href="../kevin/glace-au-chocolat.html"><span>Glace au chocolat</span></a>
+            <div>
+              <h2>"Fondez de plaisir avec notre glace au chocolat"</h2>
+            </div>
+        </div>
+        <div class="swiper-slide swiper-slide--two">
+            <a href="mous.html"><span>Éclat Choco-Amande</span></a>
+        <div>
+            <h2>"Éclat Choco-Amande: La Fusion Gourmande de la Douceur et du Croquant"</h2>
+        </div>
+        </div>
+  
+        <div class="swiper-slide swiper-slide--three">
+          <span>Cookies au chocolat</span>
+          <div>
+            <h2>"Craquez pour nos cookies au chocolat, un plaisir à chaque bouchée."</h2>
+          </div>
+        </div>
+  
+        <div class="swiper-slide swiper-slide--four">
+          <span>murzynek</span>
+          <div>
+            <h2>"Délice Noir au Chocolat"</h2>
+          </div>
+        </div>
+  
+        <div class="swiper-slide swiper-slide--five">
+          <a href="mous.html"><span>Moelleux au chocolat</span></a>
+          <div>
+            <h2>"Moelleux au chocolat : fondant à souhait, bonheur à chaque bouchée."</h2>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--six">
+          <a href="mous.html"><span> Amandina Cake </span></a>
+          <div>
+            <h2>"Amandina Cake: L'Exquise Harmonie de l'Amande et du Gâteau"</h2>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--seven">
+          <a href="mous.html"><span>cupavci</span></a>
+          <div>
+            <h2>"Cupavci: Le Plaisir Enveloppé de Douceur"</h2>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--eight">
+          <a href="mous.html"><span>chocopomme</span></a>
+          <div>
+            <h2>"ChocoPomme: Le Duo Délicieux qui Croque de Plaisir"</h2>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+
+      <!-- Page Preloder -->
+      <div id="preloder">
+        <div class="loader"></div>
+    </div>
+                <footer class="footer set-bg mt-5" data-setbg="img/imgfooter/footer-bg.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="footer__newslatter">
+                                   <h6>Recette ...</h6>
+                                   <ul class="servi">
+                                      <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette1</a></li>
+                                      <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette2</a></li>
+                                      <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette3</a></li>
+                                      <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette4</a></li>
+                                      <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette5</a></li>
+                                   </ul>
+                                </div>
+                             </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="footer__about">
+                                    <div class="footer__logo">
+                                        <a href="#"><img src="img/imgfooter/logo 2.png" style="width: 150px;" alt=""></a>
+                                    </div>
+                                    <p> +32 123 890 <br>
+                                        chocomousse@gmail.com <br>
+                                        Rue de chocolat 15
+                                        1060 Saint Gilles Belgique.</p>
+                                    <div class="footer__social">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="footer__newslatter">
+                                    <h6>Newsletter</h6>
+                                    <p>Vous voulez nos derniere recette? </p>
+                                    <form action="#">
+                                        <input type="text" placeholder="Email">
+                                        <button type="submit"><i class="fa fa-send-o"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <p class="copyright__text text-white">
+                                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">sebastien</a>
+                                      
+                                  </p>
+                              </div>
+                              <div class="col-lg-5">
+                                <div class="copyright__widget">
+                                    <ul>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Home</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            
       
           
     

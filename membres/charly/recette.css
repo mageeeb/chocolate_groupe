@@ -1,34 +1,43 @@
-* {
-  font-family: f, sans-serif;
-  font-style: normal;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Vujahday+Script&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.deco1 {
-  background-color: #d18d60;
-  width: 300px;
-  height: 600px;
-  border-radius: 10px;
-  margin: 10px 20px;
-}
-.deco2 {
-  background-color: #d18d60;
-  width: 300px;
-  height: 600px;
-  border-radius: 10px;
-  margin: 30px 1200px;
+.wave {
+  height: 75vh;
+  width: 100%;
+  background: coral;
 }
 
-.cookie {
-  font-weight: 400;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
-  margin: 50px 0 0 85px;
+@media screen and (max-width: 450px) {
+  .wave {
+    height: 85vh;
+  }
 }
-.cookie {
+.fond-curvy {
+  width: 100%;
   position: absolute;
-  width: 1050px;
-  height: 950px;
-  border-radius: 10px;
-  margin: 50px 0 0 550px;
+  left: 0;
+  bottom: 5%;
+  display: block;
+}
+.contenu {
+  position: relative;
+  z-index: 1000;
+}
+h1 {
+  font-size: 90px;
+  padding: 200px 0 0 10vw;
+  position: relative;
+  color: #ecd507;
+}
+p {
+  font-size: 30px;
+  padding-left: 10vw;
+  margin: 7px 0;
+  color: #ecd507;
 }

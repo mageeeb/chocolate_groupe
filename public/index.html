@@ -1,46 +1,14 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
+<html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>Foodwagon | Responsive, Ecommerce &amp; Business Templatee</title>
 
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/img/favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/img/favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/img/favicons/favicon-16x16.png"
-    />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="assets/img/favicons/favicon.ico"
-    />
-    <link rel="manifest" href="assets/img/favicons/manifest.json" />
-    <meta
-      name="msapplication-TileImage"
-      content="assets/img/favicons/mstile-150x150.png"
-    />
-    <meta name="theme-color" content="#ffffff" />
+    <title>Site de recette</title>
+
+
 
     <!-- ===============================================-->
     <!--    Stylesheets-->
@@ -53,86 +21,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Hind+Madurai:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-<!-- ===================footer============================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/footer/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/footer/flaticon.css" type="text/css">
     <link rel="stylesheet" href="assets/css/footer/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/footer/style.css" type="text/css">
-<!-- ===============================================-->
   </head>
 
   <body>
+    <div id="place-holder-nav" style="display: none;">
+    </div>
+    <nav>
+        <div id="nav-links">
+            <a href="#" id="logo"><img src="assets/img/logo.png" alt="" width="50"></a>
+            <div id="container-burger">
+                <img src="assets/img/nav-img/chocolat.png" alt="">
+            </div>
+            <div id="links">
+                <a href="#">Accueil</a>
+                <a href="javascript:void(0)" id="nav-recipes-link">Recettes<i class="fa-solid fa-arrow-down" style="margin-left: 10px;"></i></a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div id="nav-recipes-container">
+            <ul id="nav-recipes" style="display: none;">
+                <a href="../sebastien/mous.html"><li>Mousse au chocolat</li></a>
+                <a href="#"><li>Cake au chocolat</li></a>
+                <a href="#"><li>Fondant au chocolat</li></a>
+                <a href="#"><li>Tarte au chocolat</li></a>
+                <a href="#"><li>Cookies au chocolat</li></a>
+                <a href="#"><li>Glace au chocolat</li></a>
+                <a href="#"><li>Bûche de Noël au chocolat</li></a>
+                <a href="#"><li>Moelleux au chocolat</li></a>
+                <a href="#"><li>Truffes au chocolat</li></a>
+                <a href="#"><li>Macarons au chocolat</li></a>
+            </ul>
+            <div id="previews"></div>
+        </div>
+        <div id="nav-choco-open-menu" style="display: none;">
+            <img src="assets/img/nav-img/openmenu.png" alt="">
+        </div>
+    </nav>
+    <div id="nav-choco">
+        <img src="assets/img/nav-img/banner_top.png" alt="">
+    </div>
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
-        data-navbar-on-scroll="data-navbar-on-scroll"
-      >
-        <div class="container">
-          <a class="navbar-brand d-inline-flex" href="index.html"
-            ><img
-              class="d-inline-block"
-              src="assets/img/gallery/logo.svg"
-              alt="logo"
-            /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient"
-              >foodwaGon</span
-            ></a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"> </span>
-          </button>
-          <div
-            class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0"
-            id="navbarSupportedContent"
-          >
-            <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
-              <p class="mb-0 fw-bold text-lg-center">
-                Deliver to:
-                <i class="fas fa-map-marker-alt text-warning mx-2"></i
-                ><span class="fw-normal">Current Location </span
-                ><span>Mirpur 1 Bus Stand, Dhaka</span>
-              </p>
-            </div>
-            <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0">
-              <div class="input-group-icon pe-2">
-                <i class="fas fa-search input-box-icon text-primary"></i>
-                <input
-                  class="form-control border-0 input-box bg-100"
-                  type="search"
-                  placeholder="Search Food"
-                  aria-label="Search"
-                />
-              </div>
-              <button
-                class="btn btn-white shadow-warning text-warning"
-                type="submit"
-              >
-                <i class="fas fa-user me-2"></i>Login
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
+      
 
-      <section class="py-5 overflow-hidden" id="home">
+      <section class="py-5 overflow-hidden header-text" id="home">
         <div class="container">
           <div class="row flex-center">
             <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0"><a class="ms-5 img-landing-banner" href="#!"><img class="img-fluid" src="assets/nouvelles img/browni2.jpg" alt="hero-header" /></a></div>
             <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
-              <h1 class="display-1 ms-5 fontBanner">Coeur Fondant </h1>
-              <h2 class="fontBanner2 ms-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+              <h1 class="display-1 ms-5 fontBanner">Coeur Fondant</h1>
+              <h2 class="fontBanner2 ms-5">"Cœur de Chocolat : Laissez-vous envoûter par l'harmonie parfaite de saveurs exquises, soigneusement élaborées pour faire battre votre cœur de plaisir et vous offrir des moments de pure gourmandise."</h2>
             </div>
           </div>
         </div>
@@ -140,6 +86,7 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
+<<<<<<< HEAD
         <section class="py-0">
           <div class="container">
             <div class="row h-100 gx-2 mt-7">
@@ -679,136 +626,208 @@
       <!-- <section> close ============================-->
       <!-- ============================================-->
 
+=======
+      <section class="py-0 mt-5" style="background-color: #4B2E17;">
+        <div class="container">
+          <div class="col-lg-7 mx-auto text-center">
+            <h5 class="fw-bold fs-3 fs-lg-5 lh-sm text-white mt-5">Popular items</h5>
+          </div>
+          <div class="row h-100 gx-2 mt-7">
+            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+              <div class="card card-span h-100 rounded-3">
+                <div class="position-relative">
+                  <img
+                    class="img-fluid rounded-3 w-100"
+                    src="assets/image seb/Moelleux chocolat/Moelleux_1024x1137_1.format-jpeg.jpegquality-75.jpg" alt="..." style="height: 250px;"/>
+                </div>
+                <div class="card-body px-0">
+                  <h5 class="fw-bold text-1000 text-truncate ps-3">
+                    Fondant au Chocolat
+                  </h5>
+                  <div class="star-rating ps-3">
+                    <i class="fa fa-star text-warning" data-rating="1"></i>
+                    <i class="fa fa-star text-warning" data-rating="2"></i>
+                    <i class="fa fa-star text-warning" data-rating="3"></i>
+                    <i class="fa fa-star" data-rating="4"></i>
+                    <i class="fa fa-star" data-rating="5"></i>
+                </div>
+                </div>
+                <a class="stretched-link" href="#"></a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+              <div class="card card-span h-100 rounded-3">
+                <div class="position-relative">
+                  <img
+                    class="img-fluid rounded-3 w-100"
+                    src="assets/image seb/cookies chocolat/cooki.jpg"
+                    alt="..." style="height: 250px;"/>
+                </div>
+                <div class="card-body px-0">
+                  <h5 class="fw-bold text-1000 text-truncate ps-3">
+                    Cookies chocolat
+                  </h5>
+                  <div class="star-rating ps-3">
+                    <i class="fa fa-star text-warning" data-rating="1"></i>
+                    <i class="fa fa-star text-warning" data-rating="2"></i>
+                    <i class="fa fa-star" data-rating="3"></i>
+                    <i class="fa fa-star" data-rating="4"></i>
+                    <i class="fa fa-star" data-rating="5"></i>
+                </div>
+                </div>
+                <a class="stretched-link" href="#"></a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+              <div class="card card-span h-100 rounded-3">
+                <div class="position-relative">
+                  <img
+                    class="img-fluid rounded-3 w-100"
+                    src="assets/image seb/Glace au chocolat/Glace-au-chocolat-au-lait.jpg"
+                    alt="..." style="height: 250px;"/>
+                </div>
+                <div class="card-body px-0">
+                  <h5 class="fw-bold text-1000 text-truncate ps-3">
+                    Glace au chocolat
+                  </h5>
+                  <div class="star-rating ps-3">
+                    <i class="fa fa-star text-warning" data-rating="1"></i>
+                    <i class="fa fa-star text-warning" data-rating="2"></i>
+                    <i class="fa fa-star text-warning" data-rating="3"></i>
+                    <i class="fa fa-star text-warning" data-rating="4"></i>
+                    <i class="fa fa-star" data-rating="5"></i>
+                </div>
+                </div>
+                <a class="stretched-link" href="#"></a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+              <div class="card card-span h-100 rounded-3">
+                <div class="position-relative">
+                  <img
+                    class="img-fluid rounded-3 w-100"
+                    src="assets/image seb/Mousse au chocolat/13630550-Mousse-au-chocolat.jpg"
+                    alt="..." style="height: 250px;"/>
+                </div>
+                <div class="card-body px-0">
+                  <h5 class="fw-bold text-1000 text-truncate ps-3">
+                    Mousse au chocolat 
+                  </h5>
+                  <div class="star-rating ps-3">
+                    <i class="fa fa-star text-warning" data-rating="1"></i>
+                    <i class="fa fa-star text-warning" data-rating="2"></i>
+                    <i class="fa fa-star text-warning" data-rating="3"></i>
+                    <i class="fa fa-star text-warning" data-rating="4"></i>
+                    <i class="fa fa-star text-warning" data-rating="5"></i>
+                </div>
+                </div>
+                <a class="stretched-link" href="#"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+ 
+>>>>>>> 1cf5c5299ebda3ff616221205b0bdb0e6451ae2a
       <!-- ============================================-->
       <!-- <section> begin ============================-->
       <section class="py-0">
+
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <div class="card card-span mb-3 shadow-lg">
-                <div class="card-body py-0">
+              <div class="card card-span mb-3 shadow-lg mt-5 mb-3">
+                <div class="card-body px-0 py-0">
                   <div class="row justify-content-center">
-                    <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0">
-                      <img
-                        class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0"
-                        src="assets/img/gallery/fried-chicken.png"
-                        alt="..."
-                      />
-                    </div>
+                    <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0" src="./img/4.jpg" alt="..." /></div>
                     <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
-                      <h1 class="card-title mt-xl-5 mb-4">
-                        Celebrate parties with
-                        <span class="text-primary">Fried Chicken</span>
-                      </h1>
-                      <p class="fs-1">
-                        Get the best fried chicken smeared with a lip smacking
-                        lemon chili flavor. Check out best deals for fried
-                        chicken.
-                      </p>
-                      <div class="d-grid bottom-0">
-                        <a class="btn btn-lg btn-primary mt-xl-6" href="#!"
-                          >PROCEED TO ORDER<i
-                            class="fas fa-chevron-right ms-2"
-                          ></i
-                        ></a>
-                      </div>
+                      <h1 class="card-title mt-xl-5 mb-4">Top 1 <span class="color">Macaron au chocolat fourée au marrons </span></h1>
+                      <p class="fs-1">Comment faire les macarons au chocolat avec une délicieuse ganache au marrons. Cette recette est très facile à la maison et inrratable pour avoir des beaux macarons croquants et au bon goût de chocolat</p>
+                      <div class="d-grid bottom-0"><a class="btn btn-lg mt-xl-6 text-white" style="background-color: #4B2E17;" href="#!">En savoir plus<i class="fas fa-chevron-right ms-2"></i></a></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- end of .container-->
+        </div><!-- end of .container-->
+
       </section>
       <!-- <section> close ============================-->
       <!-- ============================================-->
-      <section class="pt-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="card card-span mb-3 shadow-lg">
-                <div class="card-body py-0">
-                  <div class="row justify-content-center">
-                    <div
-                      class="col-md-5 col-xl-7 col-xxl-8 g-0 order-0 order-md-1"
-                    >
-                      <img
-                        class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-end rounded-md-top-0"
-                        src="assets/img/gallery/pizza.png"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
-                      <h1 class="card-title mt-xl-5 mb-4">
-                        Wanna eat hot &
-                        <span class="text-primary">spicy Pizza?</span>
-                      </h1>
-                      <p class="fs-1">
-                        Pair up with a friend and enjoy the hot and crispy pizza
-                        pops. Try it with the best deals.
-                      </p>
-                      <div class="d-grid bottom-0">
-                        <a class="btn btn-lg btn-primary mt-xl-6" href="#!"
-                          >PROCEED TO ORDER<i
-                            class="fas fa-chevron-right ms-2"
-                          ></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+
+
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <section class="pt-5">
+      <section class="pt-5" style="background-color: #4B2E17;">
+
         <div class="container">
           <div class="row">
             <div class="col-12">
               <div class="card card-span mb-3 shadow-lg">
-                <div class="card-body py-0">
+                <div class="card-body px-0 py-0">
                   <div class="row justify-content-center">
-                    <div
-                      class="col-md-5 col-xl-7 col-xxl-8 g-0 order-0 order-md-1"
-                    >
-                      <img
-                        class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-end rounded-md-top-0"
-                        src="assets/img/gallery/pizza.png"
-                        alt="..."
-                      />
-                    </div>
+                    <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-0 order-md-1"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-end rounded-md-top-0" src="./img/2.jpg" alt="..." /></div>
                     <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
-                      <h1 class="card-title mt-xl-5 mb-4">
-                        Wanna eat hot &
-                        <span class="text-primary">spicy Pizza?</span>
-                      </h1>
-                      <p class="fs-1">
-                        Pair up with a friend and enjoy the hot and crispy pizza
-                        pops. Try it with the best deals.
-                      </p>
-                      <div class="d-grid bottom-0">
-                        <a class="btn btn-lg btn-primary mt-xl-6" href="#!"
-                          >PROCEED TO ORDER<i
-                            class="fas fa-chevron-right ms-2"
-                          ></i
-                        ></a>
-                      </div>
+                      <h1 class="mt-xl-5 mb-4">Top 2 <span  class="color">Truffes au chocolat</span></h1>
+                      <p class="fs-1">Les truffes au chocolat sont des parfaits petits cadeaux à offrir à Noël. Et si vous les faisiez maison? Rien de plus facile grâce à notre recette.</p>
+                      <div class="d-grid bottom-0"><a class="btn btn-lg mt-xl-6 text-white" style="background-color: #4B2E17;" href="#!">En savoir<i class="fas fa-chevron-right ms-2 text-white"></i></a></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- end of .container-->
+        </div><!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-0">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="card card-span mb-3 shadow-lg mt-5">
+                <div class="card-body px-0 py-0">
+                  <div class="row justify-content-center">
+                    <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0" src="./img/1.jpg" alt="..." /></div>
+                    <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
+                      <h1 class="card-title mt-xl-5 mb-4">Top 3 <span class="color">Cake au chocolat et au amandes grillée</span></h1>
+                      <p class="fs-1">Facile à préparer, le cake aux amandes fait partie des grands classiques du goûter. Cette recette de gâteau facile peut aussi s'adapter à un petit-déjeuner, un brunch ou même être servi pour le dessert, accompagné d'une salade de fruits par exemple.</p>
+                      <div class="d-grid bottom-0"><a class="btn btn-lg text-white  mt-xl-6" style="background-color: #4B2E17;" href="#!">En savoir plus<i class="fas fa-chevron-right ms-2"></i></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+
       </section>
 
+
+      <section class="py-0" style="background-color: #4B2E17;">
+        <div class="bg-holder">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row flex-center">
+            <div class="col-xxl-9 py-7 text-center">
+              <h1 class="fw-bold mb-4 text-white fs-6">Cœur de Chocolat : <br> Prêt à ajouter une nouvelle recette et à faire battre votre cœur encore plus fort ? </h1><a class="btn btn-danger" href="#">RETOUR VERS LE HAUT<i class="fas fa-chevron-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
       <!-- Footer Section Begin -->
-    <footer class="footer set-bg mt-5" data-setbg="assets/img/imgfooter/footer-bg.jpg">
+    <footer class="footer set-bg mt-5" data-setbg="assets/img/imgfooter/footer-bg.jpg"style="background-repeat: no-repeat;background-size: cover;">
       <div class="container">
           <div class="row">
               <div class="col-lg-4 col-md-6 col-sm-6">
@@ -852,13 +871,12 @@
               </div>
           </div>
       </div>
-      <div class="copyright">
+     <div class="copyright">
           <div class="container">
               <div class="row">
                   <div class="col-lg-7">
                       <p class="copyright__text text-white">
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">sebastien</a>
-                        
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">sebastien</a>   
                     </p>
                 </div>
                 <div class="col-lg-5">
@@ -871,10 +889,9 @@
                   </div>
               </div>
           </div>
-      </div>
-  </div>
+       </div>
+     </div>
 </footer>
-    </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
@@ -888,11 +905,9 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
    
     <script src="assets/js/theme.js"></script>
-<!-- ===================footer============================-->
-    <script src="assets/js/jsfooter/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/jsfooter/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/js/nav.js"></script>
     <script src="assets/js/jsfooter/main.js"></script>
-<!-- ===============================================-->
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap"
       rel="stylesheet"
