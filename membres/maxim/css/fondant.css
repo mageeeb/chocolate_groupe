@@ -208,14 +208,14 @@ header {
   border: 2px solid #230903; 
   color: #fcd7ad;
   font-family: "Nunito", sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   border-radius: 50px;
 }
 .showForm{
   background-color: #fcd7ad;
   border: 2px solid #230903; 
   font-family: "Nunito", sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   color: #230903;
   border-radius: 50px;
   display: block;
