@@ -38,6 +38,18 @@ $(document).ready(function() {
         $('#comment-form')[0].reset();
         $('#rating').val(0);
         $('.star-rating .fa-star').removeClass('checked');
+        fetch("./index.php", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify({
+                "username": name,
+                "subject": subject,
+                "comment": comment,
+                "stars": rating
+            })
+        }).then(res => {
+            console.log(res);
+        });
     });
 
     // Fonction pour générer les étoiles
