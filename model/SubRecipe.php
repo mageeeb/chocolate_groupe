@@ -1,4 +1,5 @@
 <?php
+require_once("Trait/TraitTimeToString.php");
 class SubRecipe{
   private int $id;
   private string $title;
@@ -13,6 +14,8 @@ class SubRecipe{
     $this->setPreparationTime($preparation_time);
     $this->setInstructions($instructions);
   }
+
+  use TraitTimeToString;
 
   public function update(PDO $db):string|bool{
     try {
@@ -53,7 +56,7 @@ class SubRecipe{
   public function getId():int{
     return $this->id;
   }
-  public function gettitle():string{
+  public function getTitle():string{
     return nl2br($this->title);
   }
   public function getImgUrl():?string{
@@ -82,5 +85,12 @@ class SubRecipe{
   public function setInstructions(array $instructions):self{
     $this->instructions = $instructions;
     return $this;
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getPreparationTimeToString():string{
+    return $this->timeToString($this->getPreparationTime());
   }
 }

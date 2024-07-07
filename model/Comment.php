@@ -82,7 +82,7 @@ class Comment{
   public function getStars():int{
     return $this->stars;
   }
-  public function getUsername():int{
+  public function getUsername():string{
     return $this->username;
   }
 
