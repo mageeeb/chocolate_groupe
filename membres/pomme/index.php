@@ -269,7 +269,7 @@ if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
         const reveal_query = [
             ".sub-recipe",
             ".information",
-            "#comments",
+            ".comment",
             "footer > .container",
         ]
         const options = {
