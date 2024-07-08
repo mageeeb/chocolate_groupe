@@ -27,8 +27,6 @@ $(".ps-photoset").hover(function(){
 });
 
 
-
-
 // 3 images //
 $(".ps-photo").hover(function(){
   if (bReady == true){
