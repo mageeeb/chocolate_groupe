@@ -344,9 +344,9 @@ class Recipe{
     if (sizeof($this->comments)===0)return 0;
     $total = 0;
     foreach($this->comments as $comment){
-      $total += $comment->getStars() * 2;
+      $total += $comment->getStars();
     }
-    $avg = ceil($total / sizeof($this->comments));
+    $avg = ceil($total * 2 / sizeof($this->comments));
     return $avg;
   }
   /**
