@@ -122,8 +122,10 @@ $(function(){
         }
         $(this).on('mouseover', ()=>{
             if(!menuNavVisible || phoneMode) return;
-            $previews.show()
-            $previews.css('background-image', `url('${url}')`)
+            $previews.show();
+            setTimeout(() => {
+                $previews.css('background-image', `url('${url}')`);
+            }, 1);
         });
     })
 
