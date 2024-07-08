@@ -2,7 +2,7 @@
 require_once "../../config.php";
 require_once "../../model/Recipe.php";
 
-$recipe_id = 1;
+$recipe_id = 2;
 $db = new PDO(DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=".DB_CHARSET,
 DB_LOGIN, DB_MDP);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
