@@ -1,17 +1,16 @@
 <?php
-require_once "../../config.php";
+require_once "./config.php";
 require_once "../../model/Recipe.php";
 
-$recipe_id = 2;
 $db = new PDO(DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=".DB_CHARSET,
 DB_LOGIN, DB_MDP);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
-$recipe = Recipe::getRecipeById($db, $recipe_id);
+$recipe = Recipe::getRecipeById($db, ID_RECIPE_CHOCO_POMME);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
-    $insert_result = Comment::insertComment($db, $recipe_id, $_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]);
+    $insert_result = Comment::insertComment($db, ID_RECIPE_CHOCO_POMME, $_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]);
     if (gettype($insert_result) == "array"){
         $datas = [
         "id"=> $insert_result[0]->getId(),
