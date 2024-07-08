@@ -55,6 +55,7 @@ $(document).ready(function() {
                     $("#error-message").slideDown(1000).css("display", "flex");
                 }else{
                     $("#error-message").slideUp(1000);
+                    $(".comment .comment-date").eq(0).text(res.created_date);
                 }
             })
         });
