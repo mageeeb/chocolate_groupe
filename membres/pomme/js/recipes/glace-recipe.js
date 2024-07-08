@@ -32,8 +32,6 @@ $(document).ready(function() {
                             '<div>' + escapeHtml(comment) + '</div>' +
                           '</div>';
 
-        $('#comments-list').prepend($(commentHtml).hide())
-        $(".comment").eq(0).fadeIn(1000);
 
         // Réinitialiser le formulaire
         $('#comment-form')[0].reset();
@@ -55,6 +53,9 @@ $(document).ready(function() {
                     $("#error-message").slideDown(1000).css("display", "flex");
                 }else{
                     $("#error-message").slideUp(1000);
+                    $('#comments-list').prepend($(commentHtml).hide())
+                    $(".comment").eq(0).fadeIn(1000);
+                    $(".comment .comment-date").eq(0).text(res.created_date);
                 }
             })
         });
