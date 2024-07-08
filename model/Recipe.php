@@ -1,5 +1,6 @@
 <?php
 
+require_once("Trait/TraitTimeToString.php");
 require_once("SubRecipe.php");
 require_once("Instruction.php");
 require_once("Ingredient.php");
@@ -39,6 +40,8 @@ class Recipe{
     $this->setCategories($categories);
     $this->setComments($comments);
   }
+
+  use TraitTimeToString;
 
   public static function getRecipeById(PDO $db, int $id):self|string{
     $sql = "
@@ -342,9 +345,9 @@ class Recipe{
     if (sizeof($this->comments)===0)return 0;
     $total = 0;
     foreach($this->comments as $comment){
-      $total += $comment->getStars();
+      $total += $comment->getStars() * 2;
     }
-    $avg = ceil(($total * 2) / sizeof($this->comments));
+    $avg = ceil($total / sizeof($this->comments));
     return $avg;
   }
   /**
@@ -402,5 +405,26 @@ class Recipe{
 
     $this->comments = $comments;
     return $this;
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getPreparationTimeToString():string{
+    return $this->timeToString($this->getPreparationTime());
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getRestTimeToString():string{
+    return $this->timeToString($this->getRestTime());
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getCookingTimeToString():string{
+    return $this->timeToString($this->getCookingTime());
   }
 }

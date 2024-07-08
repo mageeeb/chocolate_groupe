@@ -58,12 +58,12 @@
     </div>
    
     <header class="header-text glace-banner">
-        <p data-aos="flip-down">Glace au Chocolat</p>
+        <p data-aos="flip-down"><?= $recipe->getName() ?></p>
     </header>
 
     <div id="description" data-aos="fade-in">
-        <h1>Glace au Chocolat à la Crème Anglaise et Vanille</h1>
-        <p>Découvrez le plaisir d’une glace au chocolat riche et onctueuse, où la douceur de la crème anglaise se mêle à l’intensité du chocolat noir. Chaque bouchée est une célébration des saveurs, un équilibre parfait entre la fraîcheur de la glace vanille et la profondeur du chocolat.</p>
+        <h1><?= $recipe->getName() ?></h1>
+        <p><?= $recipe->getDescription() ?></p>
     </div>
 
     <main class="position-relative">
@@ -81,84 +81,46 @@
             <div class="informations">
                 <div data-aos="zoom-in-right">
                     <h3>Évaluation :</h3>
-                    <i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="500"></i><i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="1000"></i><i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="1500"></i><i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="2000"></i><i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="2500"></i>
-                    <p><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-message"></i> <a href="#comments">4 commentaires</a></p>
+                    <?php for($i = 2; $i <= $recipeAverage; $i+=2): ?>
+                        <i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                    <?php endfor ?>
+                    <?php if($recipeAverage % 2 !== 0): ?>
+                        <i class="fa-solid fa-star-half" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                    <?php endif ?>
+                    <p><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-message"></i> <a href="#comments"><?= sizeof($recipe->getComments()) ?> commentaire<?= sizeof($recipe->getComments()) > 1 ? 's' : '' ?></a></p>
                 </div>
                 <div data-aos="zoom-in-down">
                     <h3>Informations utiles :</h3>
-                    <p>&nbsp;<i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-person"></i> Servis pour: 4 personnes</p>
-                    <p><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-clock"></i> Préparation: 1 heure</p>
-                    <p><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-clock"></i> Repos: 12 heures</p>
+                    <p>&nbsp;<i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-person"></i> Servis pour: <?= $recipe->getNbPeople() ?> personne<?= $recipe->getNbPeople() > 1 ? 's' : '' ?></p>
+                    <p><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-clock"></i> Préparation: <?= $recipe->getPreparationTimeToString() ?></p>
+                    <p><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-clock"></i> Repos: <?= $recipe->getRestTimeToString() ?></p>
                 </div>
                 <div data-aos="zoom-in-left">
                     <h3>Ingrédients :</h3>
                     <ul>
-                        <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> 75 g de sucre</li>
-                        <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> 4 jaunes d’oeufs </li>
-                        <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> 40 cl de lait entier</li>
-                        <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> 120 g de chocolat noir</li>
-                        <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> 1 gousse de vanille (facultative)</li>
-                        <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> 15 cl crème liquide entière bien froide</li>
+                        <?php foreach($recipe->getIngredients() as $ingredient): ?>
+                            <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> <?= $ingredient ?></li>
+                        <?php endforeach ?>
                     </ul>
                 </div>
             </div>
         </header>
-        <div class="steps">
-            <div>
-                <h2>Tout d'abord préparons la crème anglaise : <br>( <i data-aos="flip-right" class="fa-solid fa-clock"></i> 45 min )</h2>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>1</span></p>
-                    <p data-aos="fade-left" class="step-desc">Dans un <a href="https://www.maspatule.com/92-cul-de-poule-bol" target="_blank">cul de poule</a>, fouettez le sucre et les jaunes d’oeufs. Le mélange doit blanchir et doubler de volume.</p>
+        <?php foreach($recipe->getSubRecipes() as $subRecipe): ?>
+            <div class="steps">
+                <div>
+                    <h2><?= $subRecipe->getTitle() ?> <br>( <i data-aos="flip-right" class="fa-solid fa-clock"></i> <?= $subRecipe->getPreparationTimeToString() ?> )</h2>
+                    <?php foreach($subRecipe->getInstructions() as $key => $instruction): ?>
+                        <div class="step">
+                        <p data-aos="flip-right" class="number"><span><?= ++$key ?></span></p>
+                        <p data-aos="fade-left" class="step-desc"><?= $instruction ?></p>
+                    </div>
+                    <?php endforeach ?>
                 </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>2</span></p>
-                    <p data-aos="fade-left" class="step-desc">Faites bouillir le lait dans une <a href="https://www.maspatule.com/33-casserole" target="_blank">casserole</a>. <strong>Notre astuce de cooker</strong> : Faites infuser des grains de vanilles pendant 30 minutes dans le lait pour donner plus de profondeur en bouche à votre glace. </p>
-                </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>3</span></p>
-                    <p data-aos="fade-left" class="step-desc">Versez le lait bouillant sur le mélange sucre + oeuf tout en mélangeant bien afin que les oeufs ne cuisent pas.</p>
-                </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>4</span></p>
-                    <p data-aos="fade-left" class="step-desc">Une fois le mélange bien homogène, reversez le tout dans la casserole et laissez cuire à feu doux quelques minutes.</p>
-                </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>5</span></p>
-                    <p data-aos="fade-left" class="step-desc">La crème doit épaissir légèrement et napper votre cuillère en bois. <strong>Notre astuce de cooker</strong> : Si vous faites un trait sur le dos de la cuillère et qu’il reste net, votre crème anglaise est prête !</p>
-                </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>6</span></p>
-                    <p data-aos="fade-left" class="step-desc">Versez la crème en 3 fois sur le chocolat fondu afin de bien l’incorporer</p>
-                </div>
-                <div class="step last-step">
-                    <p data-aos="flip-right" class="number"><span>7</span></p>
-                    <p data-aos="fade-left" class="step-desc">Couvrez la préparation au contact avec un film alimentaire et placez-la au frais pendant 12 heures <i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-clock"></i>.</p>
+                <div class="container-img-steps">
+                    <div data-aos="fade-down" class="img-steps" style="background-image: url('<?= $subRecipe->getImgUrl() ?>');"></div>
                 </div>
             </div>
-            <div class="container-img-steps">
-                <div data-aos="fade-down" class="img-steps cream"></div>
-            </div>
-        </div>
-        <div class="steps">
-            <div>
-                <h2>Maintenant passons a la préparation de la crème chantilly : <br>( <i data-aos="flip-right" class="fa-solid fa-clock"></i> 15 min )</h2>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>1</span></p>
-                    <p data-aos="fade-left" class="step-desc">Montez la crème liquide entière en chantilly puis incorporez-la délicatement avec une maryse à la crème anglaise.</p>
-                </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>2</span></p>
-                    <p data-aos="fade-left" class="step-desc">Replacez la préparation au réfrigérateur quelques heures avant de mettre à turbiner en sorbetière pendant 40 à 45 minutes <i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-clock"></i>.</p>
-                </div>
-                <div class="step">
-                    <p data-aos="flip-right" class="number"><span>3</span></p>
-                    <p data-aos="fade-left" class="step-desc">Réservez la glace au congélateur avant de servir.</p>
-                </div>
-            </div>
-            <div class="container-img-steps">
-                <div data-aos="fade-down" class="img-steps chantilly"></div>
-            </div>
-        </div>
+        <?php endforeach ?>
         <div class="owl-carousel owl-theme">
             <div class="item"><img src="img/recipes/glace/bonappetit1.webp" alt=""></div>
             <div class="item"><img src="img/recipes/glace/bonappetit2.webp" alt=""></div>
@@ -206,7 +168,24 @@
                         </form>
                         <div class="comments-section">
                             <div class="comments-list" id="comments-list">
-                                <!-- Commentaires affichés ici -->
+                                <?php foreach($recipe->getComments() as $comment): ?>
+                                    <div class="comment">
+                                        <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
+                                        <div class="d-flex my-3 gap-5">
+                                            <div class="fw-bold" style="color: rgb(var(--main-color))">
+                                                Sujet : <?= $comment->getSubject() ?>
+                                            </div>
+                                            <div class="comment-rating">
+                                                <span>Note : </span>
+                                                <?php $stars = $comment->getStars(); ?>
+                                                <?php for($i = 0; $i < 5; ++$i): ?>
+                                                    <i class="fa fa-star <?= $i <= $stars ? 'checked' : '' ?>"></i>
+                                                <?php endfor ?>
+                                            </div>
+                                        </div>
+                                        <div><?= $comment->getComment() ?></div>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     </div>

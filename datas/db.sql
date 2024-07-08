@@ -47,7 +47,7 @@ CREATE TABLE `recipe` (
 CREATE TABLE `sub_recipe` (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   recipe_id INT UNSIGNED NOT NULL,
-  title VARCHAR(40) NOT NULL,
+  title VARCHAR(100) NOT NULL,
   image_url VARCHAR(255),
   preparation_time SMALLINT UNSIGNED NOT NULL,
   sub_recipe_number TINYINT UNSIGNED NOT NULL,
