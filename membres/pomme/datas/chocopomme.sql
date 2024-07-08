@@ -60,8 +60,8 @@ VALUES
 (@recipe_id , 35, 6, 4),
 (@recipe_id , 12, 3, 10);
 
-INSERT INTO `comment`(`recipe_id`, `user_id`, `subject`, `comment`, `stars`)
-VALUES(@recipe_id, @user_id, "honteux", "cannibalisme!!!", 1),
-(@recipe_id, @user_id, "génial", "délicieux!!!", 5);
+INSERT INTO `comment`(`recipe_id`, `user_name`, `subject`, `comment`, `stars`)
+VALUES(@recipe_id, "Pomme", "honteux", "cannibalisme!!!", 1),
+(@recipe_id, "Poire", "génial", "délicieux!!!", 5);
 
 COMMIT;

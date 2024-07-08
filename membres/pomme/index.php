@@ -2,7 +2,7 @@
 require_once "../../config.php";
 require_once "../../model/Recipe.php";
 
-$recipe_id = 1;
+$recipe_id = 2;
 $db = new PDO(DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=".DB_CHARSET,
 DB_LOGIN, DB_MDP);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
@@ -10,9 +10,21 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 $recipe = Recipe::getRecipeById($db, $recipe_id);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
-if (isset($_POST["username"])){
-    var_dump(Comment::insertComment($db, $recipe_id, 1, $_POST["comment"], $_POST["subject"], $_POST["stars"]));
-    echo json_encode($_POST);
+if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
+    $insert_result = Comment::insertComment($db, $recipe_id, $_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]);
+    if (gettype($insert_result) == "array"){
+        $datas = [
+        "id"=> $insert_result[0]->getId(),
+        "comment"=> $insert_result[0]->getComment(),
+        "subject"=> $insert_result[0]->getSubject(),
+        "created_date"=> $insert_result[0]->getCreatedDate(),
+        "stars"=> $insert_result[0]->getStars(),
+        "username"=> $insert_result[0]->getUsername(),
+        ];
+        echo json_encode($datas);
+    }else {
+        echo json_encode(["error" => $insert_result]);
+    }
     die;
 }
 ?>
@@ -24,7 +36,7 @@ if (isset($_POST["username"])){
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="img/nav-img/th-r.jpeg">
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
     <title>🍫 Délicieuse recette de glace au chocolat 🍫</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/nav.css">
@@ -79,7 +91,6 @@ if (isset($_POST["username"])){
     <header class="header-text glace-banner" style="background-image: url('./img/recipes/chocopomme.jpg');">
         <p><?=$recipe->getName();?></p>
     </header>
-    <?php var_dump($_POST); ?>
 
     <main>
         <header class="general-infos">
@@ -91,6 +102,14 @@ if (isset($_POST["username"])){
                     <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> Préparation: <?=$recipe->getPreparationTime();?> minutes</p>
                     <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> cuisson: <?=$recipe->getCookingTime();?> minutes</p>
                     <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> Repos: <?=$recipe->getRestTime();?> minutes</p>
+                    <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> Avis (<?=sizeof($recipe->getComments())?>):
+                        <?php for($i=0;$i<floor($recipe->getStarAverage()/2);$i++):?>
+                            <i class="fa-solid fa-star aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="1000"></i>
+                        <?php endfor; ?>
+                        <?php if($recipe->getStarAverage() % 2 == 1): ?>
+                            <i class="fa-solid fa-star-half aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="2500"></i>
+                        <?php endif; ?>
+                    </p>
                 </div>
                 <div class="information" style="background-color: rgb(166 62 4);border-radius: 30px;color: #e4e4e4;margin: 20px;">
                     <h3 style="background-color: rgb(90, 35, 20);width: 100%;margin-top: 0;padding: 16px 0 16px 0;border-radius: 30px 30px 0 0;color: #e4e4e4;text-decoration: none;text-align: center;">Ingrédients</h3>
@@ -120,6 +139,9 @@ if (isset($_POST["username"])){
             <div>
                 <div class="row">
                     <div class="col-lg-12">
+                        <div id="error-message" style="background-color: rgb(166 62 4 / 77%);height: 4em;border: 2px solid brown;border-radius: 1em;text-align: center;display: none;flex-direction: column;justify-content: center;">
+                            <p style="margin: 0;color: rgb(90, 35, 20);">Une erreur est survenue lors de l'insertion</p>
+                        </div>
                         <h3 id="comments-form-button">Laissez un commentaire <img src="./img/recipes/arrow.svg" height="50"></h3>
                         <form action="./" class="contact-form" method="post" id="comment-form" style="display: none;">
                             <div class="row">
