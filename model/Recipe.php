@@ -1,5 +1,6 @@
 <?php
 
+require_once("Trait/TraitTimeToString.php");
 require_once("SubRecipe.php");
 require_once("Instruction.php");
 require_once("Ingredient.php");
@@ -39,6 +40,8 @@ class Recipe{
     $this->setCategories($categories);
     $this->setComments($comments);
   }
+
+  use TraitTimeToString;
 
   public static function getRecipeById(PDO $db, int $id):self|string{
     $sql = "
@@ -152,13 +155,13 @@ class Recipe{
     ";
 
     try {
+      $db->exec('SET SESSION group_concat_max_len = 10000;');
       $query = $db->query($sql);
       $result = $query->fetchAll(PDO::FETCH_ASSOC);
       $query->closeCursor();
     }catch (Exception $e){
       return $e->getMessage();
     }
-    
     // $result contains the sub_recipes SQL
     $sub_recipes = [];
     for ($i=0;$i<sizeof($result);$i++){
@@ -168,8 +171,8 @@ class Recipe{
       $instructions_texts = $sub_recipe["instructions"] ? explode(self::SEPARATOR_DB, $sub_recipe["instructions"]) : [];
       $instructions_imgs = $sub_recipe["instructions_image_url"] ? explode(self::SEPARATOR_DB, $sub_recipe["instructions_image_url"]) : [];
       $sub_recipe_instructions = [];
-      for ($i=0;$i<sizeof($instructions_ids);$i++){
-        array_push($sub_recipe_instructions, new Instruction($instructions_ids[$i], $instructions_texts[$i], $instructions_imgs[$i]));
+      for ($j=0;$j<sizeof($instructions_ids);$j++){
+        array_push($sub_recipe_instructions, new Instruction($instructions_ids[$j], $instructions_texts[$j], $instructions_imgs[$j]));
       }
       array_push($sub_recipes, new SubRecipe($sub_recipe["id"], $sub_recipe["title"], $sub_recipe["image_url"], $sub_recipe["preparation_time"], $sub_recipe_instructions));
     }
@@ -342,9 +345,9 @@ class Recipe{
     if (sizeof($this->comments)===0)return 0;
     $total = 0;
     foreach($this->comments as $comment){
-      $total += $comment->getStars();
+      $total += $comment->getStars() * 2;
     }
-    $avg = ceil(($total * 2) / sizeof($this->comments));
+    $avg = ceil($total / sizeof($this->comments));
     return $avg;
   }
   /**
@@ -402,5 +405,26 @@ class Recipe{
 
     $this->comments = $comments;
     return $this;
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getPreparationTimeToString():string{
+    return $this->timeToString($this->getPreparationTime());
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getRestTimeToString():string{
+    return $this->timeToString($this->getRestTime());
+  }
+
+  /**
+   * @return string format example : "1 heure et 30 minutes"
+   */
+  public function getCookingTimeToString():string{
+    return $this->timeToString($this->getCookingTime());
   }
 }

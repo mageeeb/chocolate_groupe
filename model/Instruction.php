@@ -31,7 +31,10 @@ class Instruction{
     return $this;
   }
 
-  public function delete(PDO $db):?string{
+  /**
+   * @return true if success , string if error
+   */
+  public function delete(PDO $db):string{
     try {
       $sql = "DELETE FROM `instruction` WHERE id=?;";
       $prepare = $db->prepare($sql);
@@ -41,8 +44,6 @@ class Instruction{
     }catch (Exception $e){
       return $e->getMessage();
     }
-
-    return null;
   }
 
   // getters
@@ -64,5 +65,9 @@ class Instruction{
   public function setImgUrl(string $img_url):self{
     $this->img_url = $img_url;
     return $this;
+  }
+
+  public function __toString(): string{
+    return $this->getText();
   }
 }

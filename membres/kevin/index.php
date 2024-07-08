@@ -6,7 +6,7 @@ $pdo = new PDO( DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT.";c
 DB_LOGIN,
 DB_PWD);
 
-
 $recipe = Recipe::getRecipeById($pdo, ID_RECIPE_GLACE_AU_CHOCOLAT);
+$recipeAverage = $recipe->getStarAverage();
 
-var_dump($recipe);
+require_once "glace-au-chocolat.php";
