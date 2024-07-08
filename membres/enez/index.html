@@ -69,7 +69,7 @@
             <div class="informations">
                 <div class="card" data-aos="fade-down" data-aos-duration="1500">
                     <h3>Informations utiles :</h3>
-                    <p>&nbsp;<i class="fa-solid fa-person"></i> Servis pour: 8 personnes</p>
+                    <p><i class="fa-solid fa-person"></i> Pour : 8 personnes</p>
                     <p><i class="fa-solid fa-clock"></i> Préparation: 1 heure 10mn</p>
                     <p><i class="fa-solid fa-clock"></i> Cuisson: 40 minutes</p>
                     <p><i class="fa-solid fa-clock"></i> Repos: 1h5 heures</p>
@@ -85,7 +85,6 @@
                         <li><i class="fa-solid fa-receipt"></i> 0.5 cuillère à café de bicarbonate de soude</li>
                     </ul>
                 </div>
-            </div>
         </header>
     </main>
         </header>
@@ -300,7 +299,9 @@
         options.distance = "200px";
         ScrollReveal().reveal(".copyright", options);
 
-        AOS.init();
+        AOS.init({
+            once : true,
+        });
 
     </script>
 </body>
