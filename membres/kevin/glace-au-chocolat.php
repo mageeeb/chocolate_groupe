@@ -176,8 +176,8 @@
                                     <div class="comment-rating">
                                         <span>Note : </span>
                                         <?php $stars = $comment->getStars(); ?>
-                                        <?php for($i = 0; $i < 5; ++$i): ?>
-                                            <i class="fa fa-star <?= $i <= $stars ? 'checked' : '' ?>"></i>
+                                        <?php for($i = 0; $i < $stars; ++$i): ?>
+                                            <i class="fa fa-star"></i>
                                         <?php endfor ?>
                                     </div>
                                 </div>
