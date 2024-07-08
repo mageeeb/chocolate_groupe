@@ -111,36 +111,37 @@
     </div>
    
     <header class="header-text glace-banner">
-        <h1>Mousse au chocolat</h1>
+        <h1><?= $recipe->getName() ?></h1>
     </header>
 <!-----------------contenu--------------------------->
 <main>
     <header class="general-infos">
-        <h2 class="display-5 mt-5">Mousse au chocolat</h2>
-        <h2 class="mt-5 mb-5">"Plongez dans un Nuage de Douceur : Découvrez Notre Recette Authentique de Mousse au Chocolat, une Harmonie Parfaite de Légèreté et de Fondant qui Transformera Chaque Cuillère en un Instant de Pur Bonheur"</h2>
+        <h2 class="display-5 mt-5"><?= $recipe->getName() ?></h2>
+        <h2 class="mt-5 mb-5"><?= $recipe->getDescription() ?></h2>
         <div class="informations border rounded-2 border-5 border-dark">
             <div>
                 <h3>Évaluation :</h3>
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                <p><i class="fa-solid fa-message"></i> <a href="#coms">4 commentaires</a></p>
+                <?php for($i = 2; $i <= $recipeAverage; $i+=2): ?>
+                        <i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                    <?php endfor ?>
+                    <?php if($recipeAverage % 2 !== 0): ?>
+                        <i class="fa-solid fa-star-half" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                    <?php endif ?>
+                <p><i class="fa-solid fa-message"></i> <a href="#coms"><?= sizeof($recipe->getComments()) ?> commentaire<?= sizeof($recipe->getComments()) > 1 ? 's' : '' ?></a></p>
                 <button class="btn" style="background-color: #4B2E17;color: white;" onclick="printDiv('page')" value="print a div!">Imprimer la recette</button>
             </div>
             <div>
                 <h3>Informations utiles :</h3>
-                <p>&nbsp;<i class="fa-solid fa-person"></i> Servis pour: 4 personnes</p>
-                <p><i class="fa-solid fa-clock"></i> Préparation: 30min</p>
-                <p><i class="fa-solid fa-clock"></i> Repos: 2 heures</p>
+                <p>&nbsp;<i class="fa-solid fa-person"></i> Servis pour:  <?= $recipe->getNbPeople() ?> personne<?= $recipe->getNbPeople() > 1 ? 's' : '' ?></p>
+                <p><i class="fa-solid fa-clock"></i> Préparation: <?= $recipe->getPreparationTimeToString() ?></p>
+                <p><i class="fa-solid fa-clock"></i> Repos: <?= $recipe->getRestTimeToString() ?></p>
             </div>
             <div>
                 <h3>Ingrédients :</h3>
                 <ul>
-                    <li><i class="fa-solid fa-receipt"></i> 400 grammes de chocolat noir (en morceaux)</li>
-                    <li><i class="fa-solid fa-receipt"></i> 100 grammes de beurre  </li>
-                    <li><i class="fa-solid fa-receipt"></i> 4 jaunes d’oeuf </li>
-                    <li><i class="fa-solid fa-receipt"></i> 10 blancs d’œufs </li>
-                    <li><i class="fa-solid fa-receipt"></i> 100 grammes de sucre </li>
-                    <li><i class="fa-solid fa-receipt"></i> 1 décilitre de crème fraîche </li>
-                    <li><i class="fa-solid fa-receipt"></i> 4 noix </li>
+                <?php foreach($recipe->getIngredients() as $ingredient): ?>
+                            <li><i data-aos="flip-right" data-aos-delay="500" class="fa-solid fa-receipt"></i> <?= $ingredient ?></li>
+                        <?php endforeach ?>
                 </ul>
             </div>
         </div>
@@ -159,59 +160,21 @@
         <div class="col-md-2 d-flex flex-column align-items-center justify-content-center">
             <img id="img4" src="img/recipes/Mousse/plouf1.png" style="width: 300px;" class="me-5"  data-aos="zoom-in">
         </div>
-        <div class="steps mt-5">
-            <h2 class="text-center mb-4">Desserts Pure Chocomousse<br><i class="fa-solid fa-clock"></i> 30 min</h2>
-            <div class="row border rounded-2 border-5 border-dark">
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">1: Faites fondre le chocolat au bain-marie avec le beurre.</p>
+        <?php foreach($recipe->getSubRecipes() as $subRecipe): ?>
+            <div class="steps mt-5">
+                <h2 class="text-center mb-4"><?= $subRecipe->getTitle() ?> <br><i class="fa-solid fa-clock"></i> <?= $subRecipe->getPreparationTimeToString() ?></h2>
+                <div class="row border rounded-2 border-5 border-dark">
+                <?php foreach($subRecipe->getInstructions() as $key => $instruction): ?>
+                    <div class="col-md-6 mb-4">
+                        <div class="step">
+                            <input type="checkbox" class="step-checkbox me-3">
+                            <p class="step-desc"><?= ++$key ?>: <?= $instruction ?></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">2: Incorporez 50 g de sucre aux jaunes d’œufs et battez-les.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">3: Ajoutez le sucre restant aux blancs d’œufs et battez-les en neige.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">4: Fouettez également la crème jusqu’à ce qu’elle soit bien ferme.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">5: Plongez le bol sous l’eau froide et versez-y les jaunes d’œufs.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">6 :Incorporez la crème fraîche, puis ajoutez délicatement les blancs d’œufs.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">7: Répartissez dans des verres et laissez-la durcir pendant 2 heures au frigo.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="step">
-                        <input type="checkbox" class="step-checkbox me-3">
-                        <p class="step-desc">8: Servez avec  un biscuit en guise de garniture.</p>
-                    </div>
+                <?php endforeach ?>
                 </div>
             </div>
-        </div>
+        <?php endforeach ?>
     </section>
 </main>
 <script>
@@ -285,7 +248,24 @@
                     <div class="comments-section">
                         <h2>Les Commentaires</h2>
                         <div class="comments-list" id="comments-list">
-                            <!-- Commentaires a venir ici -->
+                        <?php foreach($recipe->getComments() as $comment): ?>
+                                    <div class="comment">
+                                        <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
+                                        <div class="d-flex my-3 gap-5">
+                                            <div class="fw-bold" style="color: rgb(var(--main-color))">
+                                                Sujet : <?= $comment->getSubject() ?>
+                                            </div>
+                                            <div class="comment-rating">
+                                                <span>Note : </span>
+                                                <?php $stars = $comment->getStars(); ?>
+                                                <?php for($i = 0; $i < 5; ++$i): ?>
+                                                    <i class="fa fa-star <?= $i <= $stars ? 'checked' : '' ?>"></i>
+                                                <?php endfor ?>
+                                            </div>
+                                        </div>
+                                        <div><?= $comment->getComment() ?></div>
+                                    </div>
+                                <?php endforeach ?>
                         </div>
                     </div>
                 </div>
