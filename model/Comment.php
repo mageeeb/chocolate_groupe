@@ -31,7 +31,7 @@ class Comment{
     return null;
   }
 
-  public static function getCommentsByUserAndRecipe(PDO $db, int $recipe_id, int $user_name):array|string{
+  public static function getCommentsByUserAndRecipe(PDO $db, int $recipe_id, string $user_name):array|string{
     try {
       $sql = "SELECT `comment`.* FROM `comment` WHERE `recipe_id`=? AND `user_name`=?";
       $prepare = $db->prepare($sql);
