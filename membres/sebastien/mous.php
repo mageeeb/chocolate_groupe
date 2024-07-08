@@ -91,7 +91,7 @@
                 <a href="#"><li>Mousse au chocolat</li></a>
                 <a href="../julian/"><li>Polish cake</li></a>
                 <a href="../maxim/"><li>Fondant au chocolat</li></a>
-                <a href="#"><li>Tarte au chocolat</li></a>
+                <a href="../laura/"><li>Cake aux amandes</li></a>
                 <a href="../charly/"><li>Cookies au chocolat</li></a>
                 <a href="../kevin/"><li>Glace au chocolat</li></a>
                 <a href="../pomme/"><li>Choco Pomme</li></a>
@@ -256,12 +256,11 @@
                                     <div class="comment-rating">
                                         <span>Note : </span>
                                         <?php $stars = $comment->getStars(); ?>
-                                        <?php for($i = 0; $i < 5; ++$i): ?>
-                                            <i class="fa fa-star <?= $i <= $stars ? 'checked' : '' ?>"></i>
+                                        <?php for($i = 0; $i < $stars; ++$i): ?>
+                                            <i class="fa fa-star "></i>
                                         <?php endfor ?>
                                     </div>
                                 </div>
-                                   
                             <?php endforeach ?>
                         </div>
                     </div>
