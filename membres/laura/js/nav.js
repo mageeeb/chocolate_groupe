@@ -1,4 +1,4 @@
-// Only God and me know what i'm doing
+
 $(function(){
     const $nav = $('nav');
     let scrollNav = false;
@@ -119,4 +119,3 @@ $(function(){
 
 });
 
-// Now only God knows.
