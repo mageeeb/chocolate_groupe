@@ -32,7 +32,8 @@ $(document).ready(function() {
                             '<div>' + escapeHtml(comment) + '</div>' +
                           '</div>';
 
-        $(commentHtml).hide().appendTo('#comments-list').fadeIn(1000);
+        $('#comments-list').prepend($(commentHtml).hide())
+        $(".comment").eq(0).fadeIn(1000);
 
         // Réinitialiser le formulaire
         $('#comment-form')[0].reset();
