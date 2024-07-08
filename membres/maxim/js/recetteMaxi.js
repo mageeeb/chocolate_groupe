@@ -39,11 +39,14 @@ $(".ps-photo").hover(function(){
 // end carousel
 
 //hidden form
-
 $(document).ready(function () {
   $("#contactForm").hide();
   $(".showForm").click(function () {
+    if ($("#contactForm").is(":visible")) {
+      $("#contactForm").hide(2000);
+    } else {
       $("#contactForm").show(2000);
+    }
   });
 });
 
