@@ -11,9 +11,20 @@ $recipe = Recipe::getRecipeById($db, $recipe_id);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
-    echo json_encode($_POST);
     $insert_result = Comment::insertComment($db, $recipe_id, $_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]);
-    var_dump($insert_result);
+    if (gettype($insert_result) == "array"){
+        $datas = [
+        "id"=> $insert_result[0]->getId(),
+        "comment"=> $insert_result[0]->getComment(),
+        "subject"=> $insert_result[0]->getSubject(),
+        "created_date"=> $insert_result[0]->getCreatedDate(),
+        "stars"=> $insert_result[0]->getStars(),
+        "username"=> $insert_result[0]->getUsername(),
+        ];
+        echo json_encode($datas);
+    }else {
+        echo json_encode(["error" => $insert_result]);
+    }
     die;
 }
 ?>
