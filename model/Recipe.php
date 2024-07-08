@@ -73,12 +73,12 @@ class Recipe{
       LEFT JOIN (
         -- comments
         SELECT
-          GROUP_CONCAT(com.id SEPARATOR '|||') AS comments_ids,
-          GROUP_CONCAT(com.comment SEPARATOR '|||') AS comments,
-          GROUP_CONCAT(com.subject SEPARATOR '|||') AS subjects,
-          GROUP_CONCAT(com.created_date SEPARATOR '|||') AS comments_created_dates,
-          GROUP_CONCAT(com.stars SEPARATOR '|||') AS comments_stars,
-          GROUP_CONCAT(com.user_name SEPARATOR '|||') AS comments_username,
+          GROUP_CONCAT(com.id ORDER BY com.created_date DESC SEPARATOR '|||') AS comments_ids,
+          GROUP_CONCAT(com.comment ORDER BY com.created_date DESC SEPARATOR '|||') AS comments,
+          GROUP_CONCAT(com.subject ORDER BY com.created_date DESC SEPARATOR '|||') AS subjects,
+          GROUP_CONCAT(com.created_date ORDER BY com.created_date DESC SEPARATOR '|||') AS comments_created_dates,
+          GROUP_CONCAT(com.stars ORDER BY com.created_date DESC SEPARATOR '|||') AS comments_stars,
+          GROUP_CONCAT(com.user_name ORDER BY com.created_date DESC SEPARATOR '|||') AS comments_username,
           com.recipe_id AS com_recipe_id
         FROM `comment` com
         GROUP BY com.recipe_id
