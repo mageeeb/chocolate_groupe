@@ -32,7 +32,8 @@ $(document).ready(function() {
                             '<div>' + escapeHtml(comment) + '</div>' +
                           '</div>';
 
-        $(commentHtml).hide().appendTo('#comments-list').fadeIn(1000);
+        $('#comments-list').prepend($(commentHtml).hide())
+        $(".comment").eq(0).fadeIn(1000);
 
         // Réinitialiser le formulaire
         $('#comment-form')[0].reset();
@@ -48,7 +49,14 @@ $(document).ready(function() {
                 "stars": rating
             })
         }).then(res => {
-            console.log(res);
+            res.json().then((res)=>{
+                if (res.error){
+                    $("#error-message p").text(res.error);
+                    $("#error-message").slideDown(1000).css("display", "flex");
+                }else{
+                    $("#error-message").slideUp(1000);
+                }
+            })
         });
     });
 
