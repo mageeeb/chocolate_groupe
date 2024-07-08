@@ -78,10 +78,9 @@ class Recipe{
           GROUP_CONCAT(com.subject SEPARATOR '|||') AS subjects,
           GROUP_CONCAT(com.created_date SEPARATOR '|||') AS comments_created_dates,
           GROUP_CONCAT(com.stars SEPARATOR '|||') AS comments_stars,
-          GROUP_CONCAT(u.name SEPARATOR '|||') AS comments_username,
+          GROUP_CONCAT(com.user_name SEPARATOR '|||') AS comments_username,
           com.recipe_id AS com_recipe_id
         FROM `comment` com
-        LEFT JOIN `user` u ON com.user_id=u.id
         GROUP BY com.recipe_id
       ) com ON com.com_recipe_id=r.id
       WHERE id=$id;
