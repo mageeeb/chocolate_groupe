@@ -1,12 +1,12 @@
 START TRANSACTION;
 use choco;
 INSERT INTO `user`(`name`, `password`, `is_admin`)
-VALUES('Kevin', 'Kevin123', 1);
+VALUES('Enez', 'Enez123', 1);
 
 SET @user_id = LAST_INSERT_ID();
 
 INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Glace au Chocolat", "Découvrez le plaisir d’une glace au chocolat riche et onctueuse, où la douceur de la crème anglaise se mêle à l’intensité du chocolat noir. Chaque bouchée est une célébration des saveurs, un équilibre parfait entre la fraîcheur de la glace vanille et la profondeur du chocolat.", 4, "img/recipes/glace/glace-chocolat.jpeg", 60, 0, 720);
+VALUES("Cupavci", "", 4, "../img/", 60, 0, 720);
 
 SET @recipe_id = LAST_INSERT_ID();
 
@@ -28,10 +28,7 @@ VALUES
 (@sub_recipe_id1, "Une fois le mélange bien homogène, reversez le tout dans la casserole et laissez cuire à feu doux quelques minutes.", NULL, 4),
 (@sub_recipe_id1, "La crème doit épaissir légèrement et napper votre cuillère en bois. <strong>Notre astuce de cooker</strong> : Si vous faites un trait sur le dos de la cuillère et qu’il reste net, votre crème anglaise est prête !", NULL, 5),
 (@sub_recipe_id1, "Versez la crème en 3 fois sur le chocolat fondu afin de bien l’incorporer", NULL, 6),
-(@sub_recipe_id1, "Couvrez la préparation au contact avec un film alimentaire et placez-la au frais pendant 12 heures <i data-aos=\"flip-right\" data-aos-delay=\"500\" class=\"fa-solid fa-clock\"></i>.", NULL, 7),
-(@sub_recipe_id2, "Montez la crème liquide entière en chantilly puis incorporez-la délicatement avec une maryse à la crème anglaise.", NULL, 1),
-(@sub_recipe_id2, "Replacez la préparation au réfrigérateur quelques heures avant de mettre à turbiner en sorbetière pendant 40 à 45 minutes <i data-aos=\"flip-right\" data-aos-delay=\"500\" class=\"fa-solid fa-clock\"></i>.", NULL, 2),
-(@sub_recipe_id2, "Réservez la glace au congélateur avant de servir.", NULL, 3);
+(@sub_recipe_id1, "Couvrez la préparation au contact avec un film alimentaire et placez-la au frais pendant 12 heures <i data-aos=\"flip-right\" data-aos-delay=\"500\" class=\"fa-solid fa-clock\"></i>.", NULL, 7);
 
 INSERT INTO `ingredient_has_recipe`(`recipe_id`, `ingredient_id`, `ingredient_unity_id`, `quantity`)
 VALUES(@recipe_id , 7, 1, 75),
