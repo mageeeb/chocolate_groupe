@@ -140,6 +140,9 @@ if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
             <div>
                 <div class="row">
                     <div class="col-lg-12">
+                        <div id="error-message" style="background-color: rgb(166 62 4 / 77%);height: 4em;border: 2px solid brown;border-radius: 1em;text-align: center;display: none;flex-direction: column;justify-content: center;">
+                            <p style="margin: 0;color: rgb(90, 35, 20);">Une erreur est survenue lors de l'insertion</p>
+                        </div>
                         <h3 id="comments-form-button">Laissez un commentaire <img src="./img/recipes/arrow.svg" height="50"></h3>
                         <form action="./" class="contact-form" method="post" id="comment-form" style="display: none;">
                             <div class="row">

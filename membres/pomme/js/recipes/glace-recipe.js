@@ -48,7 +48,14 @@ $(document).ready(function() {
                 "stars": rating
             })
         }).then(res => {
-            console.log(res);
+            res.json().then((res)=>{
+                if (res.error){
+                    $("#error-message p").text(res.error);
+                    $("#error-message").slideDown(1000).css("display", "flex");
+                }else{
+                    $("#error-message").slideUp(1000);
+                }
+            })
         });
     });
 
