@@ -71,13 +71,13 @@ class Comment{
     return $this->id;
   }
   public function getComment():string{
-    return $this->comment;
+    return nl2br($this->comment);
   }
   public function getSubject():string{
     return $this->subject;
   }
   public function getCreatedDate():string{
-    return $this->created_date;
+    return (new DateTime($this->created_date))->format('d/m/Y à H:i:s');
   }
   public function getStars():int{
     return $this->stars;
