@@ -31,15 +31,15 @@ class Comment{
     return null;
   }
 
-  public static function getCommentsByUserAndRecipe(PDO $db, int $recipe_id, int $user_id):array|string{
+  public static function getCommentsByUserAndRecipe(PDO $db, int $recipe_id, int $user_name):array|string{
     try {
-      $sql = "SELECT `comment`.*, `user`.`name` AS username FROM `comment` LEFT JOIN `user` ON `comment`.`user_id`=`user`.`id` WHERE `recipe_id`=? AND `user_id`=?";
+      $sql = "SELECT `comment`.* FROM `comment` WHERE `recipe_id`=? AND `user_name`=?";
       $prepare = $db->prepare($sql);
-      $prepare->execute([$recipe_id, $user_id]);
+      $prepare->execute([$recipe_id, $user_name]);
       $results = $prepare->fetchAll();
       $comments = [];
       foreach($results as $result){
-        array_push($comments, new Comment($result["id"], $result["comment"], $result['subject'], $result["created_date"], $result["stars"], $result["username"]));
+        array_push($comments, new Comment($result["id"], $result["comment"], $result['subject'], $result["created_date"], $result["stars"], $result["user_name"]));
       }
       $prepare->closeCursor();
       return $comments;
@@ -49,16 +49,16 @@ class Comment{
   }
 
   /** stars must be from 1 -> 10 */
-  public static function insertComment(PDO $db, int $recipe_id, int $user_id, string $comment, string $subject, int $stars){
-    if (sizeof(self::getCommentsByUserAndRecipe($db, $recipe_id, $user_id))>=self::MAX_COMMENT_BY_PAGE_AND_USER){
+  public static function insertComment(PDO $db, int $recipe_id, string $user_name, string $comment, string $subject, int $stars){
+    if (sizeof(self::getCommentsByUserAndRecipe($db, $recipe_id, $user_name))>=self::MAX_COMMENT_BY_PAGE_AND_USER){
       return "trop de commentaires insérés par vous sur cette page";
     }
     try {
-      $sql = "INSERT INTO `comment`(`recipe_id`, `user_id`, `comment`, `subject`, `stars`) VALUES(?,?,?,?,?);";
+      $sql = "INSERT INTO `comment`(`recipe_id`, `user_name`, `comment`, `subject`, `stars`) VALUES(?,?,?,?,?);";
       $prepare = $db->prepare($sql);
-      $prepare->execute([$recipe_id, $user_id, $comment, $subject, $stars]);
+      $prepare->execute([$recipe_id, $user_name, $comment, $subject, $stars]);
       $prepare->closeCursor();
-      return self::getCommentsByUserAndRecipe($db, $recipe_id, $user_id);
+      return self::getCommentsByUserAndRecipe($db, $recipe_id, $user_name);
     }catch (Exception $e){
       return $e->getMessage();
     }
