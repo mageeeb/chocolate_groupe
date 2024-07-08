@@ -91,7 +91,6 @@ if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
     <header class="header-text glace-banner" style="background-image: url('./img/recipes/chocopomme.jpg');">
         <p><?=$recipe->getName();?></p>
     </header>
-    <?php var_dump($_POST); ?>
 
     <main>
         <header class="general-infos">
