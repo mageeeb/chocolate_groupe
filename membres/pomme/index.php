@@ -92,6 +92,14 @@ if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
                     <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> Préparation: <?=$recipe->getPreparationTime();?> minutes</p>
                     <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> cuisson: <?=$recipe->getCookingTime();?> minutes</p>
                     <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> Repos: <?=$recipe->getRestTime();?> minutes</p>
+                    <p style="margin: 30px;"><i class="fa-solid fa-clock" style="color: #e4e4e4;"></i> Avis (<?=sizeof($recipe->getComments())?>):
+                        <?php for($i=0;$i<floor($recipe->getStarAverage()/2);$i++):?>
+                            <i class="fa-solid fa-star aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="1000"></i>
+                        <?php endfor; ?>
+                        <?php if($recipe->getStarAverage() % 2 == 1): ?>
+                            <i class="fa-solid fa-star-half aos-init aos-animate" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="2500"></i>
+                        <?php endif; ?>
+                    </p>
                 </div>
                 <div class="information" style="background-color: rgb(166 62 4);border-radius: 30px;color: #e4e4e4;margin: 20px;">
                     <h3 style="background-color: rgb(90, 35, 20);width: 100%;margin-top: 0;padding: 16px 0 16px 0;border-radius: 30px 30px 0 0;color: #e4e4e4;text-decoration: none;text-align: center;">Ingrédients</h3>
