@@ -89,15 +89,15 @@
         <div id="nav-recipes-container">
             <ul id="nav-recipes" style="display: none;">
                 <a href="#"><li>Mousse au chocolat</li></a>
-                <a href="#"><li>Cake au chocolat</li></a>
-                <a href="#"><li>Fondant au chocolat</li></a>
+                <a href="../julian/"><li>Polish cake</li></a>
+                <a href="../maxim/"><li>Fondant au chocolat</li></a>
                 <a href="#"><li>Tarte au chocolat</li></a>
-                <a href="#"><li>Cookies au chocolat</li></a>
+                <a href="../charly/"><li>Cookies au chocolat</li></a>
                 <a href="../kevin/"><li>Glace au chocolat</li></a>
-                <a href="#"><li>Bûche de Noël au chocolat</li></a>
-                <a href="#"><li>Moelleux au chocolat</li></a>
-                <a href="#"><li>Truffes au chocolat</li></a>
-                <a href="#"><li>Macarons au chocolat</li></a>
+                <a href="../pomme/"><li>Choco Pomme</li></a>
+                <a href="../simona/"><li>Brownie framboise</li></a>
+                <a href="../simona/"><li>Amandina Cake</li></a>
+                <a href="../enez/"><li>cupavci</li></a>
             </ul>
             <div id="previews">
             </div>
@@ -248,24 +248,21 @@
                     <div class="comments-section">
                         <h2>Les Commentaires</h2>
                         <div class="comments-list" id="comments-list">
-                        <?php foreach($recipe->getComments() as $comment): ?>
-                                    <div class="comment">
-                                        <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
-                                        <div class="d-flex my-3 gap-5">
-                                            <div class="fw-bold" style="color: rgb(var(--main-color))">
-                                                Sujet : <?= $comment->getSubject() ?>
-                                            </div>
-                                            <div class="comment-rating">
-                                                <span>Note : </span>
-                                                <?php $stars = $comment->getStars(); ?>
-                                                <?php for($i = 0; $i <  $stars; ++$i): ?>
-                                                    <i class="fa fa-star"></i>
-                                                <?php endfor ?>
-                                            </div>
-                                        </div>
-                                        <div><?= $comment->getComment() ?></div>
+                         <?php foreach($recipe->getComments() as $comment): ?>
+                                <div class="comment">
+                                    <div class="d-flex justify-content-between"><div><strong>Nom : </strong><?= $comment->getUsername() ?></strong></div> <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div> 
+                                    <div><strong>sujet : </strong><?= $comment->getSubject() ?></div> 
+                                    <div><strong> Message : </strong><?= $comment->getComment() ?></div> 
+                                    <div class="comment-rating">
+                                        <span>Note : </span>
+                                        <?php $stars = $comment->getStars(); ?>
+                                        <?php for($i = 0; $i < 5; ++$i): ?>
+                                            <i class="fa fa-star <?= $i <= $stars ? 'checked' : '' ?>"></i>
+                                        <?php endfor ?>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                                   
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
