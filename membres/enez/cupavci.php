@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="img/nav-img/th-r.jpeg">
+    <link rel="icon" type="image/x-icon" href="../enez/img/logo.png">
     <title>🍫 Délicieuse recette de glace au chocolat 🍫</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/nav.css">
@@ -65,7 +65,6 @@
     <main class="main-content">
         <header class="general-infos">
             <h2>Début de la recette :</h2>
-            <p class="sub-recipe">Les Cupavci sont des petits gâteaux traditionnels de Bosnie-Herzégovine. Ils sont très appréciés pour leur goût sucré et leur texture moelleuse. Voici la recette pour réaliser ces délicieux gâteaux chez vous.</p>
             <div class="informations">
                 <div class="card" data-aos="fade-down" data-aos-duration="1500">
                     <h3>Informations utiles :</h3>
