@@ -1,4 +1,5 @@
 START TRANSACTION;
+use choco;
 INSERT INTO `user`(`name`, `password`, `is_admin`)
 VALUES('seb', 'seb123', 1);
 SET @user_id = LAST_INSERT_ID();
@@ -34,9 +35,9 @@ VALUES(@recipe_id , 28,1,400),
 (@recipe_id , 20, 4,1),
 (@recipe_id , 4, NULL, 4);
 
-INSERT INTO `comment`(`recipe_id`, `user_id`, `subject`,`comment`, `created_date`, `stars`)
-VALUES(@recipe_id, @user_id, "chocomous","cannibalisme!!!", NULL, 1),
-(@recipe_id, @user_id,"suce", "délicieux!!!", NULL, 5);
+INSERT INTO `comment`(`recipe_id`, `user_name`, `subject`,`comment`, `stars`)
+VALUES(@recipe_id, "seb", "chocomous","cannibalisme!!!", 1),
+(@recipe_id, "seb","chocomouse", "délicieux!!!", 5);
 
 INSERT INTO `recipe_has_category`(`recipe_id`, `category_id`)
 VALUES(@recipe_id, 5);
