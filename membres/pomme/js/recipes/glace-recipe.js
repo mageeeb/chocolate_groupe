@@ -33,6 +33,11 @@ $(document).ready(function() {
                           '</div>';
 
 
+        if (rating===0){
+            $("#error-message p").text("Veuillez insérer un nombre d'étoiles");
+            $("#error-message").slideDown(1000).css("display", "flex");
+            return;
+        }
         // Réinitialiser le formulaire
         $('#comment-form')[0].reset();
         $('#rating').val(0);
