@@ -148,10 +148,9 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
                                     <input type="text" id="name" placeholder="Votre nom" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" id="email" placeholder="Votre email" required>
+                                    <input type="text" id="subject" placeholder="Sujet">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="text" id="subject" placeholder="Sujet">
                                     <textarea id="comment" placeholder="Commentaire" required></textarea>
                                     <div class="star-rating">
                                         <i class="fa fa-star" data-rating="1"></i>
