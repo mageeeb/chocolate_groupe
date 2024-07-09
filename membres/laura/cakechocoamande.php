@@ -58,7 +58,7 @@
   .header-text{
     background-position-x: center;
     background-position-y: 45%;
-    margin-left: auto%;
+    margin-left: auto;
     margin-right: auto;
     background-size: cover;
     
@@ -117,30 +117,30 @@
     
 
 
-    <header class="header-text glace-banner"style="background-image: url('img/img/gateau1.jpg');">
-        <p>Éclat choco-Amande</p>
+    <header class="header-text glace-banner"style="background-image: url('<?= $recipe->getImgUrl() ?>');">
+        <p><?= $recipe->getName() ?></p>
     </header>
     <div class="gateaushadow">
     <div class="recipe">
         <div class="recipe_image">
-            <img src="./img/img/gateau2.jpg" alt="cakechoco" />
+            <img src="<?= $recipe->getSubRecipes()[0]->getImgUrl() ?>" alt="cakechoco" />
         </div>
         
         <div class="recipe_content">
             <div class="recipe_content_heading">
-                <h1 class="usg_text usg_text-heading">Éclat choco-Amande</h1>
+                <h1 class="usg_text usg_text-heading"><?= $recipe->getName() ?></h1>
             </div>
             
             <div class="recipe_content_left-column">
                 <div class="recipe_content_left-column_time">
                     <div class="recipe_content_left-column_time_serves">
-                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Servis:</span> 6 personnes</p>
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Servis:</span> <?= $recipe->getNbPeople() ?> personne<?= $recipe->getNbPeople() > 1 ? 's' : '' ?></p>
                     </div>
                     <div class="recipe_content_left-column_time_prep">
-                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Preparation:</span> 55 mins</p>
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Preparation:</span> <?= $recipe->getPreparationTimeToString() ?></p>
                     </div>
                     <div class="recipe_content_left-column_time_cook">
-                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Cook:</span> 40 mins</p>
+                        <p class="usg_text usg_text-times"><span class="usg_text-times--text">Cook:</span> <?= $recipe->getCookingTimeToString() ?></p>
                     </div>
                     <div class="recipe_content_left-column_time_cook">
                         <p class="usg_text usg_text-times"><span class="usg_text-times--text">Degré de difficulté:</span>Facile</p>
@@ -152,95 +152,32 @@
                     <div class="recipe_content_left-column_ingredients_title">
                         <h3 class="usg_text usg_text-title">Ingredients</h3>
                         <ul class="usg_list recipe_content_left-column_ingredients_list">
-                            <li class="recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">6 cuillère à soupe de beurre doux fondu</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                180g de sucre brun<span class="recipe_content_left-column_ingredients_list_item_main"></span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                80g de miel<span class="recipe_content_left-column_ingredients_list_item_main"></span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">300 d'éclats d'amandes effilées, légèrement grillées</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">280g de farine</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">100g de chocolat en poudre</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">1 cuillère à café de bicarbonate de soude</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">1/2 cuillère à café de sel</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">100g de beurre doux mou</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">300g de sucre</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">3 gros oeufs</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">200g de babeurre</span>
-                            </li>
-                            <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
-                                <span class="recipe_content_left-column_ingredients_list_item_main">1 cuillère à café d'extrait de vanille pure</span>
-                            </li>
-                            
+                            <?php foreach($recipe->getIngredients() as $ingredient): ?>
+                                <li class="usg_list_item recipe_content_left-column_ingredients_list_item usg_text-regular">
+                                    <span class="recipe_content_left-column_ingredients_list_item_main"><?= $ingredient ?></span>
+                                </li>
+                            <?php endforeach ?>
                         </ul>
                     </div>
                 </div>
             </div>
-    
-            <div class="recipe_content_right-column">
-                <div class="recipe_content_right-column_description">
-                    <h3 class="usg_text usg_text-title">Préparation</h3>
-                    <p class="recipe_content_right-column_description_text usg_text-desc">
-                        Beurrez un moule haut et rond : le fond et les bords (vous pouvez aussi choisir un format individuel ou plus large).
-                        Versez 6 cuillères à soupe de beurre fondu dans le moule à gâteau et remuez pour en recouvrir le fond et les bords.
-                        Saupoudrez de sucre brun partout.
-                        Versez le miel sur le sucre et saupoudrez d'éclats d'amandes.
-                    </p>
+            <?php foreach($recipe->getSubRecipes() as $subRecipe): ?>
+                <div class="recipe_content_right-column">
+                    <div class="recipe_content_right-column_description">
+                        <h3 class="usg_text usg_text-title"><?= $subRecipe->getTitle() ?></h3>
+                        <ol class="usg_list recipe_content_right-column_steps_list">
+                            <?php foreach($subRecipe->getInstructions() as $key => $instruction): ?>
+                                <li class="usg_list_item recipe_content_right-column_steps_list_item"><?= $instruction ?></li>
+                            <?php endforeach ?>
+                        </ol>
+                    </div>
                 </div>
-    
-                <div class="recipe_content_right-column_steps">
-                    <ol class="usg_list recipe_content_right-column_steps_list">
-                        <li class="usg_list_item recipe_content_right-column_steps_list_item">In a large Faites en sorte de tapisser le moule de façon à ce que ça fasse l'enrobage complet du gâteau au chocolat.
-                            Préchauffez le four à 180°C.
-                            </li>
-                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Si vous le souhaitez, vous pouvez également faire caraméliser d'autres éclats d'amande dans une casserole en mélangeant le beurre, le miel et le sucre.
-                        Une fois le mélange chaud, baissez le feu et versez les éclats d'amande et mélangez bien pour les enrober.
-                        Laissez sur feu très doux.</li>
-                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Tamisez la farine, la poudre de cacao, le bicarbonate de soude et le sel ensemble. 
-                        Placez le beurre dans le bol d'un batteur électrique muni du fouet et fouettez jusqu'à consistance lisse et mousseuse.
-                        Ajoutez le sucre et continuez à mélanger.</li>
-                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Ajoutez les oeufs, un à un, en fouettant bien après chaque addition. 
-                        Continuer de battre jusqu'à consistance légère, environ 3 minutes. 
-                        Avec le mélangeur fonctionnant à petite vitesse, ajoutez un tiers des ingrédients secs et mélangez. 
-                        Ajoutez la moitié du babeurre et continuez à mélanger. 
-                        Ajoutez un autre tiers des ingrédients secs, mélangez et ajoutez le reste du babeurre et la vanille.
-                        Ajoutez le reste des ingrédients secs et mélanger jusqu'à consistance lisse. 
-                        Versez la pâte dans le moule.</li>
-                        <li class="usg_list_item recipe_content_right-column_steps_list_item">Enfournez 45 à 55 minutes. 
-                        Passez un couteau le long du bord du moule et retournez immédiatement le moule sur un plat de service. 
-                        Laissez-le reposer avec le plat. 
-                        Si la garniture est collée au moule, réchauffez le moule pour faire fondre le caramel puis le verser sur le gâteau. 
-                        Sinon, il vous reste toujours la préparation dans la casserole que vous pourrez déposer sur le gâteau.</li>
-                    </ol>
-                </div>
-    
+                <?php endforeach ?>
                 <div class="recipe_content_right-column_features">
                     <ul class="usg_list recipe_content_right-column_features_list">
                         <li class="usg_list_item recipe_content_right-column_features_list_item">Dégustez</li>
-                        
                     </ul>
                 </div>
-            </div>
         </div>
         
     </div>
@@ -265,7 +202,7 @@
                     <label for="star1">&#9733;</label>
                 </div>
                 <div class="comment">
-                    <label for="comment">Partagez votre avis !</label><br>
+                    <label for="comment">Partagez nous votre avis !</label><br>
                     <textarea id="comment" name="comment"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Envoyer</button>
@@ -274,9 +211,9 @@
 
 
 
-<!-- commantaire Principal -->
+<!-- commentaire Principal -->
 <div class="comments-container">
-    <h1>Commantaire<a href="http://creaticode.com"></a></h1>
+    <h1>Commentaire<a href="http://creaticode.com"></a></h1>
 
     <ul id="comments-list" class="comments-list">
         <li>
@@ -324,7 +261,7 @@
                     <div class="comment-box">
                         <div class="comment-head">
                             <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Bruno Jemenfou</a></h6>
-                            <span>hace 10 minutos</span>
+                            <span>Il y a 9 minute</span>
                             <i class="fa fa-reply"></i>
                             <i class="fa fa-heart"></i>
                         </div>
@@ -385,9 +322,7 @@
             <h3>Informations</h3>
             <div class="content_box">
               <ul>
-                <li> <i class="fab fa-linkedin"></i>
-                  <p>Instagram</p>
-                </li>
+                
                 <li><i class="fas fa-phone-square"></i>
                   <p>04 07 05 08 06</p>
                 </li>
