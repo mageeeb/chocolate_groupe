@@ -52,7 +52,15 @@ function StrikeThrough(index, element) {
 
     let sToStrike = text.substr(0, index + 1);
     let sAfter = (index < (text.length - 1)) ? text.substr(index + 1, text.length - index) : "";
-    element.children().eq(0).text(sToStrike);
-    element.children().eq(1).text(sAfter);
+    if (index==1 && element.children().eq(0).attr("checked")){
+        element.children().eq(0).prop("checked", false);
+        element.children().eq(0).removeAttr("checked");
+    }else if (index==1) {
+        element.children().eq(0).prop("checked", true);
+        element.children().eq(0).attr("checked", true);
+    }
+    element.children().eq(0).toggle;
+    element.children().eq(1).text(sToStrike);
+    element.children().eq(2).text(sAfter);
     return true;
 }

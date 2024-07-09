@@ -128,7 +128,7 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
             <h2 style="background-color: rgb(90, 35, 20);width: 100%;margin-top: 0;padding: 16px 0 16px 0;border-radius: 30px 30px 0 0;color: #e4e4e4;text-decoration: none;text-align: center;"><?=$sub_recipe->gettitle()?><br>( <i class="fa-solid fa-clock"></i> 5 min )</h2>
             <?php foreach($sub_recipe->getInstructions() as $key => $instruction): ?>
             <div class="step" style="margin: 10px 0 10px 0">
-                <p style="margin-left: 2em;"><strike></strike><span><?=$key + 1?>     <?=$instruction->getText()?></span></p>
+                <p style="margin-left: 2em;"><input type="radio"></input><strike></strike><span><?=$key + 1?>     <?=$instruction->getText()?></span></p>
             </div>
             <?php endforeach; ?>
         </div>
