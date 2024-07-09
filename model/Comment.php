@@ -48,6 +48,31 @@ class Comment{
     }
   }
 
+  /**
+   * For the form html. Check if the values is submit in the super var $_POST
+   */
+  public static function insertCommentByForm(PDO $db, int $id_recipe){
+    if (!isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]) || !ctype_digit($_POST["stars"])) return;
+    $username = trim(strip_tags($_POST["username"]));
+    $comment = trim(strip_tags($_POST["comment"]));
+    $subject = trim(strip_tags($_POST["subject"]));
+    // TODO: make error system display for user
+    if(
+      strlen($comment)
+      && 
+      strlen($username)
+      && 
+      strlen($subject)
+      &&
+      strlen($username) <= 50
+      &&
+      strlen($subject) <= 50
+      &&
+      strlen($comment) <= 2500
+    )
+      Comment::insertComment($db, $id_recipe, $username, $comment, $subject, $_POST["stars"]);
+  }
+
   /** stars must be from 1 -> 10 */
   public static function insertComment(PDO $db, int $recipe_id, string $user_name, string $comment, string $subject, int $stars){
     if (sizeof(self::getCommentsByUserAndRecipe($db, $recipe_id, $user_name))>=self::MAX_COMMENT_BY_PAGE_AND_USER){

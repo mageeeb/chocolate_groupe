@@ -135,17 +135,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-lg-8 offset-lg-2 col-xxl-6 offset-xxl-3">
-                        <form action="#" class="contact-form" id="comment-form" style="display: none;">
+                        <form action="" method="POST" class="contact-form" id="comment-form" style="display: none;" onsubmit="commentForm()">
                             <h3>Laissez-nous un commentaire <span>😊</span></h3>
                             <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <input type="text" id="name" placeholder="Votre nom" required>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <input type="email" id="email" placeholder="Votre email" required>
+                                <div class="col-12">
+                                    <input type="text" id="name" name="username" placeholder="Votre nom" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" id="subject" placeholder="Sujet">
+                                    <input type="text" id="subject" name="subject" placeholder="Sujet">
                                     <div id="comment" placeholder="Commentaire" required></div>
                                     <div class="star-rating position-relative">
                                         <div class="star-rating position-absolute">
@@ -161,7 +158,8 @@
                                         <i class="fa-regular fa-star" data-rating="4"></i>
                                         <i class="fa-regular fa-star" data-rating="5"></i>
                                     </div>
-                                    <input type="hidden" id="rating" value="0">
+                                    <input type="hidden" id="rating" name="stars" value="0">
+                                    <input type="hidden" name="comment" value="">
                                 </div>
                             </div>
                             <button type="submit">Envoyez votre commentaire</button>

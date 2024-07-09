@@ -106,56 +106,6 @@ $(document).ready(function() {
         });
     });
 
-    // Soumission du formulaire
-    $('#comment-form').on('submit', function(e) {
-        e.preventDefault();
-        
-        var name = $('#name').val();
-        var email = $('#email').val();
-        var subject = $('#subject').val();
-        var comment = $('.ql-editor').html();
-        console.log(comment)
-        var rating = parseInt($('#rating').val()); // Asigurăm că rating-ul este un număr întreg
-        
-        var date = new Date().toLocaleDateString();
-
-        var commentHtml = `
-            <div class="comment">
-                <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong>${name}</strong></div> <div>Posté le : <span class="comment-date">${date}</span></div></div>
-                <div class="d-flex my-3 gap-5">
-                    <div class="fw-bold" style="color: rgb(var(--main-color))">
-                        Sujet : ${subject}
-                    </div>
-                    <div class="comment-rating">
-                        <span>Note : </span>
-                        ${getStars(rating)}
-                    </div>
-                </div>
-                <div>${comment}</div>
-            </div>
-        `;
-
-        $(commentHtml).hide().appendTo('#comments-list').fadeIn(1000);
-
-        // Réinitialiser le formulaire
-        $('#comment-form')[0].reset();
-        $('#rating').val(0);
-        $('.star-rating .fa-star').removeClass('fa').addClass('fa-regular').removeClass('checked');
-    });
-
-    // Fonction pour générer les étoiles
-    function getStars(rating) {
-        var starsHtml = '';
-        for (var i = 1; i <= rating; i++) {
-            if (i <= rating) {
-                starsHtml += '<i class="fa fa-star checked"></i>';
-            } else {
-                starsHtml += '<i class="fa fa-star"></i>';
-            }
-        }
-        return starsHtml;
-    }
-
     // Fonction pour échapper les caractères HTML dans les commentaires
     function escapeHtml(text) {
         var map = {
@@ -197,3 +147,7 @@ $(document).ready(function() {
     /** end Quill editor */
 
 });
+
+function commentForm(){
+    $('input[name=comment]').val($('#comment .ql-editor').html());
+}
