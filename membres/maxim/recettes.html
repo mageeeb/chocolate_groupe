@@ -213,47 +213,6 @@
         <button class="btn btn-sm disabled submitButton" id="submitButton" type="submit">Envoyez votre message</button>
     </div>
     </form>
-
-        
-    <section style="background-color: #5A2314;">
-        <div class="container my-5 py-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-12 col-lg-10">
-                    <div class="card text-body" style="background-color: #FDEBD5;">
-                        <div class="card-body p-4">
-                            <h4 class="mb-4 titreForm"">Commentaires recents</h4>
-                                <?php foreach ($recipe->getComments() as $comment): ?>
-                                    <div class="d-flex flex-start">
-                                        <img class="rounded-circle shadow-1-strong m-3"
-                                            src="img/9440461.jpg" alt="avatar" width="60"
-                                            height="60" />
-                                    </div>
-                                            <h6 class="fw-bold mb-1"><?= $comment->getUsername() ?></h6>
-                                    <div class="d-flex align-items-center mb-3">
-                                                <p class="mb-2 ms-4">
-                                                    <?= $comment->getCreatedDate() ?>
-                                                </p>
-                                    </div>
-                                    <div>
-                                            <p class="mb-0 ms-4">
-                                                <?= $comment->getComment() ?>
-                                            </p>
-                                    <?php for ($i=0; $i<$comment->getStars(); $i++): ?>
-                                        <i class="fa fa-star rating-color"></i>
-                                <?php endfor ?>
-                            <?php endforeach; ?>
-                                    </div>
-                        </div>  
-                    </div>       
-          
-                        <hr class="my-0" /> 
-                </div>
-            </div>
-        </div>
-    </section>
-            
-            
-
 </div>
 </div>
 <!-- Footer Section Begin -->
