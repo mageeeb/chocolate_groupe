@@ -9,7 +9,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 $recipe = Recipe::getRecipeById($db, ID_RECIPE_CHOCO_POMME);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
-if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
+if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"])){
     $insert_result = Comment::insertComment($db, ID_RECIPE_CHOCO_POMME, $_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]);
     if (gettype($insert_result) == "array"){
         $datas = [
@@ -128,7 +128,7 @@ if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
             <h2 style="background-color: rgb(90, 35, 20);width: 100%;margin-top: 0;padding: 16px 0 16px 0;border-radius: 30px 30px 0 0;color: #e4e4e4;text-decoration: none;text-align: center;"><?=$sub_recipe->gettitle()?><br>( <i class="fa-solid fa-clock"></i> 5 min )</h2>
             <?php foreach($sub_recipe->getInstructions() as $key => $instruction): ?>
             <div class="step" style="margin: 10px 0 10px 0">
-                <p style="margin-left: 2em;"><strike></strike><span><?=$key + 1?>     <?=$instruction->getText()?></span></p>
+                <p style="margin-left: 2em;"><input type="radio"></input><strike></strike><span><?=$key + 1?>     <?=$instruction->getText()?></span></p>
             </div>
             <?php endforeach; ?>
         </div>
@@ -148,10 +148,9 @@ if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
                                     <input type="text" id="name" placeholder="Votre nom" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" id="email" placeholder="Votre email" required>
+                                    <input type="text" id="subject" placeholder="Sujet">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="text" id="subject" placeholder="Sujet">
                                     <textarea id="comment" placeholder="Commentaire" required></textarea>
                                     <div class="star-rating">
                                         <i class="fa fa-star" data-rating="1"></i>
