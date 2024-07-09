@@ -23,14 +23,6 @@ $(document).ready(function() {
         var subject = $('#subject').val();
         var comment = $('#comment').val();
         var rating = parseInt($('#rating').val()); // Asigurăm că rating-ul este un număr întreg
-        
-        var date = new Date().toLocaleDateString();
-
-        var commentHtml = '<div class="comment">' +
-                            '<div><strong>' + escapeHtml(name) + '</strong> <span class="comment-date">' + date + '</span></div>' +
-                            '<div class="comment-rating">' + getStars(rating) + '</div>' +
-                            '<div>' + escapeHtml(comment) + '</div>' +
-                          '</div>';
 
 
         if (rating===0){
@@ -57,10 +49,31 @@ $(document).ready(function() {
                     $("#error-message p").text(res.error);
                     $("#error-message").slideDown(1000).css("display", "flex");
                 }else{
+                    let stars = "";
+                    for(let i=0;i<res.stars;i++){
+                        stars+='<i class="fa fa-star checked"></i>';
+                    }
+                    const commentHtml = `
+                                <div class="comment">
+                                    <div>
+                                        <strong>${res.username}</strong>
+                                        <span class="comment-date">${res.created_date}</span>
+                                    </div>
+                                    <div class="comment-rating">
+                                        ${stars}
+                                    </div>
+                                    <div style="margin-bottom: 0.5em;">
+                                        <strong>${res.subject}:</strong>
+                                    </div>
+                                    <div>
+                                        ${res.comment}
+                                    </div>
+                                </div>
+                    `
                     $("#error-message").slideUp(1000);
                     $('#comments-list').prepend($(commentHtml).hide())
                     $(".comment").eq(0).fadeIn(1000);
-                    $(".comment .comment-date").eq(0).text(res.created_date);
+                    //$(".comment .comment-date").eq(0).text(res.created_date);
                 }
             })
         });
