@@ -56,6 +56,7 @@ class Comment{
     $username = trim(strip_tags($_POST["username"]));
     $comment = trim(strip_tags($_POST["comment"]));
     $subject = trim(strip_tags($_POST["subject"]));
+    $stars = $_POST["stars"];
     // TODO: make error system display for user
     if(
       strlen($comment)
@@ -70,7 +71,7 @@ class Comment{
       &&
       strlen($comment) <= 2500
     )
-      Comment::insertComment($db, $id_recipe, $username, $comment, $subject, $_POST["stars"]);
+      Comment::insertComment($db, $id_recipe, $username, $comment, $subject, $stars);
   }
 
   /** stars must be from 1 -> 10 */
