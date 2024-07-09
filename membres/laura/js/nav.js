@@ -1,121 +1,134 @@
-
+// Only God and me know what i'm doing
 $(function(){
     const $nav = $('nav');
+    const $navChocoOpenMenu = $('#nav-choco-open-menu'); // Image opening recipes list
+    const $placeHolderNav = $('#place-holder-nav'); // Debug nav fixed moving all content html
+    const $navRecipes = $('#nav-recipes'); // List of recipes
+    const $previews = $('#previews'); // Show image of the recipe list when hover the <li>
+    const $links = $('#links'); // Only in phone mode. It is the menu of burger mode
     let scrollNav = false;
     let menuNavVisible = false;
     let menuIsOpening = false;
     let linksIsOpening = false;
-    let phoneMode = window.innerWidth < 1000;
+    let phoneMode;
     checkPhoneMode();
-    addEventListener('scroll', function(e){
+    fixNav();
+    addEventListener('scroll', fixNav);
+    addEventListener('resize', checkPhoneMode);
+    function fixNav(){
         if(!scrollNav && window.scrollY > $('.header-text').height() + 100){
             scrollNav = true;
-            $('#place-holder-nav').show();
+            $placeHolderNav.show();
             $nav.addClass('nav-fixed');
+            hideMenuNav();
         }else if(scrollNav && window.scrollY <= $('.header-text').height() + 100){
             scrollNav = false;
-            $('#place-holder-nav').hide();
+            $placeHolderNav.hide();
             $nav.removeClass('nav-fixed');
         }
-    });
-    addEventListener('resize', function(){
-        phoneMode = window.innerWidth < 1000;
-        checkPhoneMode();
-    });
+    }
+    function hideMenuNav(){
+        menuNavVisible = false;
+        $navChocoOpenMenu.stop().css('top', '-150px').hide();
+        $navRecipes.hide();
+        if(phoneMode)
+            $links.slideUp(function(){
+                linksIsOpening = false;
+            });
+    }
     function checkPhoneMode(){
+        phoneMode = window.innerWidth < 1000;
         if(phoneMode){
             if(menuNavVisible){
-                $('#links').show();
-                $('#nav-choco-open-menu').css('top', '155px');
+                $links.show();
+                $navChocoOpenMenu.css('top', '153.64px');
             } 
             else{
-                $('#links').hide();
-                $('#nav-choco-open-menu').hide();
+                $links.hide();
+                $navChocoOpenMenu.hide();
             } 
         }else{
-            if(menuNavVisible) $('#nav-choco-open-menu').css('top', '0px');
-            else $('#nav-choco-open-menu').css('top', '-150px');
-            $('#nav-choco-open-menu').show();
-            $('#links').show();
+            if(menuNavVisible) $navChocoOpenMenu.css('top', '0px');
+            else $navChocoOpenMenu.css('top', '-150px');
+            $links.show();
         }
+        
     }
     function showNavMenu(){
         if(menuIsOpening) return;
+        $navChocoOpenMenu.show();
         menuIsOpening = true;
         menuNavVisible = !menuNavVisible;
-        if(!menuNavVisible) $('#previews').css('background-image', `url('')`)
-        if(phoneMode && menuNavVisible){
-            $('#nav-choco-open-menu').show();
-        }
-        if(!menuNavVisible && phoneMode) setTimeout(() => {
-            $('#nav-choco-open-menu').hide();
-        }, 1500);
-        $('#nav-recipes').slideToggle(2000, function(){
+        if(!menuNavVisible) $previews.css('background-image', `url('')`)
+        $navRecipes.slideToggle(2000, function(){
             menuIsOpening = false;
+            if(!menuNavVisible)
+                $navChocoOpenMenu.hide();
         });
-        $('#nav-choco-open-menu').animate({
-            'top': !menuNavVisible ? (phoneMode ? '-40px' : '-150px') : (phoneMode ? '155px' : '0px')
+        $navChocoOpenMenu.animate({
+            'top': !menuNavVisible ? '-150px' : (phoneMode ? '153.64px' : '0px')
         }, 2000);
     }
     function showLinks(){
         if(linksIsOpening) return;
         linksIsOpening = true;
         if(menuNavVisible){
-            menuNavVisible = false;
-            $('#nav-choco-open-menu').css('top', phoneMode ? '-40px' : '-150px').hide();
-            $('#nav-recipes').hide();
-            $('#links').slideToggle(function(){
-                linksIsOpening = false;
-            });
-        }else $('#links').slideToggle(function(){
+            hideMenuNav();
+        }else $links.slideToggle(function(){
             linksIsOpening = false;
         });
     }
     $('#nav-recipes-link').click(showNavMenu);
+    $navRecipes.on('mouseleave', ()=>$previews.hide());
     $('#container-burger img').click(showLinks);
     $('#nav-choco').animate({
         'top': '75px'
     }, 10000);
 
-    $('#nav-recipes').children().each(function(i){
+    $navRecipes.children().each(function(i){
         let url;
+        const basePath = "../../public/assets/image\ seb/";
         switch(i){
             case 0:
-                url = '/../../public/assets/image\ seb/Mousse\ au\ chocolat/13630550-Mousse-au-chocolat.jpg';
+                url = basePath+'Mousse\ au\ chocolat/13630550-Mousse-au-chocolat.jpg';
                 break;
             case 1:
-                url = '/../../public/assets/image\ seb/Cake\ tout\ chocolat/14633_3-2_1560-1040.jpg';
+                url = basePath+'Cake\ tout\ chocolat/14633_3-2_1560-1040.jpg';
                 break;
             case 2:
-                url = '/../../public/assets/image\ seb/fondant\ au\ chocolat/1575898110_fondant-au-chocolat.jpg';
+                url = basePath+'fondant\ au\ chocolat/1575898110_fondant-au-chocolat.jpg';
                 break;
             case 3:
-                url = '/../../public/assets/image\ seb/Tarte\ au\ chocolat/chocolate-cake-wood.jpg';
+                url = basePath+'Tarte\ au\ chocolat/chocolate-cake-wood.jpg';
                 break;
             case 4:
-                url = '/../../public/assets/image\ seb/cookies\ chocolat/13370901-Cookies-with-chocolate-chips-and-almonds-on-baking-sheet.jpg';
+                url = basePath+'cookies\ chocolat/13370901-Cookies-with-chocolate-chips-and-almonds-on-baking-sheet.jpg';
                 break;
             case 5:
-                url = '/../../public/assets/image\ seb/Glace\ au\ chocolat/cock.jpeg';
+                url = basePath+'Glace\ au\ chocolat/cock.jpeg';
                 break;
             case 6:
-                url = '/../../public/assets/image\ seb/Bûche\ de\ Noël\ chocolat/14175853-Bûche-de-Noël-made-from-chocolate-sponge-cake-with-quark-filling.jpg';
+                url = basePath+'Bûche\ de\ Noël\ chocolat/14175853-Bûche-de-Noël-made-from-chocolate-sponge-cake-with-quark-filling.jpg';
                 break;
             case 7:
-                url = '/../../public/assets/image\ seb/Moelleux\ chocolat/histoire_moelleux_au_chocolat.webp';
+                url = basePath+'Moelleux\ chocolat/histoire_moelleux_au_chocolat.webp';
                 break;
             case 8:
-                url = '/../../public/assets/image\ seb/Truffes\ au\ chocolat/front-view-composition-delicious-chocolate-goodies.jpg';
+                url = basePath+'Truffes\ au\ chocolat/front-view-composition-delicious-chocolate-goodies.jpg';
                 break;
             case 9:
-                url = '/../../public/assets/image\ seb/macarons\ au\ chocolat/0a80c4a2-8ce0-4491-a5e8-e903fdb1fafd_eyqtYhH.jpg';
+                url = basePath+'macarons\ au\ chocolat/0a80c4a2-8ce0-4491-a5e8-e903fdb1fafd_eyqtYhH.jpg';
                 break;
         }
         $(this).on('mouseover', ()=>{
-            if(!menuNavVisible) return;
-            $('#previews').css('background-image', `url('${url}')`)
+            if(!menuNavVisible || phoneMode) return;
+            $previews.show();
+            setTimeout(() => {
+                $previews.css('background-image', `url('${url}')`);
+            }, 1);
         });
     })
 
 });
 
+// Now only God knows.

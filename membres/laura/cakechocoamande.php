@@ -10,31 +10,16 @@
     <title>Éclat choco-Amande</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="footer/css/recipes/mousse.css">
-    <link rel="stylesheet" href="css/commentaire/stylecommentaire.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
     
-    <link rel="stylesheet" href="css/footer/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/footer/flaticon.css" type="text/css">
     <link rel="stylesheet" href="css/footer/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/footer/style.css" type="text/css">
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
-    <link rel="stylesheet" href="css/carousel/carou.css">
-
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/footercss/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/footercss/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/footercss/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/footercss/style.css" type="text/css">
+    <link rel="stylesheet" href="css/nav.css">
     
     <style>
         body{
@@ -75,7 +60,7 @@
     </div>
     <nav>
         <div id="nav-links">
-            <a href="#" id="logo"><img src="./img/img/coeur fondant 1.png" alt="" width="50"></a>
+            <a href="#" id="logo"><img src="img/logo.png" alt="" width="50"></a>
             <div id="container-burger">
                 <img src="img/nav-img/chocolat.png" alt="">
             </div>
@@ -87,20 +72,20 @@
         </div>
         <div id="nav-recipes-container">
             <ul id="nav-recipes" style="display: none;">
-                <a href="#"><li>Mousse au chocolat</li></a>
+                <a href="../sebastien/mous.html"><li>Mousse au chocolat</li></a>
                 <a href="#"><li>Cake au chocolat</li></a>
                 <a href="#"><li>Fondant au chocolat</li></a>
                 <a href="#"><li>Tarte au chocolat</li></a>
                 <a href="#"><li>Cookies au chocolat</li></a>
+                <a href="#"><li>Glace au chocolat</li></a>
                 <a href="#"><li>Bûche de Noël au chocolat</li></a>
                 <a href="#"><li>Moelleux au chocolat</li></a>
                 <a href="#"><li>Truffes au chocolat</li></a>
                 <a href="#"><li>Macarons au chocolat</li></a>
             </ul>
-            <div id="previews">
-            </div>
+            <div id="previews"></div>
         </div>
-        <div id="nav-choco-open-menu">
+        <div id="nav-choco-open-menu" style="display: none;">
             <img src="img/nav-img/openmenu.png" alt="">
         </div>
     </nav>
