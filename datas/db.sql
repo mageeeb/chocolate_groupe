@@ -83,7 +83,7 @@ CREATE TABLE `ingredient_has_recipe` (
   recipe_id INT UNSIGNED NOT NULL,
   ingredient_id INT UNSIGNED NOT NULL,
   ingredient_unity_id INT UNSIGNED,
-  quantity TINYINT UNSIGNED NOT NULL,
+  quantity SMALLINT UNSIGNED NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (ingredient_id) REFERENCES ingredient(id) ON DELETE CASCADE ON UPDATE CASCADE,

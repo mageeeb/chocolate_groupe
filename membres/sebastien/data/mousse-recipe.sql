@@ -1,9 +1,10 @@
 START TRANSACTION;
+use choco;
 INSERT INTO `user`(`name`, `password`, `is_admin`)
 VALUES('seb', 'seb123', 1);
 SET @user_id = LAST_INSERT_ID();
 INSERT INTO `recipe`(`name`,`description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Mouse au chocolat","\"Plongez dans un Nuage de Douceur : Découvrez Notre Recette Authentique de Mousse au Chocolat, une Harmonie Parfaite de Légèreté et de Fondant qui Transformera Chaque Cuillère en un Instant de Pur Bonheur\"", 4, "img/recipes/Mousse/mous4.jpeg", 30, 30,120);
+VALUES("Mousse au chocolat","\"Plongez dans un Nuage de Douceur : Découvrez Notre Recette Authentique de Mousse au Chocolat, une Harmonie Parfaite de Légèreté et de Fondant qui Transformera Chaque Cuillère en un Instant de Pur Bonheur\"", 4, "img/recipes/Mousse/mous4.jpeg", 30, 30,120);
 
 SET @recipe_id = LAST_INSERT_ID();
 
@@ -34,9 +35,9 @@ VALUES(@recipe_id , 28,1,400),
 (@recipe_id , 20, 4,1),
 (@recipe_id , 4, NULL, 4);
 
-INSERT INTO `comment`(`recipe_id`, `user_id`, `subject`,`comment`, `created_date`, `stars`)
-VALUES(@recipe_id, @user_id, "chocomous","cannibalisme!!!", NULL, 1),
-(@recipe_id, @user_id,"suce", "délicieux!!!", NULL, 5);
+INSERT INTO `comment`(`recipe_id`, `user_name`, `subject`,`comment`, `stars`)
+VALUES(@recipe_id, "seb", "chocomous","cannibalisme!!!", 1),
+(@recipe_id, "seb","chocomouse", "délicieux!!!", 5);
 
 INSERT INTO `recipe_has_category`(`recipe_id`, `category_id`)
 VALUES(@recipe_id, 5);

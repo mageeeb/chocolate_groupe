@@ -111,9 +111,9 @@
                     <h2><?= $subRecipe->getTitle() ?> <br>( <i data-aos="flip-right" class="fa-solid fa-clock"></i> <?= $subRecipe->getPreparationTimeToString() ?> )</h2>
                     <?php foreach($subRecipe->getInstructions() as $key => $instruction): ?>
                         <div class="step">
-                        <p data-aos="flip-right" class="number"><span><?= ++$key ?></span></p>
-                        <p data-aos="fade-left" class="step-desc"><?= $instruction ?></p>
-                    </div>
+                            <p data-aos="flip-right" class="number"><span><?= ++$key ?></span></p>
+                            <p data-aos="fade-left" class="step-desc"><?= $instruction ?></p>
+                        </div>
                     <?php endforeach ?>
                 </div>
                 <div class="container-img-steps">
@@ -168,24 +168,26 @@
                         </form>
                         <div class="comments-section">
                             <div class="comments-list" id="comments-list">
-                                <?php foreach($recipe->getComments() as $comment): ?>
-                                    <div class="comment">
-                                        <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
-                                        <div class="d-flex my-3 gap-5">
-                                            <div class="fw-bold" style="color: rgb(var(--main-color))">
-                                                Sujet : <?= $comment->getSubject() ?>
-                                            </div>
-                                            <div class="comment-rating">
-                                                <span>Note : </span>
-                                                <?php $stars = $comment->getStars(); ?>
-                                                <?php for($i = 0; $i < 5; ++$i): ?>
-                                                    <i class="fa fa-star <?= $i <= $stars ? 'checked' : '' ?>"></i>
-                                                <?php endfor ?>
-                                            </div>
+                            <h2><?= sizeof($recipe->getComments()) > 0 ? 'Les commentaires' : 'Pas encore de commentaires' ?></h2>
+                            <?php foreach($recipe->getComments() as $comment): ?>
+                                <div class="comment">
+                                    <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
+                                    <div class="d-flex my-3 gap-5">
+                                        <div class="fw-bold" style="color: rgb(var(--main-color))">
+                                            Sujet : <?= $comment->getSubject() ?>
                                         </div>
-                                        <div><?= $comment->getComment() ?></div>
+                                        <div class="comment-rating">
+                                            <span>Note : </span>
+                                            <?php $stars = $comment->getStars(); ?>
+                                            <?php for($i = 0; $i < $stars; ++$i): ?>
+                                                <i class="fa fa-star"></i>
+                                            <?php endfor ?>
+                                        </div>
                                     </div>
-                                <?php endforeach ?>
+                                    <div><?= $comment->getComment() ?></div>
+                                </div>
+                                   
+                            <?php endforeach ?>
                             </div>
                         </div>
                     </div>

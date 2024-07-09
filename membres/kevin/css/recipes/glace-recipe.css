@@ -295,8 +295,9 @@ h3{
     margin-bottom: 0;
 }
 .comment {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+    border: 2px solid rgb(var(--main-color));
+    padding: 20px;
+    margin-bottom: 20px;
 }
 .comment .comment-date {
     font-size: 0.9em;
@@ -307,6 +308,10 @@ h3{
 }
 .comment .comment-rating i {
     margin-right: 2px;
+}
+#comments-list{
+    padding: 15px 50px 50px 50px;
+    background-color: rgb(var(--white-color));
 }
 @media (max-width: 768px) {
     .contact-form .row {
