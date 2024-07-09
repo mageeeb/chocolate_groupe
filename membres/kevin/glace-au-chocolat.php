@@ -186,6 +186,7 @@
                                     </div>
                                     <div><?= $comment->getComment() ?></div>
                                 </div>
+                                   
                             <?php endforeach ?>
                             </div>
                         </div>

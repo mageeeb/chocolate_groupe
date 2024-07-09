@@ -32,8 +32,12 @@ $(document).ready(function() {
                             '<div>' + escapeHtml(comment) + '</div>' +
                           '</div>';
 
-        $(commentHtml).hide().appendTo('#comments-list').fadeIn(1000);
 
+        if (rating===0){
+            $("#error-message p").text("Veuillez insérer un nombre d'étoiles");
+            $("#error-message").slideDown(1000).css("display", "flex");
+            return;
+        }
         // Réinitialiser le formulaire
         $('#comment-form')[0].reset();
         $('#rating').val(0);
@@ -48,7 +52,17 @@ $(document).ready(function() {
                 "stars": rating
             })
         }).then(res => {
-            console.log(res);
+            res.json().then((res)=>{
+                if (res.error){
+                    $("#error-message p").text(res.error);
+                    $("#error-message").slideDown(1000).css("display", "flex");
+                }else{
+                    $("#error-message").slideUp(1000);
+                    $('#comments-list').prepend($(commentHtml).hide())
+                    $(".comment").eq(0).fadeIn(1000);
+                    $(".comment .comment-date").eq(0).text(res.created_date);
+                }
+            })
         });
     });
 
