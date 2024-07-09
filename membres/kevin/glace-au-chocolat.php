@@ -132,9 +132,9 @@
             <div class="text-center">
                 <button id="comment-btn">Donnez-votre avis.</button>
             </div>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-lg-8 offset-lg-2">
+                    <div class="col-12 col-lg-8 offset-lg-2 col-xxl-6 offset-xxl-3">
                         <form action="#" class="contact-form" id="comment-form" style="display: none;">
                             <h3>Laissez-nous un commentaire <span>😊</span></h3>
                             <div class="row">
@@ -171,8 +171,8 @@
                             <h2><?= sizeof($recipe->getComments()) > 0 ? 'Les commentaires' : 'Pas encore de commentaires' ?></h2>
                             <?php foreach($recipe->getComments() as $comment): ?>
                                 <div class="comment">
-                                    <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
-                                    <div class="d-flex my-3 gap-5">
+                                    <div class="d-flex flex-column flex-md-row gap-2 gap-md-0 justify-content-between pe-md-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
+                                    <div class="d-flex flex-column-reverse flex-md-row my-3 gap-4 gap-md-5">
                                         <div class="fw-bold" style="color: rgb(var(--main-color))">
                                             Sujet : <?= $comment->getSubject() ?>
                                         </div>
