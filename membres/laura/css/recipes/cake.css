@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'BiteChocolate';
+    src: url('../../fonts/BiteChocolate-2RGl.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #cfac7b;
+}
+
+
+
+
+
+
+nav{
+    line-height: normal;
+}
+ 
+nav ul{
+    margin-bottom: 0;
+}
+
+*::selection{
+    background-color: rgba(90, 35, 20, 0.5);
+}
+
+
+
+.container-header-logo{
+    position: relative;
+    top: 15%;
+    width: clamp(250px, 30%, 486px);
+    margin-left: auto;
+}
+
+.header-logo{
+    margin-right: 2%;
+    width: 100%;
+    z-index: 3;
+    filter: drop-shadow(10px 10px 4px rgba(81, 41, 32, 0.35));
+}
+
+
+
+#backvid{
+   background: url(../../img/recipes/Mousse/lol.jpg);
+}
+
+
+@media screen and (width < 780px) {
+    h1{
+        min-width: 400px;
+        font-size: 2rem;
+    }
+    #backvid img{
+        display: none;
+    }
+    #page img{
+        display: none;
+    }
+}
+
+@media screen and (width < 700px) {
+    .general-infos,
+    .steps{
+        width: 90%;
+    }
+
+    .informations{
+        flex-direction: column;
+    }
+
+    .informations div{
+        margin-left: 25%;
+    }
+}
+
+@media screen and (width > 1400px) {
+    .glace-banner{
+        background-position: 0 25%;
+    }
+}
+
+
+

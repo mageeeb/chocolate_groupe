@@ -4,7 +4,7 @@ INSERT INTO `user`(`name`, `password`, `is_admin`)
 VALUES('seb', 'seb123', 1);
 SET @user_id = LAST_INSERT_ID();
 INSERT INTO `recipe`(`name`,`description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Mouse au chocolat","\"Plongez dans un Nuage de Douceur : Découvrez Notre Recette Authentique de Mousse au Chocolat, une Harmonie Parfaite de Légèreté et de Fondant qui Transformera Chaque Cuillère en un Instant de Pur Bonheur\"", 4, "img/recipes/Mousse/mous4.jpeg", 30, 30,120);
+VALUES("Mousse au chocolat","\"Plongez dans un Nuage de Douceur : Découvrez Notre Recette Authentique de Mousse au Chocolat, une Harmonie Parfaite de Légèreté et de Fondant qui Transformera Chaque Cuillère en un Instant de Pur Bonheur\"", 4, "img/recipes/Mousse/mous4.jpeg", 30, 30,120);
 
 SET @recipe_id = LAST_INSERT_ID();
 
