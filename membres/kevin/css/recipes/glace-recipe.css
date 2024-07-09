@@ -378,6 +378,10 @@ h3{
         top: 0;
         min-height: 400px;
     }
+
+    main .steps:nth-child(6) .img-steps{
+        background-position: 0 30%;
+    }
 }
 
 
