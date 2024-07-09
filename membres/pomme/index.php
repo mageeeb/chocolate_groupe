@@ -9,7 +9,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 $recipe = Recipe::getRecipeById($db, ID_RECIPE_CHOCO_POMME);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
-if (isset($_POST["username"], $_POST["subject"], $_POST["stars"])){
+if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"])){
     $insert_result = Comment::insertComment($db, ID_RECIPE_CHOCO_POMME, $_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]);
     if (gettype($insert_result) == "array"){
         $datas = [
