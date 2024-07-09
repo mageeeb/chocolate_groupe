@@ -31,7 +31,7 @@ VALUES("pomme", NULL),
 ("sucre brun", NULL),
 ("sucre roux", "https://img.cuisineaz.com/70x47/ingredients/all/sucre-roux-201.jpg"),
 ("sucre granulé", NULL),
-("cacao", NULL),
+("cacao en poudre", NULL),
 ("eau", NULL),
 ("blanc d'oeuf", NULL),
 ("jaune d'oeuf", NULL),
@@ -61,6 +61,9 @@ VALUES("pomme", NULL),
 ('lait sans lactose', NULL),
 ('lait demi écrémé', NULL),
 ('gousse de vanille', NULL),
-('crème liquide entière', NULL);
+('crème liquide entière', NULL),
+('miel', NULL),
+('amande', NULL),
+('babeurre', NULL);
 
 COMMIT;

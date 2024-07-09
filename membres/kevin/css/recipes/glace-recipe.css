@@ -168,6 +168,7 @@ h3{
     align-items: center;
     min-width: 300px;
     min-height: 550px;
+    max-height: 800px;
     margin-left: 40px;
 }
 
@@ -313,6 +314,11 @@ h3{
     padding: 15px 50px 50px 50px;
     background-color: rgb(var(--white-color));
 }
+@media (max-width: 840px) {
+    h3{
+        text-align: center;
+    }
+}
 @media (max-width: 768px) {
     .contact-form .row {
         display: flex;
@@ -327,9 +333,6 @@ h3{
         flex: 0 0 95%;
         max-width: 95%;
         padding: 0 15px;
-    }
-    h3{
-        text-align: center;
     }
 }
 
@@ -373,7 +376,11 @@ h3{
         margin-left: 0px;
         order: -1;
         top: 0;
-        height: 320px;
+        min-height: 400px;
+    }
+
+    main .steps:nth-child(6) .img-steps{
+        background-position: 0 30%;
     }
 }
 

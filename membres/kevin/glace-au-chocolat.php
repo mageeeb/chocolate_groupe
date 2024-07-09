@@ -242,7 +242,7 @@
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 d-flex align-items-center">
+                    <div class="col-lg-7">
                         <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Kevin</a>
                           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

@@ -178,7 +178,7 @@
 .copyright__widget ul li:after {
   position: absolute;
   right: -18px;
-  top: 0;
+  top: -3.5px;
   content: "|";
   color: #888888;
 }
@@ -189,6 +189,8 @@
   display: none;
 }
 .copyright__widget ul li a {
+  position: relative;
+  top: -3.5px;
   font-size: 14px;
   color: #888888;
 }

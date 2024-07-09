@@ -29,10 +29,14 @@ $(document).ready(function() {
     });
 
     /** img-steps */
-    $('.container-img-steps').each(function(){
-        $(this).css('height', $(this).parent().prop('scrollHeight') + 'px');
+    addEventListener('resize', function(){
+        $('.container-img-steps').each(function(){
+            $(this).css('height', window.innerWidth > 900 ? $(this).parent().prop('scrollHeight') + 'px' : '400px');
+        });
     })
-
+    $('.container-img-steps').each(function(){
+        $(this).css('height', window.innerWidth > 900 ? $(this).parent().prop('scrollHeight') + 'px' : '400px');
+    });
     /** end img-steps */
 
     /** Corner Chocolat */
