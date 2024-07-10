@@ -274,7 +274,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="js/recipes/glace-recipe.js"></script>
-    <script src="js/comments.js"></script>
+    <script src="../../public/assets/js/comments.js"></script>
     <script src="js/footer.js"></script>
 </body>
 
