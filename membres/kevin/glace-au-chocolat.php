@@ -29,23 +29,23 @@
                 <img src="img/nav-img/chocolat.png" alt="">
             </div>
             <div id="links">
-                <a href="#">Accueil</a>
+                <a href="../../public/">Accueil</a>
                 <a href="javascript:void(0)" id="nav-recipes-link">Recettes<i class="fa-solid fa-arrow-down" style="margin-left: 10px;"></i></a>
                 <a href="#">Contact</a>
             </div>
         </div>
         <div id="nav-recipes-container">
             <ul id="nav-recipes" style="display: none;">
-                <a href="../sebastien/mous.html"><li>Mousse au chocolat</li></a>
-                <a href="#"><li>Cake au chocolat</li></a>
-                <a href="#"><li>Fondant au chocolat</li></a>
-                <a href="#"><li>Tarte au chocolat</li></a>
-                <a href="#"><li>Cookies au chocolat</li></a>
-                <a href="#"><li>Glace au chocolat</li></a>
-                <a href="#"><li>Bûche de Noël au chocolat</li></a>
-                <a href="#"><li>Moelleux au chocolat</li></a>
-                <a href="#"><li>Truffes au chocolat</li></a>
-                <a href="#"><li>Macarons au chocolat</li></a>
+                <a href="../sebastien/"><li>Mousse au chocolat</li></a>
+                <a href="../julian/"><li>Polish cake</li></a>
+                <a href="../maxim/"><li>Fondant au Chocolat</li></a>
+                <a href="../laura"><li>Éclat Choco Amande</li></a>
+                <a href="../charly/"><li>Cookies au chocolat</li></a>
+                <a href="../kevin/"><li>Glace au chocolat</li></a>
+                <a href="../pomme/"><li>Choco Pomme</li></a>
+                <a href="../simona/pageSimona2.html"><li>Brownie framboise</li></a>
+                <a href="../simona/pageSimona.html"><li>Amandina Cake</li></a>
+                <a href="../enez/"><li>Cupavci Cake</li></a>
             </ul>
             <div id="previews"></div>
         </div>
@@ -57,7 +57,7 @@
         <img src="img/nav-img/banner_top.png" alt="">
     </div>
    
-    <header class="header-text glace-banner" style="background-image: url('<?= $recipe->getImgUrl() ?>');">
+    <header class="header-text glace-banner" style="background-image: url('../../public/<?= $recipe->getImgUrl() ?>');">
         <p data-aos="flip-down"><?= $recipe->getName() ?></p>
     </header>
 
