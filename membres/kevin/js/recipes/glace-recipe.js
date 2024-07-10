@@ -93,7 +93,6 @@ $(document).ready(function() {
             $commentBtn.css('margin-bottom', '50px');
     });
 
-    // Fonctionnalité de notation par étoiles
     $('.star-rating .fa-star').on('click', function() {
         var rating = $(this).data('rating');
         $('#rating').val(rating);
@@ -105,21 +104,6 @@ $(document).ready(function() {
             }
         });
     });
-
-    // Fonction pour échapper les caractères HTML dans les commentaires
-    function escapeHtml(text) {
-        var map = {
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#039;',
-            '/': '&#x2F;',
-            '`': '&#x60;',
-            '=': '&#x3D;'
-        };
-        return text.replace(/[&<>"'`=\/]/g, function(m) { return map[m]; });
-    }
     /** end comment */
 
     /** Quill editor */
@@ -148,6 +132,57 @@ $(document).ready(function() {
 
 });
 
+function handleResponse(response){
+    if(Array.isArray(response)){
+        response = response[0];
+        // Personnel Kevin
+        const commentHtml = `
+            <div class="comment">
+                <div class="d-flex flex-column flex-md-row gap-2 gap-md-0 justify-content-between pe-md-5 pb-3 border-bottom"><div>De : <strong>${response.username}</strong></div> <div>Posté le : <span class="comment-date">${response.created_date}</span></div></div>
+                <div class="d-flex flex-column-reverse flex-md-row my-3 gap-4 gap-md-5">
+                    <div class="fw-bold" style="color: rgb(var(--main-color))">
+                        Sujet : ${response.subject}
+                    </div>
+                    <div class="comment-rating">
+                        <span>Note : </span>
+                        ${getStars(+response.stars)}
+                    </div>
+                </div>
+                <div>${response.comment}</div>
+            </div>
+        `;
+        /*const commentHtml = `
+            <div class="comment"> 
+                <div class="d-flex justify-content-between"><div><strong>Nom : </strong>  ${response.username}  </strong></div> <span class="comment-date">  ${response.created_date}  </span></div> 
+                <div><strong>sujet : </strong> ${response.subject}  </div> 
+                <div><strong> Message : </strong> ${response.comment}  </div> 
+                <div class="comment-rating">  ${getStars(+response.stars)}  </div> 
+            </div>
+        `;*/
+        $('#comments-list h2:first').after($(commentHtml).hide().fadeIn(1000));
+    }else{
+        for(const error in response)
+            $('.'+error).text(response[error]).show();
+    }
+    console.log(response);
+}
+
+function resetForm(){
+    $('#comment-form')[0].reset();
+    $('#rating').val(0);
+    //$('.star-rating .fa-star').removeClass('checked');
+
+    // Personnel Kevin
+    $('#comment .ql-editor').html('');
+    $('.star-rating .fa-star').removeClass('checked', 'fa').addClass('fa-regular');
+}
+
+function handleError(error){
+    console.log(error)
+    $('.error-form').text(error);
+}
+
+// Personnel Kevin
 function commentForm(){
     $('input[name=comment]').val($('#comment .ql-editor').html());
 }

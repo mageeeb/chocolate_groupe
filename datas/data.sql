@@ -18,7 +18,8 @@ VALUES("g"),
 ("noisette"),
 ("cac"), -- Cuillière a café
 ("cas"), -- Cuillère a soupe
-("kg");
+("kg"),
+("princée");
 
 INSERT INTO `ingredient`(`ingredient`, `image_url`)
 VALUES("pomme", NULL),

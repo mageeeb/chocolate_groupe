@@ -177,8 +177,12 @@
                                         <div class="comment-rating">
                                             <span>Note : </span>
                                             <?php $stars = $comment->getStars(); ?>
-                                            <?php for($i = 0; $i < $stars; ++$i): ?>
-                                                <i class="fa fa-star"></i>
+                                            <?php for($i = 0; $i < 5; ++$i): ?>
+                                                <?php if($i < $stars): ?>
+                                                    <i class="fa fa-star"></i>
+                                                <?php else: ?>
+                                                    <i class="fa-regular fa-star"></i>
+                                                <?php endif ?>
                                             <?php endfor ?>
                                         </div>
                                     </div>
@@ -265,6 +269,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="js/recipes/glace-recipe.js"></script>
+    <script src="js/comments.js"></script>
     <script src="js/footer.js"></script>
 </body>
 
