@@ -52,10 +52,10 @@ function StrikeThrough(index, element) {
 
     let sToStrike = text.substr(0, index + 1);
     let sAfter = (index < (text.length - 1)) ? text.substr(index + 1, text.length - index) : "";
-    if (index==1 && element.children().eq(0).attr("checked")){
+    if (index==-1){
         element.children().eq(0).prop("checked", false);
         element.children().eq(0).removeAttr("checked");
-    }else if (index==1) {
+    }else if (index>=0) {
         element.children().eq(0).prop("checked", true);
         element.children().eq(0).attr("checked", true);
     }
