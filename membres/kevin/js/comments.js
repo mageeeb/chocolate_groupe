@@ -13,19 +13,19 @@ $('#comment-form').on('submit', function(e) {
     $('.error-form').hide();
 
     if(!username.length){
-        $('.error-username').text('Le nom ne doit pas être vide.').show();
+        $('.error-username').text('* Le nom ne doit pas être vide.').show();
         return;
     }
     if(!subject.length){
-        $('.error-subject').text('Le sujet ne doit pas être vide.').show();
+        $('.error-subject').text('* Le sujet ne doit pas être vide.').show();
         return;
     }
     if(!comment.length){
-        $('.error-comment').text('Le message ne doit pas être vide.').show();
+        $('.error-comment').text('* Le message ne doit pas être vide.').show();
         return;
     }
     if(stars < 1 || stars > 5){
-        $('.error-stars').text('Merci de mettre une note a votre commentaire.').show();
+        $('.error-stars').text('* Merci de mettre une note a votre commentaire.').show();
         return;
     }
 

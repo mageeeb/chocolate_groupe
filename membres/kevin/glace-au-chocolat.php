@@ -57,7 +57,7 @@
         <img src="img/nav-img/banner_top.png" alt="">
     </div>
    
-    <header class="header-text glace-banner">
+    <header class="header-text glace-banner" style="background-image: url('<?= $recipe->getImgUrl() ?>');">
         <p data-aos="flip-down"><?= $recipe->getName() ?></p>
     </header>
 
@@ -136,14 +136,19 @@
                 <div class="row">
                     <div class="col-12 col-lg-8 offset-lg-2 col-xxl-6 offset-xxl-3">
                         <form action="" method="POST" class="contact-form" id="comment-form" style="display: none;" onsubmit="commentForm()">
+                            <p class="error error-form" style="display: none;"></p>
                             <h3>Laissez-nous un commentaire <span>😊</span></h3>
                             <div class="row">
                                 <div class="col-12">
+                                    <p class="error error-username" style="display: none;"></p>
                                     <input type="text" id="name" name="username" placeholder="Votre nom" required>
                                 </div>
                                 <div class="col-12">
+                                    <p class="error error-subject" style="display: none;"></p>
                                     <input type="text" id="subject" name="subject" placeholder="Sujet">
+                                    <p class="error error-comment" style="display: none;"></p>
                                     <div id="comment" placeholder="Commentaire" required></div>
+                                    <p class="error error-stars" style="display: none;"></p>
                                     <div class="star-rating position-relative">
                                         <div class="star-rating position-absolute">
                                             <i class="fa-regular fa-star" data-rating="1"></i>
@@ -170,7 +175,7 @@
                             <?php foreach($recipe->getComments() as $comment): ?>
                                 <div class="comment">
                                     <div class="d-flex flex-column flex-md-row gap-2 gap-md-0 justify-content-between pe-md-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
-                                    <div class="d-flex flex-column-reverse flex-md-row my-3 gap-4 gap-md-5">
+                                    <div class="d-flex flex-column-reverse justify-content-md-between pe-md-5 flex-md-row my-3 gap-4 gap-md-5">
                                         <div class="fw-bold" style="color: rgb(var(--main-color))">
                                             Sujet : <?= $comment->getSubject() ?>
                                         </div>

@@ -72,10 +72,10 @@ class Comment implements JsonSerializable {
     $subject = trim(strip_tags($_POST["subject"]));
     $stars = $_POST["stars"];
     $errors = [];
-    if(!strlen($comment) && strlen($comment) > 2500) $errors['error-comment'] = "Le commentaire ne doit pas être vide ou dépasser 2500 caractères.";
-    if(!strlen($username) && strlen($username) > 50) $errors['error-username'] = "Le username ne doit pas être vide ou dépasser 50 caractères.";
-    if(!strlen($subject) && strlen($subject) > 50) $errors['error-subject'] = "Le sujet ne doit pas être vide ou dépasser 50 caractères.";
-    if($stars < 1 || $stars > 5) $errors['error-stars'] = "Les étoiles doivent être comprises entre 1 et 5";
+    if(!strlen($comment) && strlen($comment) > 2500) $errors['error-comment'] = "* Le commentaire ne doit pas être vide ou dépasser 2500 caractères.";
+    if(!strlen($username) && strlen($username) > 50) $errors['error-username'] = "* Le username ne doit pas être vide ou dépasser 50 caractères.";
+    if(!strlen($subject) && strlen($subject) > 50) $errors['error-subject'] = "* Le sujet ne doit pas être vide ou dépasser 50 caractères.";
+    if($stars < 1 || $stars > 5) $errors['error-stars'] = "* Les étoiles doivent être comprises entre 1 et 5";
     if(sizeof($errors) === 0){
       $result = Comment::insertComment($db, $id_recipe, $username, $comment, $subject, $stars);
       if(isset($_POST['api'])){

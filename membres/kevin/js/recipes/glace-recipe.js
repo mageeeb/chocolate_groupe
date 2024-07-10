@@ -139,7 +139,7 @@ function handleResponse(response){
         const commentHtml = `
             <div class="comment">
                 <div class="d-flex flex-column flex-md-row gap-2 gap-md-0 justify-content-between pe-md-5 pb-3 border-bottom"><div>De : <strong>${response.username}</strong></div> <div>Posté le : <span class="comment-date">${response.created_date}</span></div></div>
-                <div class="d-flex flex-column-reverse flex-md-row my-3 gap-4 gap-md-5">
+                <div class="d-flex flex-column-reverse justify-content-md-between pe-md-5 flex-md-row my-3 gap-4 gap-md-5">
                     <div class="fw-bold" style="color: rgb(var(--main-color))">
                         Sujet : ${response.subject}
                     </div>
