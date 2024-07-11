@@ -4,8 +4,8 @@ VALUES('Pomme', 'Pomme', 1);
 
 SET @user_id = LAST_INSERT_ID();
 
-INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Choco Pomme", "recette exquise de pommes au chocolat, une fusion divine qui éveillera vos papilles gustatives. Cette recette combine la douceur acidulée des pommes fraîches avec la richesse indulgente du chocolat fondant, créant une symphonie de saveurs qui vous laissera en redemander.", 4, "img/img/recipes/chocopomme.jpg", 15, 15, 0);
+INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`, `membre`)
+VALUES("Choco Pomme", "recette exquise de pommes au chocolat, une fusion divine qui éveillera vos papilles gustatives. Cette recette combine la douceur acidulée des pommes fraîches avec la richesse indulgente du chocolat fondant, créant une symphonie de saveurs qui vous laissera en redemander.", 4, "img/img/recipes/chocopomme.jpg", 15, 15, 0, "pomme");
 
 SET @recipe_id = LAST_INSERT_ID();
 
