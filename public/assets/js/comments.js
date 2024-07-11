@@ -47,16 +47,3 @@ $('#comment-form').on('submit', function(e) {
     .catch(handleError)
     .finally(resetForm);
 });
-
-// Fonction pour générer les étoiles
-function getStars(rating) {
-    let starsHtml = '';
-    for (let i = 1; i <= 5; i++) {
-        if (i <= rating) {
-            starsHtml += '<i class="fa fa-star checked"></i>';
-        } else {
-            starsHtml += '<i class="fa-regular fa-star"></i>';
-        }
-    }
-    return starsHtml;
-}

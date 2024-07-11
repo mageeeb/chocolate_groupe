@@ -89,100 +89,43 @@
       <section class="pt-2 pb-5 mt-5" style="background-color: #392313;">
         <div class="container">
           <div class="col-lg-7 mx-auto text-center">
-            <h5 class="fw-bold fs-3 fs-lg-5 lh-sm text-white mt-5 fontBanner">Popular items</h5>
+            <h5 class="fw-bold fs-3 fs-lg-5 lh-sm text-white mt-5 fontBanner">Recettes populaire</h5>
           </div>
           <div class="row h-100 gx-2 mt-5">
-            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
+            <?php foreach($bestRecipes as $recipe): ?>
+              <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
               <div class="card card-span h-100 rounded-3">
                 <div class="position-relative">
                   <img
                     class="img-fluid rounded-3 w-100"
-                    src="assets/image seb/Moelleux chocolat/Moelleux_1024x1137_1.format-jpeg.jpegquality-75.jpg" alt="..." style="height: 250px;"/>
+                    src="<?= $recipe['image_url'] ?>" alt="..." style="height: 250px;"/>
                 </div>
                 <div class="card-body px-0">
                   <h5 class="fw-bold text-1000 text-truncate ps-3">
-                    Fondant au Chocolat
+                    <?= $recipe['name'] ?>
                   </h5>
                   <div class="star-rating ps-3">
-                    <i class="fa fa-star text-warning" data-rating="1"></i>
-                    <i class="fa fa-star text-warning" data-rating="2"></i>
-                    <i class="fa fa-star text-warning" data-rating="3"></i>
-                    <i class="fa fa-star" data-rating="4"></i>
-                    <i class="fa fa-star" data-rating="5"></i>
+                    <?php $stars = 5; ?>
+                    <?php for($i = 2; $i <= $recipe['average_stars']; $i += 2): ?>
+                      <?php --$stars; ?>
+                      <i class="fa fa-star <?= $i <= $recipe['average_stars'] ? 'text-warning' : '' ?>"></i>
+                    <?php endfor ?>
+                    <?php if($recipe['average_stars'] % 2 !== 0): ?>
+                      <?php --$stars; ?>
+                      <span class="position-relative">
+                        <i class="fa fa-star-half text-warning"></i>
+                        <i class="fa fa-star-half position-absolute" style="transform: scaleX(-1); left: 0px; top: 0.2rem;"></i>
+                      </span>
+                    <?php endif ?>
+                    <?php for($i = 0; $i < $stars; $i++): ?>
+                      <i class="fa fa-star"></i>
+                    <?php endfor ?>
                 </div>
                 </div>
-                <a class="stretched-link" href="#"></a>
+                <a class="stretched-link" href="../membres/<?= $recipe['membre'] ?>"></a>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-              <div class="card card-span h-100 rounded-3">
-                <div class="position-relative">
-                  <img
-                    class="img-fluid rounded-3 w-100"
-                    src="assets/image seb/cookies chocolat/cooki.jpg"
-                    alt="..." style="height: 250px;"/>
-                </div>
-                <div class="card-body px-0">
-                  <h5 class="fw-bold text-1000 text-truncate ps-3">
-                    Cookies chocolat
-                  </h5>
-                  <div class="star-rating ps-3">
-                    <i class="fa fa-star text-warning" data-rating="1"></i>
-                    <i class="fa fa-star text-warning" data-rating="2"></i>
-                    <i class="fa fa-star" data-rating="3"></i>
-                    <i class="fa fa-star" data-rating="4"></i>
-                    <i class="fa fa-star" data-rating="5"></i>
-                </div>
-                </div>
-                <a class="stretched-link" href="#"></a>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-              <div class="card card-span h-100 rounded-3">
-                <div class="position-relative">
-                  <img
-                    class="img-fluid rounded-3 w-100"
-                    src="assets/image seb/Glace au chocolat/Glace-au-chocolat-au-lait.jpg"
-                    alt="..." style="height: 250px;"/>
-                </div>
-                <div class="card-body px-0">
-                  <h5 class="fw-bold text-1000 text-truncate ps-3">
-                    Glace au chocolat
-                  </h5>
-                  <div class="star-rating ps-3">
-                    <i class="fa fa-star text-warning" data-rating="1"></i>
-                    <i class="fa fa-star text-warning" data-rating="2"></i>
-                    <i class="fa fa-star text-warning" data-rating="3"></i>
-                    <i class="fa fa-star text-warning" data-rating="4"></i>
-                    <i class="fa fa-star" data-rating="5"></i>
-                </div>
-                </div>
-                <a class="stretched-link" href="#"></a>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-3 mb-md-0 h-100 pb-4">
-              <div class="card card-span h-100 rounded-3">
-                <div class="position-relative">
-                  <img
-                    class="img-fluid rounded-3 w-100"
-                    src="assets/image seb/Mousse au chocolat/13630550-Mousse-au-chocolat.jpg"
-                    alt="..." style="height: 250px;"/>
-                </div>
-                <div class="card-body px-0">
-                  <h5 class="fw-bold text-1000 text-truncate ps-3">
-                    Mousse au chocolat 
-                  </h5>
-                  <div class="star-rating ps-3">
-                    <i class="fa fa-star text-warning" data-rating="1"></i>
-                    <i class="fa fa-star text-warning" data-rating="2"></i>
-                    <i class="fa fa-star text-warning" data-rating="3"></i>
-                    <i class="fa fa-star text-warning" data-rating="4"></i>
-                    <i class="fa fa-star text-warning" data-rating="5"></i>
-                </div>
-                </div>
-                <a class="stretched-link" href="#"></a>
-              </div>
-            </div>
+            <?php endforeach ?>
           </div>
         </div>
         <!-- end of .container-->

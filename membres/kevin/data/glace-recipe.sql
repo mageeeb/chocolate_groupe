@@ -5,8 +5,8 @@ VALUES('Kevin', 'Kevin123', 1);
 
 SET @user_id = LAST_INSERT_ID();
 
-INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Glace au Chocolat", "Découvrez le plaisir d’une glace au chocolat riche et onctueuse, où la douceur de la crème anglaise se mêle à l’intensité du chocolat noir. Chaque bouchée est une célébration des saveurs, un équilibre parfait entre la fraîcheur de la glace vanille et la profondeur du chocolat.", 4, "img/recipes/glace/glace-chocolat.jpeg", 60, 0, 720);
+INSERT INTO `recipe`(`name`, `membre`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
+VALUES("Glace au Chocolat", "kevin", "Découvrez le plaisir d’une glace au chocolat riche et onctueuse, où la douceur de la crème anglaise se mêle à l’intensité du chocolat noir. Chaque bouchée est une célébration des saveurs, un équilibre parfait entre la fraîcheur de la glace vanille et la profondeur du chocolat.", 4, "assets/img/recipe/glace-chocolat.jpeg", 60, 0, 720);
 
 SET @recipe_id = LAST_INSERT_ID();
 
