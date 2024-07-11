@@ -164,7 +164,7 @@
                                         <i class="fa-regular fa-star" data-rating="5"></i>
                                     </div>
                                     <input type="hidden" id="rating" name="stars" value="0">
-                                    <input type="hidden" name="comment" value="">
+                                    <textarea style="display: none;" name="comment"></textarea>
                                 </div>
                             </div>
                             <button type="submit">Envoyez votre commentaire</button>
