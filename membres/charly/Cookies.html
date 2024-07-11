@@ -9,7 +9,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit="
     />
     <link rel="icon" type="image/x-icon" href="img/nav-img/logo.png" />
-    <title>🍫 Délicieuse recette de mousse au chocolat 🍫</title>
+    <title>🍫 Cookies au chocolat 🍫</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -48,6 +48,21 @@
       href="css/footer/font-awesome.min.css"
       type="text/css"
     />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/footer/style.css" type="text/css" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -100,11 +115,103 @@
     <header class="header-text glace-banner">
       <h1><?= $recipe->getName() ?></h1>
     </header>
-    <!--------------------------------------------------------------------------contenu------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------->
+    <div class="ocean">
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
 
-    ici
+    <div
+      class="container-fluid page-header mb-5 p-0"
+      style="background-image: url(img/carousel-1.jpg)"
+    >
+      <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5"></div>
+      </div>
+    </div>
+    <section
+      id="about"
+      class="about section d-flex justify-content-center align-items-center vh-100"
+    >
+      
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="CookisR">
+              <div class="row gy-4">
+                <div data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                >
+                  <h2 class="display-5 fs-2 text-orange mb-3 mt-4 animated slideInDown"
+                    >Temps de cuisson</h2>
+                    
+                  </h2>
+                  <ul>
+                    <li>
+                      26 minutes Préparation : 15 minutes, Cuisson : 11 minutes
+                    </li>
+                    <div data-aos="fade-left"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500">
+                    <h2
+                      class="display-5 fs-2 text-orange mb-3 mt-4 animated slideInDown"
+                    >Ingrédients </h2>
+                    <li>chocolat noir 400 g</li>
+                    <li>50g de cacao en poudre non sucré</li>
+                    <li>1 cuil. à café de bicarbonate de soude</li>
+                    <li>135g de sucre brun (sucre vergeoise)</li>
+                    <li></li>
+                    <li>125 g de sucre</li>
+                    <li>120 g de beurre (mou)</li>
+                    <li>8 oeufs</li>
+                    <li>500 g de farine</li>
+                    <li>1 c. à c. de levure déshydratée</li>
+                    <li>175g de pépites de chocolat</li>
+                    <li>2 cuil. à café d’extrait de vanille</li>
+                    <li>3 c. à s. de cacao sucré</li>
+                  </div>
+                  <div data-aos="fade-up"
+                  data-aos-easing="linear"
+                  data-aos-duration="1500">
+                    <h3
+                      class="display-5 fs-2 text-orange mb-3 mt-4 animated slideInDown"
+                    >
+                      Étape une
+                    </h3>
+                    
+                    <li>Faire fondre le chocolat noir avec le beurre.</li>
+                    <li>
+                      Battre 5 minutes les œufs, la cassonade et le sucre.
+                    </li>
+                    <li>Ajouter le cacao et le mélange beurre/chocolat.</li>
+                  </div>
+                  <div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
 
-    <!--------------------------------------------------------------------------contenu------------------------------------------------------------------------------------------------->
+                    <h3
+                      class="display-5 fs-2 text-orange mb-3 mt-4 animated slideInDown"
+                    >
+                      Étape deux
+                    </h3>
+                    <li>Tamiser la farine avec la levure.</li>
+                    <li>Ajouter l'ensemble au mélange œufs/sucre.</li>
+                    <li>
+                      Utiliser une cuillère à soupe ou une cuillère à glace pour
+                      former des tas bien espacés.
+                    </li>
+                    <li>Enfourner 12 minutes à 170 degrés.</li>
+                    <li>Laisser refroidir avant de déguster.</li>
+                  </ul>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------------------------------------------------------------------------->
 
     <!-- Page Preloder -->
     <div id="preloder">
@@ -227,5 +334,8 @@
     <script src="js/jsfooter/jquery-3.3.1.min.js"></script>
     <script src="js/jsfooter/bootstrap.min.js"></script>
     <script src="js/jsfooter/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
   </body>
 </html>
