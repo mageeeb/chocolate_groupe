@@ -6,6 +6,7 @@ $pdo = new PDO( DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT.";c
 DB_LOGIN,
 DB_PWD);
 
+$result = Comment::insertCommentByForm($pdo, ID_RECIPE_MOUS);
 $recipe = Recipe::getRecipeById($pdo, ID_RECIPE_MOUS);
 $recipeAverage = $recipe->getStarAverage();
 
