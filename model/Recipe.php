@@ -10,6 +10,7 @@ require_once("Category.php");
 class Recipe{
   const SEPARATOR_DB = '|||';
   private int $id;
+  private string $membre;
   private string $name;
   private string $description;
   private int $nb_people;
@@ -26,8 +27,9 @@ class Recipe{
   // array of type Comments
   private array $comments;
 
-  public function __construct(int $id, string $name, string $description, int $nb_people, int $preparation_time, int $cooking_time, int $rest_time, ?string $img_url, array $sub_recipes, array $ingredients, array $categories, array $comments) {
+  public function __construct(int $id, string $membre, string $name, string $description, int $nb_people, int $preparation_time, int $cooking_time, int $rest_time, ?string $img_url, array $sub_recipes, array $ingredients, array $categories, array $comments) {
     $this->setId($id);
+    $this->setMembre($membre);
     $this->setName($name);
     $this->setDescription($description);
     $this->setNbPeople($nb_people);
@@ -42,6 +44,38 @@ class Recipe{
   }
 
   use TraitTimeToString;
+
+  /**
+   * @return array if succes and string if error
+   */
+  public static function getBestRecipe(PDO $db, int $limit = 4):array|string{
+    $sql = "
+          SELECT
+              r.membre,
+              r.name,
+              r.image_url,
+              CEIL(AVG(c.stars * 2)) AS average_stars
+          FROM
+              recipe r
+          JOIN
+              `comment` AS c ON r.id = c.recipe_id
+          GROUP BY
+              r.id,
+              r.name
+          ORDER BY
+              average_stars DESC
+          LIMIT $limit;
+    ";
+    try {
+      $query = $db->query($sql);
+      $recipes = $query->fetchAll(PDO::FETCH_ASSOC);
+      $query->closeCursor();
+      return $recipes;
+    }catch (Exception $e){
+      return $e->getMessage();
+    }
+
+  }
 
   public static function getRecipeById(PDO $db, int $id):self|string{
     $sql = "
@@ -96,6 +130,7 @@ class Recipe{
     /*get returned values*/
     /* recipe */
     $recipe_id = $recipe["id"];
+    $recipe_membre = $recipe["membre"];
     $recipe_name = $recipe["name"];
     $recipe_description = $recipe["description"];
     $recipe_nb_people = $recipe["nb_people"];
@@ -176,7 +211,7 @@ class Recipe{
       array_push($sub_recipes, new SubRecipe($sub_recipe["id"], $sub_recipe["title"], $sub_recipe["image_url"], $sub_recipe["preparation_time"], $sub_recipe_instructions));
     }
 
-    return new Recipe($recipe_id, $recipe_name, $recipe_description, $recipe_nb_people, $recipe_preparation_time, $recipe_cooking_time, $recipe_rest_time, $recipe_img_url, $sub_recipes, $recipe_ingredients, $recipe_categories, $recipe_comments);
+    return new Recipe($recipe_id, $recipe_membre, $recipe_name, $recipe_description, $recipe_nb_people, $recipe_preparation_time, $recipe_cooking_time, $recipe_rest_time, $recipe_img_url, $sub_recipes, $recipe_ingredients, $recipe_categories, $recipe_comments);
   }
   public static function getRecipeByName(PDO $db, string $name):self|string{
     try {
@@ -195,17 +230,18 @@ class Recipe{
   /**
    * @return true if success , string if error
    */
-  public static function create(PDO $db, string $name, string $description, int $nb_people, int $preparation_time, int $cooking_time, int $rest_time, ?string $img_url):string|bool{
+  public static function create(PDO $db, string $membre, string $name, string $description, int $nb_people, int $preparation_time, int $cooking_time, int $rest_time, ?string $img_url):string|bool{
+    $membre = trim(htmlspecialchars(strip_tags($membre)),ENT_QUOTES);
     $name = trim(htmlspecialchars(strip_tags($name)),ENT_QUOTES);
     if ($img_url)$img_url = trim(htmlspecialchars(strip_tags($img_url)),ENT_QUOTES);
 
     try {
       $sql = "
-        INSRT INTO `recipe`(`name`, `description`, `nb_people`, `preparation_time`, `cooking_time`, `rest_time`, `img_url`)
+        INSRT INTO `recipe`(`membre`, `name`, `description`, `nb_people`, `preparation_time`, `cooking_time`, `rest_time`, `img_url`)
         VALUES(?,?,?,?,?,?,?);
       ";
       $prepare = $db->prepare($sql);
-      $prepare->execute([$name, $description, $nb_people, $preparation_time, $cooking_time, $rest_time, $img_url]);
+      $prepare->execute([$membre, $name, $description, $nb_people, $preparation_time, $cooking_time, $rest_time, $img_url]);
       $prepare->closeCursor();
       return true;
     }catch (Exception $e){
@@ -221,6 +257,7 @@ class Recipe{
       $sql = "
         UPDATE `recipe`
         SET
+          `membre`=?,
           `name`=?,
           `description`=?,
           `nb_people`=?,
@@ -232,7 +269,7 @@ class Recipe{
           `id`=?
       ";
       $prepare = $db->prepare($sql);
-      $prepare->execute([$this->name, $this->description, $this->nb_people, $this->preparation_time, $this->cooking_time, $this->rest_time, $this->img_url, $this->id]);
+      $prepare->execute([$this->membre, $this->name, $this->description, $this->nb_people, $this->preparation_time, $this->cooking_time, $this->rest_time, $this->img_url, $this->id]);
       $prepare->closeCursor();
       return true;
     }catch (Exception $e){
@@ -257,6 +294,9 @@ class Recipe{
   // getters
   public function getId():int{
     return $this->id;
+  }
+  public function getMembre():string{
+    return $this->membre;
   }
   public function getName():string{
     return $this->name;
@@ -307,6 +347,10 @@ class Recipe{
   //setters
   public function setId(int $id):self{
     $this->id = $id;
+    return $this;
+  }
+  public function setMembre(string $membre):self{
+    $this->membre = trim(htmlspecialchars(strip_tags($membre)),ENT_QUOTES);
     return $this;
   }
   public function setName(string $name):self{

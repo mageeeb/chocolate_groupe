@@ -87,37 +87,37 @@ $(function(){
 
     $navRecipes.children().each(function(i){
         let url;
-        const basePath = "../../public/assets/image\ seb/";
+        const basePath = "../../public/assets/img/recipe/";
         switch(i){
             case 0:
-                url = basePath+'Mousse\ au\ chocolat/13630550-Mousse-au-chocolat.jpg';
+                url = basePath+'Mousse-au-chocolat.jpg';
                 break;
             case 1:
-                url = basePath+'Cake\ tout\ chocolat/14633_3-2_1560-1040.jpg';
+                url = basePath+'murzynekgal1.webp';
                 break;
             case 2:
-                url = basePath+'fondant\ au\ chocolat/1575898110_fondant-au-chocolat.jpg';
+                url = basePath+'fondant-au-chocolat.png';
                 break;
             case 3:
-                url = basePath+'Tarte\ au\ chocolat/chocolate-cake-wood.jpg';
+                url = basePath+'eclat-au-chocolat.jpg';
                 break;
             case 4:
-                url = basePath+'cookies\ chocolat/13370901-Cookies-with-chocolate-chips-and-almonds-on-baking-sheet.jpg';
+                url = basePath+'cookies.jpeg';
                 break;
             case 5:
-                url = basePath+'Glace\ au\ chocolat/cock.jpeg';
+                url = basePath+'glace-chocolat.jpeg';
                 break;
             case 6:
-                url = basePath+'Bûche\ de\ Noël\ chocolat/14175853-Bûche-de-Noël-made-from-chocolate-sponge-cake-with-quark-filling.jpg';
+                url = basePath+'chocopomme.jpg';
                 break;
             case 7:
-                url = basePath+'Moelleux\ chocolat/histoire_moelleux_au_chocolat.webp';
+                url = basePath+'brownieFramboise.jpg';
                 break;
             case 8:
-                url = basePath+'Truffes\ au\ chocolat/front-view-composition-delicious-chocolate-goodies.jpg';
+                url = basePath+'amandina.jpg';
                 break;
             case 9:
-                url = basePath+'macarons\ au\ chocolat/0a80c4a2-8ce0-4491-a5e8-e903fdb1fafd_eyqtYhH.jpg';
+                url = basePath+'Cupavci.jpeg';
                 break;
         }
         $(this).on('mouseover', ()=>{
