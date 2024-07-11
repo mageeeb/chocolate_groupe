@@ -3,7 +3,7 @@ $('#comment-form').on('submit', function(e) {
     e.preventDefault();
     const username = $('input[name=username]').val().trim();
     const subject = $('input[name=subject]').val().trim();
-    const comment = $('input[name=comment]').val().trim();
+    const comment = $('textarea[name=comment]').val().trim();
     const stars = parseInt($('input[name=stars]').val());
 
     $('.error-username').hide();

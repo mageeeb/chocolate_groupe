@@ -197,5 +197,5 @@ function getStars(rating) {
 
 // Personnel Kevin
 function commentForm(){
-    $('input[name=comment]').val($('#comment .ql-editor').html());
+    $('textarea[name=comment]').html($('#comment .ql-editor').html());
 }
