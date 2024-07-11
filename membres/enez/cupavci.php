@@ -71,7 +71,9 @@
                     <p><i class="fa-solid fa-person"></i> Pour : 8 personnes</p>
                     <p><i class="fa-solid fa-clock"></i> Préparation: 1 heure 10mn</p>
                     <p><i class="fa-solid fa-clock"></i> Cuisson: 40 minutes</p>
-                    <p><i class="fa-solid fa-clock"></i> Repos: 1h5 heures</p>
+                    <p><i class="fa-solid fa-clock"></i> Repos: 1h heures</p>
+                    <p><i class="fa-solid fa-utensils"></i> Difficulté: Facile</p>
+
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-duration="1500">
                     <h3>Ingrédients :</h3>
@@ -82,6 +84,8 @@
                         <li><i class="fa-solid fa-receipt"></i> 125g de farine</li>
                         <li><i class="fa-solid fa-receipt"></i> 100g de beurre doux</li>
                         <li><i class="fa-solid fa-receipt"></i> 0.5 cuillère à café de bicarbonate de soude</li>
+                        <li><i class="fa-solid fa-receipt"></i> 50g de noix de coco râpée</li>
+                        <li><i class="fa-solid fa-receipt"></i> 100g de chocolat</li>
                     </ul>
                 </div>
         </header>
@@ -199,7 +203,26 @@
                         </form>
                         <div class="comments-section">
                             <div class="comments-list" id="comments-list">
-                                <!-- Commentaires affichés ici -->
+                              <!-- Commentaires affichés ici -->
+                              <?php foreach($recipe->getComments() as $comment): ?>
+                                <div class="comment">
+                                    <div>
+                                        <strong><?=$comment->getUsername()?></strong>
+                                        <span class="comment-date"><?=$comment->getCreatedDate()?></span>
+                                    </div>
+                                    <div class="comment-rating">
+                                        <?php for($i=0;$i<$comment->getStars();$i++): ?>
+                                        <i class="fa fa-star checked"></i>
+                                        <?php endfor; ?>
+                                    </div>
+                                    <div style="margin-bottom: 0.5em;">
+                                        <strong><?=$comment->getSubject()?>:</strong>
+                                    </div>
+                                    <div>
+                                        <?=$comment->getComment()?>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>

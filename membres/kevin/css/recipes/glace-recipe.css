@@ -59,7 +59,6 @@ h3{
 .glace-banner{
     position: relative;
     height: 650px;
-    background-image: url('../../img/recipes/glace/glace-chocolat.jpeg');
     background-size: cover;
 }
 
@@ -309,6 +308,9 @@ h3{
 }
 .comment .comment-rating i {
     margin-right: 2px;
+}
+p.error{
+    color: red;
 }
 #comments-list{
     padding: 15px 50px 50px 50px;

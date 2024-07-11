@@ -1,5 +1,5 @@
 <?php
-class Comment{
+class Comment implements JsonSerializable {
   const MAX_COMMENT_BY_PAGE_AND_USER = 1;
   private int $id;
   private string $comment;
@@ -16,6 +16,16 @@ class Comment{
     $this->setStars($stars);
     $this->setUsername($username);
   }
+
+  public function jsonSerialize(): mixed{
+    return [
+      'username' => $this->getUsername(),
+      'subject' => $this->getSubject(),
+      'comment' => $this->getComment(),
+      'stars' => $this->getStars(),
+      'created_date' => $this->getCreatedDate(),
+    ];
+}
 
   public function delete(PDO $db):?string{
     try {
@@ -48,6 +58,45 @@ class Comment{
     }
   }
 
+  /**
+   * For the form html. Check if the values is submit in the super var $_POST
+   * @return string is a error
+   * @return array isset array['is-error'] mean that is a error
+   * @return array without is-error mean that is a success
+   */
+  public static function insertCommentByForm(PDO $db, int $id_recipe){
+    if (!isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["stars"]) || !ctype_digit($_POST["stars"])) 
+      return null;
+    $username = trim(strip_tags($_POST["username"]));
+    $comment = trim(strip_tags($_POST["comment"]));
+    $subject = trim(strip_tags($_POST["subject"]));
+    $stars = $_POST["stars"];
+    $errors = [];
+    if(!strlen($comment) && strlen($comment) > 2500) $errors['error-comment'] = "* Le commentaire ne doit pas être vide ou dépasser 2500 caractères.";
+    if(!strlen($username) && strlen($username) > 50) $errors['error-username'] = "* Le username ne doit pas être vide ou dépasser 50 caractères.";
+    if(!strlen($subject) && strlen($subject) > 50) $errors['error-subject'] = "* Le sujet ne doit pas être vide ou dépasser 50 caractères.";
+    if($stars < 1 || $stars > 5) $errors['error-stars'] = "* Les étoiles doivent être comprises entre 1 et 5";
+    if(sizeof($errors) === 0){
+      $result = Comment::insertComment($db, $id_recipe, $username, $comment, $subject, $stars);
+      if(isset($_POST['api'])){
+        $result = gettype($result) === 'string' ? [ 'error-form' => $result ] : $result;
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($result);
+        die;
+      }else return $result;
+    }else{
+      if(isset($_POST['api'])){
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($errors);
+        die;
+      }
+      else{
+        $errors['is-error'] = true;
+        return $errors;
+      }
+    }
+  }
+
   /** stars must be from 1 -> 10 */
   public static function insertComment(PDO $db, int $recipe_id, string $user_name, string $comment, string $subject, int $stars){
     if (sizeof(self::getCommentsByUserAndRecipe($db, $recipe_id, $user_name))>=self::MAX_COMMENT_BY_PAGE_AND_USER){
@@ -62,8 +111,6 @@ class Comment{
     }catch (Exception $e){
       return $e->getMessage();
     }
-
-    return null;
   }
 
   // getters
