@@ -40,12 +40,12 @@ $(".ps-photo").hover(function(){
 
 //hidden form
 $(document).ready(function () {
-  $("#contactForm").hide();
+  $("#comment-form").hide();
   $(".showForm").click(function () {
-    if ($("#contactForm").is(":visible")) {
-      $("#contactForm").hide(2000);
+    if ($("#comment-form").is(":visible")) {
+      $("#comment-form").hide(2000);
     } else {
-      $("#contactForm").show(2000);
+      $("#comment-form").show(2000);
     }
   });
 });

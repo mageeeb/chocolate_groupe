@@ -125,7 +125,7 @@
                             <?php if($recipeAverage % 2 !== 0): ?>
                             <i class="fa-solid fa-star-half rating-color" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
                             <?php endif ?>
-                            <p><i class="fa-solid fa-message text-light"></i> <a href="#comment-section"><?= sizeof($recipe->getComments()) ?> commentaire<?= sizeof($recipe->getComments()) > 1 ? 's' : '' ?></a></p>
+                            <p><i class="fa-solid fa-message text-secondary"></i> <a class="text-light" href="#comment-section"><?= sizeof($recipe->getComments()) ?> commentaire<?= sizeof($recipe->getComments()) > 1 ? 's' : '' ?></a></p>
                           </div>
                         </div>
                     </div>
@@ -181,18 +181,17 @@
         <button class="btn btn-md showForm" type="submit">Cliquez ici</button>
         </div>
 
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+        <form id="comment-form" data-sb-form-api-token="API_TOKEN">
         <div class="form-floating mb-3 ">
-          <input class="form-control" id="nom" type="text" placeholder="Nom" data-sb-validations="required" />
+          <input class="form-control" id="nom" name="username" type="text" placeholder="Nom" data-sb-validations="required" />
           <div class="invalid-feedback" data-sb-feedback="nom:required">Vueillez introuduir votre nom.</div>
       </div>
       <div class="form-floating mb-3">
-          <input class="form-control" id="email" type="email" placeholder="Email" data-sb-validations="required,email" />
-          <div class="invalid-feedback" data-sb-feedback="email:required">Veuillez introuduir votre email.</div>
-          <div class="invalid-feedback" data-sb-feedback="email:email">L'email n'est pas valide.</div>
+          <input class="form-control" id="subjet" name="subjet" type="text" placeholder="Sujet" data-sb-validations="required" />
+          <div class="invalid-feedback" data-sb-feedback="email:required">Veuillez introuduir votre sujet.</div>
       </div>
       <div class="form-floating mb-3">
-          <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+          <textarea class="form-control" id="message" name="comment" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
           <div class="invalid-feedback" data-sb-feedback="message:required">Vueillez introuduiter votre message.</div>
       </div>
       
@@ -204,7 +203,7 @@
         <i class="fa fa-star " data-rating="4"></i>
         <i class="fa fa-star " data-rating="5"></i>
       </div>
-    <input type="hidden" id="rating" value="0">
+    <input type="hidden" id="rating" name="stars" value="0">
       <h5 class="etoiles mb-5">Que pensez vous de cette recette ?</h5>
       <div class="d-none" id="submitErrorMessage">
       <div class="text-center text-danger mb-3">Error sending message!</div>
@@ -221,7 +220,7 @@
                 <div class="col-md-12 col-lg-10">
                     <div class="card text-body" style="background-color: #FDEBD5;">
                         <div class="card-body p-4">
-                            <h4 class="mb-4 titreForm"">Commentaires recents</h4>
+                            <h4 class="mb-4 titreForm">Commentaires recents</h4>
                                 <?php foreach ($recipe->getComments() as $comment): ?>
                                     <div class="d-flex flex-start">
                                         <img class="rounded-circle shadow-1-strong m-3"
@@ -235,7 +234,7 @@
                                                 </p>
                                     </div>
                                     <div>
-                                            <p class="mb-0 ms-4">
+                                            <p class="mb-0 ms-4 textMsg">
                                                 <?= $comment->getComment() ?>
                                             </p>
                                     <?php for ($i=0; $i<$comment->getStars(); $i++): ?>

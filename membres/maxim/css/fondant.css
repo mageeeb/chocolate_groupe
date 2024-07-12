@@ -246,6 +246,11 @@ header {
 .star-rating .fa-star.checked {
   color: #ffc107;
 }
+.textMsg{
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  color: #230903;
+}
 
 @media screen and (width < 768px) {
   .textBanner {
