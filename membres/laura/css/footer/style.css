@@ -37,7 +37,9 @@
 /*---------------------
   Footer
 -----------------------*/
-
+.crem{
+ background-color: #fff;
+}
 
 
 .glace-banner > p{
@@ -236,7 +238,7 @@ $font-weight-black:   700;
   box-sizing: border-box;
 }
 
-img {
+.gateaushadow img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1642,7 +1644,7 @@ body {
 
 
 
-*{margin: 0;padding: 0;scroll-behavior: smooth;box-sizing: border-box;font-family: 'Poppins', sans-serif;}
+*{margin: 0;padding: 0;scroll-behavior: smooth;box-sizing: border-box}
 a{text-decoration: none}
 li{list-style: none}
 
@@ -1681,7 +1683,7 @@ li{list-style: none}
     width: 300px;
     height: 500px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    background: var(--main-color);
+    background: #e5b576;
     border-radius: 5px;
     z-index: 3;
     align-items: center;
@@ -1716,7 +1718,7 @@ li{list-style: none}
     align-items: center;
 }
 .formulaire .container h3{
-    color: var(--main-color);
+    color: #e5b576;
     font-size: 25px;
 }
 .formulaire .container form .form_container{
@@ -1746,7 +1748,7 @@ li{list-style: none}
     height: 100%;
     outline: none;
     border: none;
-    border-bottom: 2px solid var(--main-color);
+    border-bottom: 2px solid #e5b576;
     transition: all 0.5s ease;
     font-size: 15px;
 }
@@ -1764,7 +1766,7 @@ li{list-style: none}
     resize: none;
     outline: none;
     border: none;
-    border-bottom: 2px solid var(--main-color);
+    border-bottom: 2px solid #e5b576;
 }
 .formulaire .container form .form_container .button{
     width: 150px;
@@ -1826,7 +1828,7 @@ li{list-style: none}
         text-align: left;
     }
     .formulaire .container h3 {
-        color: var(--main-color);
+        color: #e5b576;
         font-size: 25px;
     }
 }
