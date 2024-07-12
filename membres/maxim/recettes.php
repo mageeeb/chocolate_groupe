@@ -72,8 +72,8 @@
             <img src="img/nav-img/banner_top.png" alt="">
         </div>
 
-    <header class="bannerImg header-text mb-5">
-        <h1 class="textBanner">Fondant au Chocolat</h1>
+    <header class="bannerImg header-text mb-5" style="background-image: url('../../public/<?= $recipe->getImgUrl() ?>');">
+        <h1 class="textBanner"><?= $recipe->getName() ?></h1>
     </header>
     
 
@@ -90,7 +90,7 @@
                         <span class="textTitre"> Chocolat</span>
                       </h1>
                       <p class="fs-1 description">
-                        Découvrez la recette de Fondants au chocolat en ramequins. Une recette facile à faire qui peut être préparée plusieurs jours avant l'arrivée de vos invités !
+                      <?= $recipe->getDescription() ?>
                       </p>
                       
                     </div>
@@ -108,26 +108,25 @@
                         <div class="card-body border border-dark colorCard">
                             <h4 class="card-text mb-5 text-center titreIngredients">Ingredients</h4>
                                 <ul class="listeIngredients">
-                                    <li class="text-light">Farine 4 cuillères à soupe</li>
-                                    <li class="text-light">Sucre 100g</li>
-                                    <li class="text-light">Beurre Doux 100g</li>
-                                    <li class="text-light">Chocolat Pâtissier 200g</li>
-                                    <li class="text-light">Oeufs 5</li>
+                                <?php foreach($recipe->getIngredients() as $ingredient): ?>
+                            <li class="text-light"></i> <?= $ingredient ?></li>
+                            <?php endforeach ?>                                   
                                 </ul>
                               <br><br>
 
-                        <p class="textColor text-center">Temps Total: 35min</p>    
-                        <p class="textColor text-center">Préparation: 15min</p>    
-                        <p class="textColor text-center">Cuisson: 20min</p>
+                        <p class="textColor text-center">Temps Total: <?= $recipe->getRestTimeToString() ?></p>    
+                        <p class="textColor text-center">Préparation: <?= $recipe->getPreparationTimeToString() ?></p>    
+                        <p class="textColor text-center">Cuisson: <?= $recipe->getCookingTimeToString() ?></p>
                         <div class="d-flex justify-content-between align-items-center p-4">
                           <div class="ratings">
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star"></i>
+                          <?php for($i = 2; $i <= $recipeAverage; $i+=2): ?>
+                            <i class="fa-solid fa-star rating-color" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                            <?php endfor ?>
+                            <?php if($recipeAverage % 2 !== 0): ?>
+                            <i class="fa-solid fa-star-half rating-color" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                            <?php endif ?>
+                            <p><i class="fa-solid fa-message text-secondary"></i> <a class="text-light" href="#comment-section"><?= sizeof($recipe->getComments()) ?> commentaire<?= sizeof($recipe->getComments()) > 1 ? 's' : '' ?></a></p>
                           </div>
-                          <h5 class="review-count">12 Commentaires</h5>
                         </div>
                     </div>
                 </div>
@@ -182,29 +181,29 @@
         <button class="btn btn-md showForm" type="submit">Cliquez ici</button>
         </div>
 
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+        <form class="contact-form" id="comment-form" data-sb-form-api-token="API_TOKEN">
         <div class="form-floating mb-3 ">
-          <input class="form-control" id="nom" type="text" placeholder="Nom" data-sb-validations="required" />
+          <input class="form-control" id="nom" name="username" type="text" placeholder="Nom" data-sb-validations="required" />
           <div class="invalid-feedback" data-sb-feedback="nom:required">Vueillez introuduir votre nom.</div>
       </div>
       <div class="form-floating mb-3">
-          <input class="form-control" id="email" type="email" placeholder="Email" data-sb-validations="required,email" />
-          <div class="invalid-feedback" data-sb-feedback="email:required">Veuillez introuduir votre email.</div>
-          <div class="invalid-feedback" data-sb-feedback="email:email">L'email n'est pas valide.</div>
+          <input class="form-control" id="subjet" name="subjet" type="text" placeholder="Sujet" data-sb-validations="required" />
+          <div class="invalid-feedback" data-sb-feedback="email:required">Veuillez introuduir votre sujet.</div>
       </div>
       <div class="form-floating mb-3">
-          <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+          <textarea class="form-control" id="message" name="comment" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
           <div class="invalid-feedback" data-sb-feedback="message:required">Vueillez introuduiter votre message.</div>
       </div>
       
       
-      <div class="ratings mt-5 mb-2">
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star"></i>
-    </div>
+    <div class="star-rating mt-5 mb-2">
+        <i class="fa fa-star " data-rating="1"></i>
+        <i class="fa fa-star " data-rating="2"></i>
+        <i class="fa fa-star " data-rating="3"></i>
+        <i class="fa fa-star " data-rating="4"></i>
+        <i class="fa fa-star " data-rating="5"></i>
+      </div>
+    <input type="hidden" id="rating" name="stars" value="0">
       <h5 class="etoiles mb-5">Que pensez vous de cette recette ?</h5>
       <div class="d-none" id="submitErrorMessage">
       <div class="text-center text-danger mb-3">Error sending message!</div>
@@ -215,27 +214,27 @@
     </form>
 
         
-    <section style="background-color: #5A2314;">
+    <section id="comment-section" style="background-color: #5A2314;">
         <div class="container my-5 py-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="card text-body" style="background-color: #FDEBD5;">
                         <div class="card-body p-4">
-                            <h4 class="mb-4 titreForm"">Commentaires recents</h4>
+                            <h4 class="mb-4 titreForm">Commentaires recents</h4>
                                 <?php foreach ($recipe->getComments() as $comment): ?>
                                     <div class="d-flex flex-start">
                                         <img class="rounded-circle shadow-1-strong m-3"
                                             src="img/9440461.jpg" alt="avatar" width="60"
                                             height="60" />
                                     </div>
-                                            <h6 class="fw-bold mb-1"><?= $comment->getUsername() ?></h6>
+                                            <h6 class="fw-bold mb-1 textMsg"><?= $comment->getUsername() ?></h6>
                                     <div class="d-flex align-items-center mb-3">
-                                                <p class="mb-2 ms-4">
+                                                <p class="mb-2 ms-4 textMsg">
                                                     <?= $comment->getCreatedDate() ?>
                                                 </p>
                                     </div>
                                     <div>
-                                            <p class="mb-0 ms-4">
+                                            <p class="mb-0 ms-4 textMsg">
                                                 <?= $comment->getComment() ?>
                                             </p>
                                     <?php for ($i=0; $i<$comment->getStars(); $i++): ?>
@@ -332,6 +331,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="js/nav.js"></script>
 <script src="js/recetteMaxi.js"></script>
+<script src="js/commentaire.js"></script>
 <script src="js/jsFooter/jquery-3.3.1.min.js"></script>
 <script src="js/jsFooter/bootstrap.min.js"></script>
 <script src="js/jsFooter/main.js"></script>
