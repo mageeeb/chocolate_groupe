@@ -5,15 +5,10 @@ VALUES('Maxi', 'Maxi123', 1);
 
 SET @user_id = LAST_INSERT_ID();
 
-INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Fondant au Chocolat", "Découvrez la recette de Fondants au chocolat en ramequins. Une recette facile à faire qui peut être préparée plusieurs jours avant l'arrivée de vos invités !", 4, "img/reci1575898110_fondant-au-chocolat-transformed.png", 35, 15, 0);
+INSERT INTO `recipe`(`membre`, `name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
+VALUES("maxim", "Fondant au Chocolat", "Découvrez la recette de Fondants au chocolat en ramequins. Une recette facile à faire qui peut être préparée plusieurs jours avant l'arrivée de vos invités !", 4, "assets/img/recipe/fondant-au-chocolat.png", 20, 15, 35);
 
 SET @recipe_id = LAST_INSERT_ID();
-
-INSERT INTO `sub_recipe`(`recipe_id`, `title`, `image_url`, `preparation_time`, `sub_recipe_number`)
-VALUES (@recipe_id , "Tout d'abord préparons la crème anglaise :", "img/recipes/glace/cream-anglaise-chocolat.webp", 45, 1);
-
-SET @sub_recipe_id1 = LAST_INSERT_ID();
 
 
 

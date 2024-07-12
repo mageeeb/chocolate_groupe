@@ -90,7 +90,7 @@
                         <span class="textTitre"> Chocolat</span>
                       </h1>
                       <p class="fs-1 description">
-                        Découvrez la recette de Fondants au chocolat en ramequins. Une recette facile à faire qui peut être préparée plusieurs jours avant l'arrivée de vos invités !
+                      <?= $recipe->getDescription() ?>
                       </p>
                       
                     </div>
@@ -108,25 +108,24 @@
                         <div class="card-body border border-dark colorCard">
                             <h4 class="card-text mb-5 text-center titreIngredients">Ingredients</h4>
                                 <ul class="listeIngredients">
-                                    <li class="text-light">Farine 4 cuillères à soupe</li>
-                                    <li class="text-light">Sucre 100g</li>
-                                    <li class="text-light">Beurre Doux 100g</li>
-                                    <li class="text-light">Chocolat Pâtissier 200g</li>
-                                    <li class="text-light">Oeufs 5</li>
+                                <?php foreach($recipe->getIngredients() as $ingredient): ?>
+                            <li class="text-light"></i> <?= $ingredient ?></li>
+                            <?php endforeach ?>                                   
                                 </ul>
                               <br><br>
 
-                        <p class="textColor text-center">Temps Total: 35min</p>    
-                        <p class="textColor text-center">Préparation: 15min</p>    
-                        <p class="textColor text-center">Cuisson: 20min</p>
+                        <p class="textColor text-center">Temps Total: <?= $recipe->getRestTimeToString() ?></p>    
+                        <p class="textColor text-center">Préparation: <?= $recipe->getPreparationTimeToString() ?></p>    
+                        <p class="textColor text-center">Cuisson: <?= $recipe->getCookingTimeToString() ?></p>
                         <div class="d-flex justify-content-between align-items-center p-4">
                           <div class="ratings">
                           <?php for($i = 2; $i <= $recipeAverage; $i+=2): ?>
-                            <i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                            <i class="fa-solid fa-star rating-color" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
                             <?php endfor ?>
                             <?php if($recipeAverage % 2 !== 0): ?>
-                            <i class="fa-solid fa-star-half" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                            <i class="fa-solid fa-star-half rating-color" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
                             <?php endif ?>
+                            <p><i class="fa-solid fa-message text-light"></i> <a href="#comment-section"><?= sizeof($recipe->getComments()) ?> commentaire<?= sizeof($recipe->getComments()) > 1 ? 's' : '' ?></a></p>
                           </div>
                         </div>
                     </div>
@@ -198,13 +197,14 @@
       </div>
       
       
-      <div class="ratings mt-5 mb-2">
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star rating-color"></i>
-        <i class="fa fa-star"></i>
-    </div>
+    <div class="star-rating mt-5 mb-2">
+        <i class="fa fa-star " data-rating="1"></i>
+        <i class="fa fa-star " data-rating="2"></i>
+        <i class="fa fa-star " data-rating="3"></i>
+        <i class="fa fa-star " data-rating="4"></i>
+        <i class="fa fa-star " data-rating="5"></i>
+      </div>
+    <input type="hidden" id="rating" value="0">
       <h5 class="etoiles mb-5">Que pensez vous de cette recette ?</h5>
       <div class="d-none" id="submitErrorMessage">
       <div class="text-center text-danger mb-3">Error sending message!</div>
@@ -215,7 +215,7 @@
     </form>
 
         
-    <section style="background-color: #5A2314;">
+    <section id="comment-section" style="background-color: #5A2314;">
         <div class="container my-5 py-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-12 col-lg-10">
@@ -332,6 +332,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="js/nav.js"></script>
 <script src="js/recetteMaxi.js"></script>
+<script src="js/commentaire.js"></script>
 <script src="js/jsFooter/jquery-3.3.1.min.js"></script>
 <script src="js/jsFooter/bootstrap.min.js"></script>
 <script src="js/jsFooter/main.js"></script>
