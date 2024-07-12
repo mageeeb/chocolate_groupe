@@ -72,8 +72,8 @@
             <img src="img/nav-img/banner_top.png" alt="">
         </div>
 
-    <header class="bannerImg header-text mb-5">
-        <h1 class="textBanner">Fondant au Chocolat</h1>
+    <header class="bannerImg header-text mb-5" style="background-image: url('../../public/<?= $recipe->getImgUrl() ?>');">
+        <h1 class="textBanner"><?= $recipe->getName() ?></h1>
     </header>
     
 
@@ -121,13 +121,13 @@
                         <p class="textColor text-center">Cuisson: 20min</p>
                         <div class="d-flex justify-content-between align-items-center p-4">
                           <div class="ratings">
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star rating-color"></i>
-                              <i class="fa fa-star"></i>
+                          <?php for($i = 2; $i <= $recipeAverage; $i+=2): ?>
+                            <i class="fa-solid fa-star" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                            <?php endfor ?>
+                            <?php if($recipeAverage % 2 !== 0): ?>
+                            <i class="fa-solid fa-star-half" data-aos="zoom-in-right" data-aos-duration="500" data-aos-delay="<?= $i / 2 * 500 ?>"></i>
+                            <?php endif ?>
                           </div>
-                          <h5 class="review-count">12 Commentaires</h5>
                         </div>
                     </div>
                 </div>
@@ -228,9 +228,9 @@
                                             src="img/9440461.jpg" alt="avatar" width="60"
                                             height="60" />
                                     </div>
-                                            <h6 class="fw-bold mb-1"><?= $comment->getUsername() ?></h6>
+                                            <h6 class="fw-bold mb-1 textMsg"><?= $comment->getUsername() ?></h6>
                                     <div class="d-flex align-items-center mb-3">
-                                                <p class="mb-2 ms-4">
+                                                <p class="mb-2 ms-4 textMsg">
                                                     <?= $comment->getCreatedDate() ?>
                                                 </p>
                                     </div>
