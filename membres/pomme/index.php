@@ -36,7 +36,7 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
-    <title>🍫 Délicieuse recette de glace au chocolat 🍫</title>
+    <title>🍎🍎 Choco-Pomme 🍎🍎</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer/style.css">
