@@ -36,7 +36,7 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
-    <title>🍫 Délicieuse recette de glace au chocolat 🍫</title>
+    <title>🍎🍎 Choco-Pomme 🍎🍎</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer/style.css">
@@ -53,28 +53,28 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
     </div>
     <nav>
         <div id="nav-links">
-            <a href="#" id="logo"><img src="img/logo.png" alt="" width="50"></a>
+            <a href="../../public/" id="logo"><img src="img/logo.png" alt="" width="50"></a>
             <div id="container-burger">
                 <img src="img/nav-img/chocolat.png" alt="">
             </div>
             <div id="links">
-                <a href="#">Accueil</a>
+                <a href="../../public/">Accueil</a>
                 <a href="javascript:void(0)" id="nav-recipes-link">Recettes<i class="fa-solid fa-arrow-down" style="margin-left: 10px;"></i></a>
                 <a href="#">Contact</a>
             </div>
         </div>
         <div id="nav-recipes-container">
             <ul id="nav-recipes" style="display: none;">
-                <a href="#"><li>Mousse au chocolat</li></a>
-                <a href="#"><li>Cake au chocolat</li></a>
-                <a href="#"><li>Fondant au chocolat</li></a>
-                <a href="#"><li>Tarte au chocolat</li></a>
-                <a href="#"><li>Cookies au chocolat</li></a>
-                <a href="#"><li>Glace au chocolat</li></a>
-                <a href="#"><li>Bûche de Noël au chocolat</li></a>
-                <a href="#"><li>Moelleux au chocolat</li></a>
-                <a href="#"><li>Truffes au chocolat</li></a>
-                <a href="#"><li>Macarons au chocolat</li></a>
+                <a href="../sebastien/"><li>Mousse au chocolat</li></a>
+                <a href="../julian/"><li>Polish cake</li></a>
+                <a href="../maxim/"><li>Fondant au Chocolat</li></a>
+                <a href="../laura"><li>Éclat Choco Amande</li></a>
+                <a href="../charly/"><li>Cookies au chocolat</li></a>
+                <a href="../kevin/"><li>Glace au chocolat</li></a>
+                <a href="../pomme/"><li>Choco Pomme</li></a>
+                <a href="../simona/pageSimona2.html"><li>Brownie framboise</li></a>
+                <a href="../simona/pageSimona.html"><li>Amandina Cake</li></a>
+                <a href="../enez/"><li>Cupavci Cake</li></a>
             </ul>
             <div id="previews">
             </div>
@@ -198,13 +198,18 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__newslatter">
-                       <h6>Recette ...</h6>
+                       <h6>Recettes ...</h6>
                        <ul class="servi">
-                          <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette1</a></li>
-                          <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette2</a></li>
-                          <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette3</a></li>
-                          <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette4</a></li>
-                          <li class="text-white"><a class="text-white" href="Javascript:void(0)"> recette5</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/sebastien/">Mousse au chocolat</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/julian/">Polish cake</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/maxim/">Fondant au Chocolat</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/laura">Éclat Choco Amande</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/charly/">Cookies au chocolat</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/kevin/">Glace au chocolat</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/pomme/">Choco Pomme</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/simona/pageSimona2.html">Brownie framboise</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/simona/pageSimona.html">Amandina Cake</a></li>
+                            <li class="text-white"><a class="text-white" href="../../membres/enez/">Cupavci Cake</a></li>
                        </ul>
                     </div>
                  </div>
@@ -242,7 +247,7 @@ if (isset($_POST["username"], $_POST["comment"], $_POST["subject"], $_POST["star
                 <div class="row">
                     <div class="col-lg-7">
                         <p class="copyright__text text-white">
-                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">sebastien</a>
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">pomme</a>
                         </p>
                     </div>
                     <div class="col-lg-5">
