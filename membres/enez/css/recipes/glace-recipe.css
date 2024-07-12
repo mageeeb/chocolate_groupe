@@ -276,148 +276,253 @@ h2{
 
 .step-desc{
     margin-top: 20px;
-    width: 100%;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #333;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgb(90, 35, 20);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    line-height: 1.5;
+    width: 100%;
+    padding: 0 50px;
 }
 
 
 .step .number{
-    min-width: 50px;
-    background-color: rgb(90, 35, 20);
-    border-radius: 100%;
-    height: 50px;
     position: relative;
-    box-shadow: 2px 2px 5px rgba(90, 35, 20, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ff4d00;
+    color: #fdfbef;
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .step .number span{
     position: absolute;
     top: 50%;
     left: 50%;
-    translate: -50% -50%;
+    transform: translate(-50%, -50%);
     color: #fdfbef;
+    font-size: 1.25rem;
     font-weight: bold;
-    font-size: 1.75rem;
 }
 
 /** Comment */
 
+
+/* Container for the entire contact section */
 .contact-section {
     background: #fdfbef;
-    padding: 50px 0;
-}
-
-.contact-form {
-    background: #f1d6b4;
-    padding: 30px;
-    border-radius: 8px;
+    padding: 50px 15px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
+
+/* Container for the contact form */
+.contact-form {
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Styles for input fields, textareas, and buttons */
 .contact-form input,
 .contact-form textarea,
 .contact-form button {
     width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Focus styles for form elements */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form button:focus {
+    outline: none;
+    border-color: #ff4d00;
+    box-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
+}
+
+/* Button styles */
 .contact-form button {
-    background-color: rgb(88, 34, 21);
-    color: #dfc298;
-    cursor: pointer;
+    background-color: #ff4d00;
+    color: #fff;
     border: none;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Button hover effect */
 .contact-form button:hover {
-    background-color: rgb(70, 27, 17);
+    background-color: #e21a00;
+    transform: scale(1.05);
 }
 
+/* Container for star rating */
 .star-rating {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
+/* Styles for stars */
 .star-rating .fa-star {
-    font-size: 24px;
-    color: white;
+    font-size: 28px;
+    color: #ddd;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
+/* Checked star color */
 .star-rating .fa-star.checked {
     color: #ffc107;
 }
 
+/* Hover effect for stars */
+.star-rating .fa-star:hover,
+.star-rating .fa-star:hover ~ .fa-star {
+    color: #ffa000;
+}
+
+/* Container for the comments section */
 .comments-section {
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Styles for individual comments */
 .comment {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
 }
 
+/* Last comment should have no border at the bottom */
+.comment:last-child {
+    border-bottom: none;
+}
+
+/* Date styling for comments */
 .comment .comment-date {
     font-size: 0.9em;
-    color: #777;
+    color: #999;
+    margin-bottom: 10px;
 }
 
+/* Rating styling for comments */
 .comment .comment-rating {
-    color: rgb(88, 34, 21);
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
+/* Star styling for comments */
 .comment .comment-rating i {
+    font-size: 20px;
+    color: #ffc107;
     margin-right: 2px;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+
+    .star-rating .fa-star {
+        font-size: 24px;
+    }
+
+    .comment {
+        padding: 10px 0;
+    }
+}
+@media (max-width: 768px) {
+    .contact-form, .comments-section {
+        padding: 20px;
+    }
+
+    .contact-form input, .contact-form textarea, .contact-form button {
+        padding: 10px;
+    }
+
+    .star-rating .fa-star {
+        font-size: 20px;
+    }
+
+    .comment {
+        padding: 10px 0;
+    }
 }
 
 @media (max-width: 768px) {
     .contact-form .row {
         display: flex;
         flex-wrap: wrap;
+        margin: 0 -15px;
     }
 
     .contact-form .col-lg-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
         padding: 0 15px;
     }
 
     .contact-form .col-lg-12 {
-        flex: 0 0 95%;
-        max-width: 95%;
+        flex: 0 0 100%;
+        max-width: 100%;
         padding: 0 15px;
     }
 
     h3 {
-        text-align: center;
+        font-size: 1.5rem;
     }
 }
 
 @media screen and (max-width: 850px) {
     #description,
     .steps {
-        width: 90%;
+        flex-direction: column;
     }
 
     .general-infos {
-        margin: 0;
-        width: 100%;
+        padding: 0 50px;
     }
 
     .general-infos h2 {
-        padding: 0 50px;
+        margin-top: 50px;
     }
 
     .informations {
@@ -425,13 +530,13 @@ h2{
     }
 
     .informations div {
-        margin-left: 35px;
+        margin-left: 0;
     }
 
     .steps,
     .informations,
     #description {
-        padding: 0;
+        padding: 0 20px;
     }
 }
 
@@ -446,28 +551,24 @@ h2{
 
     .container-img-steps,
     .container-img-steps:has(.img-steps.chantilly) {
-        margin-left: 0;
-        order: -1;
-        top: 0;
-        height: 320px;
+        height: 100%;
     }
 }
 
 @media screen and (min-width: 1400px) {
     .glace-banner {
-        background-position: 0 25%;
+        background-position: 50% 0%;
     }
 }
 
 @media screen and (max-width: 650px) {
     .glace-banner {
-        background-position: 25% 0%;
+        height: 500px;
     }
 }
 
 @media screen and (max-width: 780px) {
     .glace-banner > p {
-        min-width: 400px;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }

@@ -177,15 +177,12 @@
             <div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 id="comments-form-button">Laissez un commentaire <img src="./img/recipes/arrow.svg" height="50"></h3>
-                        <form action="#" class="contact-form" id="comment-form" style="display: none;">
+                        <h2>Commentaires</h2>
+                        <form action="#" class="contact-form" id="comment-form">
                             <div class="row">
                                 <div class="col-lg-6">
                                 <p class="error error-username" style="display: none;"></p>
                                     <input type="text" name="username" id="name" placeholder="Votre nom" required>
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="email" id="email" placeholder="Votre email" required>
                                 </div>
                                 <div class="col-lg-12">
                                 <p class="error error-subject" style="display: none;"></p>
@@ -215,9 +212,14 @@
                                         <span class="comment-date"><?=$comment->getCreatedDate()?></span>
                                     </div>
                                     <div class="comment-rating">
-                                        <?php for($i=0;$i<$comment->getStars();$i++): ?>
-                                        <i class="fa fa-star checked"></i>
-                                        <?php endfor; ?>
+                                    <?php $stars = $comment->getStars(); ?>
+                                            <?php for($i = 0; $i < 5; ++$i): ?>
+                                                <?php if($i < $stars): ?>
+                                                    <i class="fa fa-star"></i>
+                                                <?php else: ?>
+                                                    <i class="fa-regular fa-star"></i>
+                                                <?php endif ?>
+                                            <?php endfor ?>
                                     </div>
                                     <div style="margin-bottom: 0.5em;">
                                         <strong><?=$comment->getSubject()?>:</strong>
