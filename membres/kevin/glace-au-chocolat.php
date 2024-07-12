@@ -209,11 +209,11 @@
                     <div class="footer__newslatter">
                        <h6>Recette ...</h6>
                        <ul class="servi">
-                          <li><a class="text-white" href="Javascript:void(0)"> recette1</a></li>
-                          <li><a class="text-white" href="Javascript:void(0)"> recette2</a></li>
-                          <li><a class="text-white" href="Javascript:void(0)"> recette3</a></li>
-                          <li><a class="text-white" href="Javascript:void(0)"> recette4</a></li>
-                          <li><a class="text-white" href="Javascript:void(0)"> recette5</a></li>
+                          <li><a class="text-white" href="../sebastien/"> Mousse au chocolat</a></li>
+                          <li><a class="text-white" href="../pomme/"> Choco Pomme</a></li>
+                          <li><a class="text-white" href="../enez/"> Cupavci Cake</a></li>
+                          <li><a class="text-white" href="../laura"> Éclat Choco Amande</a></li>
+                          <li><a class="text-white" href="../maxim/"> Fondant au Chocolat</a></li>
                        </ul>
                     </div>
                  </div>
