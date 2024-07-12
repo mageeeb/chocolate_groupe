@@ -29,10 +29,14 @@ $(document).ready(function() {
     });
 
     /** img-steps */
-    $('.container-img-steps').each(function(){
-        $(this).css('height', $(this).parent().prop('scrollHeight') + 'px');
+    addEventListener('resize', function(){
+        $('.container-img-steps').each(function(){
+            $(this).css('height', window.innerWidth > 900 ? $(this).parent().prop('scrollHeight') + 'px' : '400px');
+        });
     })
-
+    $('.container-img-steps').each(function(){
+        $(this).css('height', window.innerWidth > 900 ? $(this).parent().prop('scrollHeight') + 'px' : '400px');
+    });
     /** end img-steps */
 
     /** Corner Chocolat */
@@ -89,7 +93,6 @@ $(document).ready(function() {
             $commentBtn.css('margin-bottom', '50px');
     });
 
-    // Fonctionnalité de notation par étoiles
     $('.star-rating .fa-star').on('click', function() {
         var rating = $(this).data('rating');
         $('#rating').val(rating);
@@ -101,71 +104,6 @@ $(document).ready(function() {
             }
         });
     });
-
-    // Soumission du formulaire
-    $('#comment-form').on('submit', function(e) {
-        e.preventDefault();
-        
-        var name = $('#name').val();
-        var email = $('#email').val();
-        var subject = $('#subject').val();
-        var comment = $('.ql-editor').html();
-        console.log(comment)
-        var rating = parseInt($('#rating').val()); // Asigurăm că rating-ul este un număr întreg
-        
-        var date = new Date().toLocaleDateString();
-
-        var commentHtml = `
-            <div class="comment">
-                <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong>${name}</strong></div> <div>Posté le : <span class="comment-date">${date}</span></div></div>
-                <div class="d-flex my-3 gap-5">
-                    <div class="fw-bold" style="color: rgb(var(--main-color))">
-                        Sujet : ${subject}
-                    </div>
-                    <div class="comment-rating">
-                        <span>Note : </span>
-                        ${getStars(rating)}
-                    </div>
-                </div>
-                <div>${comment}</div>
-            </div>
-        `;
-
-        $(commentHtml).hide().appendTo('#comments-list').fadeIn(1000);
-
-        // Réinitialiser le formulaire
-        $('#comment-form')[0].reset();
-        $('#rating').val(0);
-        $('.star-rating .fa-star').removeClass('fa').addClass('fa-regular').removeClass('checked');
-    });
-
-    // Fonction pour générer les étoiles
-    function getStars(rating) {
-        var starsHtml = '';
-        for (var i = 1; i <= rating; i++) {
-            if (i <= rating) {
-                starsHtml += '<i class="fa fa-star checked"></i>';
-            } else {
-                starsHtml += '<i class="fa fa-star"></i>';
-            }
-        }
-        return starsHtml;
-    }
-
-    // Fonction pour échapper les caractères HTML dans les commentaires
-    function escapeHtml(text) {
-        var map = {
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#039;',
-            '/': '&#x2F;',
-            '`': '&#x60;',
-            '=': '&#x3D;'
-        };
-        return text.replace(/[&<>"'`=\/]/g, function(m) { return map[m]; });
-    }
     /** end comment */
 
     /** Quill editor */
@@ -193,3 +131,71 @@ $(document).ready(function() {
     /** end Quill editor */
 
 });
+
+function handleResponse(response){
+    if(Array.isArray(response)){
+        response = response[0];
+        // Personnel Kevin
+        const commentHtml = `
+            <div class="comment">
+                <div class="d-flex flex-column flex-md-row gap-2 gap-md-0 justify-content-between pe-md-5 pb-3 border-bottom"><div>De : <strong>${response.username}</strong></div> <div>Posté le : <span class="comment-date">${response.created_date}</span></div></div>
+                <div class="d-flex flex-column-reverse justify-content-md-between pe-md-5 flex-md-row my-3 gap-4 gap-md-5">
+                    <div class="fw-bold" style="color: rgb(var(--main-color))">
+                        Sujet : ${response.subject}
+                    </div>
+                    <div class="comment-rating">
+                        <span>Note : </span>
+                        ${getStars(+response.stars)}
+                    </div>
+                </div>
+                <div>${response.comment}</div>
+            </div>
+        `;
+        /*const commentHtml = `
+            <div class="comment"> 
+                <div class="d-flex justify-content-between"><div><strong>Nom : </strong>  ${response.username}  </strong></div> <span class="comment-date">  ${response.created_date}  </span></div> 
+                <div><strong>sujet : </strong> ${response.subject}  </div> 
+                <div><strong> Message : </strong> ${response.comment}  </div> 
+                <div class="comment-rating">  ${getStars(+response.stars)}  </div> 
+            </div>
+        `;*/
+        $('#comments-list h2:first').after($(commentHtml).hide().fadeIn(1000));
+    }else{
+        for(const error in response)
+            $('.'+error).text(response[error]).show();
+    }
+    console.log(response);
+}
+
+function resetForm(){
+    $('#comment-form')[0].reset();
+    $('#rating').val(0);
+    //$('.star-rating .fa-star').removeClass('checked');
+
+    // Personnel Kevin
+    $('#comment .ql-editor').html('');
+    $('.star-rating .fa-star').removeClass('checked', 'fa').addClass('fa-regular');
+}
+
+function handleError(error){
+    console.log(error)
+    $('.error-form').text(error);
+}
+
+// Fonction pour générer les étoiles
+function getStars(rating) {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            starsHtml += '<i class="fa fa-star checked"></i>';
+        } else {
+            starsHtml += '<i class="fa-regular fa-star"></i>';
+        }
+    }
+    return starsHtml;
+}
+
+// Personnel Kevin
+function commentForm(){
+    $('textarea[name=comment]').html($('#comment .ql-editor').html());
+}

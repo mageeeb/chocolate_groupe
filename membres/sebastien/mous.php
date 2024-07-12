@@ -110,7 +110,7 @@
         <img src="img/nav-img/banner_top.png" alt="">
     </div>
    
-    <header class="header-text glace-banner">
+    <header class="header-text glace-banner" style="background-image: url('../../public/<?= $recipe->getImgUrl() ?>');">
         <h1><?= $recipe->getName() ?></h1>
     </header>
 <!-----------------contenu--------------------------->
@@ -221,26 +221,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <p class="error error-form" style="display: none;"></p>
                     <form action="" class="contact-form" id="comment-form" style="display: none;">
                         <h2 class="mb-4" style="color: white;">Laissez un commentaire</h2>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" id="name" placeholder="Votre nom" required>
+                            <p class="error error-username" style="display: none;"></p>
+                                <input type="text" id="name" name="username" placeholder="Votre nom" required>
                             </div>
                             <div class="col-lg-6">
                                 <input type="email" id="email" placeholder="Votre email" required>
                             </div>
                             <div class="col-lg-12">
-                                <input type="text" id="subject" placeholder="Sujet">
-                                <textarea id="comment" placeholder="Commentaire" required></textarea>
+                                <input type="text" id="subject" name="subject" placeholder="Sujet">
+                                <p class="error error-subject" style="display: none;"></p>
+                                <textarea id="comment" name="comment" placeholder="Commentaire" required></textarea>
+                                <p class="error error-comment" style="display: none;"></p>
                                 <div class="star-rating">
+                                <p class="error error-stars" style="display: none;"></p>
                                     <i class="fa fa-star" data-rating="1"></i>
                                     <i class="fa fa-star" data-rating="2"></i>
                                     <i class="fa fa-star" data-rating="3"></i>
                                     <i class="fa fa-star" data-rating="4"></i>
                                     <i class="fa fa-star" data-rating="5"></i>
                                 </div>
-                                <input type="hidden" id="rating" value="0">
+                                <input type="hidden" id="rating" name="stars" value="0">
                             </div>
                         </div>
                         <button type="submit">Envoyez votre commentaire</button>
@@ -256,8 +261,12 @@
                                     <div class="comment-rating">
                                         <span>Note : </span>
                                         <?php $stars = $comment->getStars(); ?>
-                                        <?php for($i = 0; $i < $stars; ++$i): ?>
-                                            <i class="fa fa-star "></i>
+                                        <?php for($i = 0; $i < 5; ++$i): ?>
+                                            <?php if($i < $stars): ?>
+                                                <i class="fa fa-star"></i>
+                                            <?php else: ?>
+                                                <i class="fa-regular fa-star"></i>
+                                            <?php endif ?>
                                         <?php endfor ?>
                                     </div>
                                 </div>
@@ -429,11 +438,12 @@
             AOS.init();
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="js/commentaire.js"></script>
     <script src="js/nav.js"></script>
-
+    
     <script src="js/jsfooter/jquery-3.3.1.min.js"></script>
     <script src="js/jsfooter/bootstrap.min.js"></script>
     <script src="js/jsfooter/main.js"></script>
+    <script src="../../public/assets/js/comments.js"></script>
+    <script src="js/commentaire.js"></script>
 </body>
 </html>

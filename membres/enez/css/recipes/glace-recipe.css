@@ -26,22 +26,20 @@ ul{
 }
 
 *::selection{
-    background-color: rgba(90, 35, 20, 0.5);
+    background-color: #ff4d00;
+    color: #fdfbef;
 }
 
-.glace-banner > p{
+.glace-banner > p {
     font-family: 'BiteChocolate', sans-serif;
     font-size: 3rem;
     color: #fdfbef;
     background-color: rgba(90, 35, 20, 0.5);
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    width: clamp(300px, 50%, 800px);
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 0 0 10px rgba(90, 35, 20, 0.5);
 }
 
@@ -52,6 +50,7 @@ h2{
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    font-size: 2rem;
 }
 
 
@@ -65,11 +64,14 @@ h2{
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(90, 35, 20, 0.5);
 }
 
 .container-header-logo{
     position: relative;
     top: 15%;
+    width: 486px; /* Fallback value */
     width: clamp(250px, 30%, 486px);
     margin-left: auto;
     margin-right: auto;
@@ -157,15 +159,34 @@ h2{
 .card {
     background: linear-gradient(135deg, #ece9e6, #ffffff);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    margin: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
     text-align: center;
-    -ms-transition: transform 0.3s ease;
+    cursor: pointer;
+    transform: scale(1);
     transition: transform 0.3s ease;
-    -ms-transition: transform 0.3s ease; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    color: #ff4d00;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 10px 0;
 }
 
 
@@ -182,10 +203,7 @@ h2{
     color: #ff4d00; 
 }
 
-.card p {
-    font-size: 1em; 
-    line-height: 1.5;
-}
+
 .steps{
     padding: 0 50px;
     display: flex;
@@ -211,13 +229,6 @@ h2{
     overflow: hidden;
 }
 
-.container-img-steps:has(.img-steps.chantilly){
-    top: 70px;
-    height: 320px;
-    margin-left: 0px;
-    order: -1;
-}
-
 
 .img-steps{
     width: 100%;
@@ -227,14 +238,6 @@ h2{
     background-image: var(--_url-img-step);
 }
 
-.img-steps.chantilly{
-    height: 70%;
-    --_url-img-step: url('../../img/recipes/glace/chantilly.webp');
-}
-
-.img-steps.cream{
-    --_url-img-step: url('../../img/recipes/glace/cream-anglaise-chocolat.webp');
-}
 
 .steps a{
     color: rgb(90, 35, 20);
@@ -265,6 +268,10 @@ h2{
     flex-direction: column;
     width: 100%;
     text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: rgb(90, 35, 20);
+    display: flex;
 }
 
 .step-desc{
@@ -302,139 +309,163 @@ h2{
 /** Comment */
 
 .contact-section {
+    background: #fdfbef;
     padding: 50px 0;
-    background-color: #efe2d7;
 }
+
 .contact-form {
     background: #f1d6b4;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.contact-form input, .contact-form textarea, .contact-form button {
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .contact-form button {
-    background-color:rgb(88, 34, 21);
+    background-color: rgb(88, 34, 21);
     color: #dfc298;
     cursor: pointer;
     border: none;
+    transition: background-color 0.3s ease;
 }
+
+.contact-form button:hover {
+    background-color: rgb(70, 27, 17);
+}
+
 .star-rating {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
 }
+
 .star-rating .fa-star {
     font-size: 24px;
     color: white;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
+
 .star-rating .fa-star.checked {
     color: #ffc107;
 }
+
 .comments-section {
     margin-top: 30px;
 }
+
 .comment {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
+
 .comment .comment-date {
     font-size: 0.9em;
     color: #777;
 }
+
 .comment .comment-rating {
     color: rgb(88, 34, 21);
 }
+
 .comment .comment-rating i {
     margin-right: 2px;
 }
+
 @media (max-width: 768px) {
     .contact-form .row {
         display: flex;
         flex-wrap: wrap;
     }
+
     .contact-form .col-lg-6 {
         flex: 0 0 50%;
         max-width: 50%;
         padding: 0 15px;
     }
+
     .contact-form .col-lg-12 {
         flex: 0 0 95%;
         max-width: 95%;
         padding: 0 15px;
     }
-    h3{
+
+    h3 {
         text-align: center;
     }
 }
 
-
-@media screen and (width < 850px) {
+@media screen and (max-width: 850px) {
     #description,
-    .steps{
+    .steps {
         width: 90%;
     }
 
-    .general-infos{
+    .general-infos {
         margin: 0;
         width: 100%;
     }
 
-    .general-infos h2{
+    .general-infos h2 {
         padding: 0 50px;
     }
 
-    .informations{
+    .informations {
         flex-direction: column;
     }
 
-    .informations div{
+    .informations div {
         margin-left: 35px;
     }
 
     .steps,
     .informations,
-    #description{
+    #description {
         padding: 0;
     }
-
 }
 
-@media screen and (width < 900px) {
-    .steps{
+@media screen and (max-width: 900px) {
+    .steps {
         flex-direction: column;
     }
-    .img-steps.chantilly{
+
+    .img-steps.chantilly {
         height: 100%;
     }
+
     .container-img-steps,
-    .container-img-steps:has(.img-steps.chantilly){
-        margin-left: 0px;
+    .container-img-steps:has(.img-steps.chantilly) {
+        margin-left: 0;
         order: -1;
         top: 0;
         height: 320px;
     }
 }
 
-
-@media screen and (width > 1400px) {
-    .glace-banner{
+@media screen and (min-width: 1400px) {
+    .glace-banner {
         background-position: 0 25%;
     }
 }
-@media screen and (width < 650px) {
-    .glace-banner{
+
+@media screen and (max-width: 650px) {
+    .glace-banner {
         background-position: 25% 0%;
     }
 }
-@media screen and (width < 780px) {
-    .glace-banner > p{
+
+@media screen and (max-width: 780px) {
+    .glace-banner > p {
         min-width: 400px;
         font-size: 2rem;
     }

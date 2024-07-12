@@ -29,23 +29,23 @@
                 <img src="img/nav-img/chocolat.png" alt="">
             </div>
             <div id="links">
-                <a href="#">Accueil</a>
+                <a href="../../public/">Accueil</a>
                 <a href="javascript:void(0)" id="nav-recipes-link">Recettes<i class="fa-solid fa-arrow-down" style="margin-left: 10px;"></i></a>
                 <a href="#">Contact</a>
             </div>
         </div>
         <div id="nav-recipes-container">
             <ul id="nav-recipes" style="display: none;">
-                <a href="../sebastien/mous.html"><li>Mousse au chocolat</li></a>
-                <a href="#"><li>Cake au chocolat</li></a>
-                <a href="#"><li>Fondant au chocolat</li></a>
-                <a href="#"><li>Tarte au chocolat</li></a>
-                <a href="#"><li>Cookies au chocolat</li></a>
-                <a href="#"><li>Glace au chocolat</li></a>
-                <a href="#"><li>Bûche de Noël au chocolat</li></a>
-                <a href="#"><li>Moelleux au chocolat</li></a>
-                <a href="#"><li>Truffes au chocolat</li></a>
-                <a href="#"><li>Macarons au chocolat</li></a>
+                <a href="../sebastien/"><li>Mousse au chocolat</li></a>
+                <a href="../julian/"><li>Polish cake</li></a>
+                <a href="../maxim/"><li>Fondant au Chocolat</li></a>
+                <a href="../laura"><li>Éclat Choco Amande</li></a>
+                <a href="../charly/"><li>Cookies au chocolat</li></a>
+                <a href="../kevin/"><li>Glace au chocolat</li></a>
+                <a href="../pomme/"><li>Choco Pomme</li></a>
+                <a href="../simona/pageSimona2.html"><li>Brownie framboise</li></a>
+                <a href="../simona/pageSimona.html"><li>Amandina Cake</li></a>
+                <a href="../enez/"><li>Cupavci Cake</li></a>
             </ul>
             <div id="previews"></div>
         </div>
@@ -57,7 +57,7 @@
         <img src="img/nav-img/banner_top.png" alt="">
     </div>
    
-    <header class="header-text glace-banner">
+    <header class="header-text glace-banner" style="background-image: url('../../public/<?= $recipe->getImgUrl() ?>');">
         <p data-aos="flip-down"><?= $recipe->getName() ?></p>
     </header>
 
@@ -132,21 +132,23 @@
             <div class="text-center">
                 <button id="comment-btn">Donnez-votre avis.</button>
             </div>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-lg-8 offset-lg-2">
-                        <form action="#" class="contact-form" id="comment-form" style="display: none;">
+                    <div class="col-12 col-lg-8 offset-lg-2 col-xxl-6 offset-xxl-3">
+                        <form action="" method="POST" class="contact-form" id="comment-form" style="display: none;" onsubmit="commentForm()">
+                            <p class="error error-form" style="display: none;"></p>
                             <h3>Laissez-nous un commentaire <span>😊</span></h3>
                             <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <input type="text" id="name" placeholder="Votre nom" required>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <input type="email" id="email" placeholder="Votre email" required>
+                                <div class="col-12">
+                                    <p class="error error-username" style="display: none;"></p>
+                                    <input type="text" id="name" name="username" placeholder="Votre nom" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" id="subject" placeholder="Sujet">
+                                    <p class="error error-subject" style="display: none;"></p>
+                                    <input type="text" id="subject" name="subject" placeholder="Sujet">
+                                    <p class="error error-comment" style="display: none;"></p>
                                     <div id="comment" placeholder="Commentaire" required></div>
+                                    <p class="error error-stars" style="display: none;"></p>
                                     <div class="star-rating position-relative">
                                         <div class="star-rating position-absolute">
                                             <i class="fa-regular fa-star" data-rating="1"></i>
@@ -161,7 +163,8 @@
                                         <i class="fa-regular fa-star" data-rating="4"></i>
                                         <i class="fa-regular fa-star" data-rating="5"></i>
                                     </div>
-                                    <input type="hidden" id="rating" value="0">
+                                    <input type="hidden" id="rating" name="stars" value="0">
+                                    <textarea style="display: none;" name="comment"></textarea>
                                 </div>
                             </div>
                             <button type="submit">Envoyez votre commentaire</button>
@@ -171,16 +174,20 @@
                             <h2><?= sizeof($recipe->getComments()) > 0 ? 'Les commentaires' : 'Pas encore de commentaires' ?></h2>
                             <?php foreach($recipe->getComments() as $comment): ?>
                                 <div class="comment">
-                                    <div class="d-flex justify-content-between pe-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
-                                    <div class="d-flex my-3 gap-5">
+                                    <div class="d-flex flex-column flex-md-row gap-2 gap-md-0 justify-content-between pe-md-5 pb-3 border-bottom"><div>De : <strong><?= $comment->getUsername() ?></strong></div> <div>Posté le : <span class="comment-date"><?= $comment->getCreatedDate() ?></span></div></div>
+                                    <div class="d-flex flex-column-reverse justify-content-md-between pe-md-5 flex-md-row my-3 gap-4 gap-md-5">
                                         <div class="fw-bold" style="color: rgb(var(--main-color))">
                                             Sujet : <?= $comment->getSubject() ?>
                                         </div>
                                         <div class="comment-rating">
                                             <span>Note : </span>
                                             <?php $stars = $comment->getStars(); ?>
-                                            <?php for($i = 0; $i < $stars; ++$i): ?>
-                                                <i class="fa fa-star"></i>
+                                            <?php for($i = 0; $i < 5; ++$i): ?>
+                                                <?php if($i < $stars): ?>
+                                                    <i class="fa fa-star"></i>
+                                                <?php else: ?>
+                                                    <i class="fa-regular fa-star"></i>
+                                                <?php endif ?>
                                             <?php endfor ?>
                                         </div>
                                     </div>
@@ -242,7 +249,7 @@
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 d-flex align-items-center">
+                    <div class="col-lg-7">
                         <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Kevin</a>
                           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -267,6 +274,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="js/recipes/glace-recipe.js"></script>
+    <script src="../../public/assets/js/comments.js"></script>
     <script src="js/footer.js"></script>
 </body>
 
