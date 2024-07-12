@@ -1,9 +1,9 @@
 <?php
-require_once "./config.php";
+require_once "../../config.php";
 require_once "../../model/Recipe.php";
 
-$db = new PDO(DB_DRIVER.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=".DB_CHARSET,
-DB_LOGIN, DB_MDP);
+$db = new PDO(DB_TYPE.":host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=".DB_CHARSET,
+DB_LOGIN, DB_PWD);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
 $recipe = Recipe::getRecipeById($db, ID_RECIPE_CHOCO_POMME);
