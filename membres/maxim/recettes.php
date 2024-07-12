@@ -181,7 +181,7 @@
         <button class="btn btn-md showForm" type="submit">Cliquez ici</button>
         </div>
 
-        <form id="comment-form" data-sb-form-api-token="API_TOKEN">
+        <form class="contact-form" id="comment-form" data-sb-form-api-token="API_TOKEN">
         <div class="form-floating mb-3 ">
           <input class="form-control" id="nom" name="username" type="text" placeholder="Nom" data-sb-validations="required" />
           <div class="invalid-feedback" data-sb-feedback="nom:required">Vueillez introuduir votre nom.</div>
