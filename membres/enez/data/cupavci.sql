@@ -5,8 +5,8 @@ VALUES('Enez', 'Enez123', 1);
 
 SET @user_id = LAST_INSERT_ID();
 
-INSERT INTO `recipe`(`name`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
-VALUES("Cupavci", " ", 8, "../img/recipes/1.jpeg", 70, 40, 60);
+INSERT INTO `recipe`(`name`, `membre`, `description`, `nb_people`, `image_url`, `preparation_time`, `cooking_time`, `rest_time`)
+VALUES("Cupavci", "enez", "", 8, "assets/img/recipe/cupavci-banner.jpeg" , 70, 40, 60);
 
 SET @recipe_id = LAST_INSERT_ID();
 

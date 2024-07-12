@@ -58,7 +58,7 @@
         <img src="img/nav-img/banner_top.png" alt="">
     </div>
    
-    <header class="header-text glace-banner" style="background-image: url('./img/recipes/1.jpg');">
+    <header class="header-text glace-banner" style="background-image: url('../../public/<?= $recipe->getImgUrl() ?>');">
         <p>Cupavci</p>
     </header>
 
@@ -181,14 +181,18 @@
                         <form action="#" class="contact-form" id="comment-form" style="display: none;">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" id="name" placeholder="Votre nom" required>
+                                <p class="error error-username" style="display: none;"></p>
+                                    <input type="text" name="username" id="name" placeholder="Votre nom" required>
                                 </div>
                                 <div class="col-lg-6">
                                     <input type="email" id="email" placeholder="Votre email" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="text" id="subject" placeholder="Sujet">
-                                    <textarea id="comment" placeholder="Commentaire" required></textarea>
+                                <p class="error error-subject" style="display: none;"></p>
+                                    <input type="text" name="subject" id="subject" placeholder="Sujet">
+                                    <p class="error error-comment" style="display: none;"></p>
+                                    <textarea id="comment" name="comment" placeholder="Commentaire" required></textarea>
+                                    <p class="error error-stars" style="display: none;"></p>
                                     <div class="star-rating">
                                         <i class="fa fa-star" data-rating="1"></i>
                                         <i class="fa fa-star" data-rating="2"></i>
@@ -196,7 +200,7 @@
                                         <i class="fa fa-star" data-rating="4"></i>
                                         <i class="fa fa-star" data-rating="5"></i>
                                     </div>
-                                    <input type="hidden" id="rating" value="0">
+                                    <input type="hidden" name="stars" id="rating" value="0">
                                 </div>
                             </div>
                             <button type="submit">Envoyez votre commentaire</button>
@@ -301,6 +305,7 @@
     <script src="js/jsfooter/main.js"></script>
     <script src="js/recipes/glace-recipe.js"></script>
     <script src="./js/main.js"></script>
+    <script src="../../public/assets/js/comments.js"></script>
     <script>
         //query selectors of the elements to reveal with animation
         const reveal_query = [
